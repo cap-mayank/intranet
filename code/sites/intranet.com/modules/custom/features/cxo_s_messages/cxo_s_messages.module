@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the cxo's messages feature.
+ */
+
+include_once 'cxo_s_messages.features.inc';

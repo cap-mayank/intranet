@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the sakal homebox feature.
+ */
+
+include_once 'sakal_homebox.features.inc';

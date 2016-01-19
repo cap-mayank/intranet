@@ -1,0 +1,163 @@
+<?php
+
+/**
+ * @file
+ * This file automatically enables the features provided in module list.
+ */
+ 
+/**
+ * Implements hook_install().
+ */
+function sakal_utility_install() {
+  $module_list = array(
+    'company_news',
+    'announcement',
+    'quote_of_the_day',
+    'cxo_s_messages',
+    'document_store',
+    'photo_gallery',
+    'quick_link',
+    'quote_of_the_day',
+    'sakal_homebox',
+  );
+
+  //TRUE signifies dependency will be automatically enabled.
+  module_enable($module_list, TRUE);
+}
+ 
+/**
+ * Implements hook_update_N().
+ * To Revert CXO-message , All Application  & Photo gallery feature
+ */
+function sakal_utility_update_7001() {
+  $fetqures = array(
+    'cxo_s_messages',
+    'photo_gallery'
+  );
+  features_revert($fetqures);  
+ }
+
+/**
+ * Implements hook_update_N().
+ */
+function sakal_utility_update_7002() {
+  $style = image_style_save(array('name' => 'header_banner'));
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 1230,
+      'height' => 95,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  $style = image_style_save(array('name' => 'footer_banner'));
+  $effect = array(
+    'name' => 'image_scale_and_crop',
+    'data' => array(
+      'width' => 1230,
+      'height' => 245,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  $style = image_style_save(array('name' => 'all_application'));
+  $effect = array(
+    'name' => 'scale',
+    'data' => array(
+      'width' => 90,
+      'height' => 90,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  $style = image_style_save(array('name' => 'announcement_icon'));
+  $effect = array(
+    'name' => 'scale',
+    'data' => array(
+      'width' => 50,
+      'height' => 50,
+      'upscale' => FALSE,
+    ),
+    'isid' => $style['isid'],
+  );
+  image_effect_save($effect);
+  
+  // Uninstall unused module.
+  if (module_exists('quick_link')) {
+    module_disable(array('quick_link'));
+    drupal_uninstall_modules(array('quick_link'));
+  }
+  
+  // Enable cluster of link for all application and other link type
+  // of link widget. 
+  $module_list = array(
+    'cluster_of_link',
+    'event',
+  );
+  module_enable($module_list, TRUE); 
+  
+  // Revert fetaures.
+  $features = array(
+    'company_news',
+    'announcement',
+    'quote_of_the_day',
+    'cxo_s_messages',
+    'photo_gallery'
+  );
+  features_revert($features);
+}
+
+/**
+ * Implements hook_update_N().
+ * To enable event calendar & holiday calendar module.
+ * To revert company news feature.
+ * CXO-message : removed unencessary field from view
+ * Document store made changes in widget view & display page view
+ * To revert company news feature.
+ */
+function sakal_utility_update_7003() {
+  // Enable event feature widget. 
+  $module_list = array(
+    'event',
+	'holiday_calendar',
+  );
+  module_enable($module_list, TRUE); 
+  
+  // Revert fetaures.
+  $features = array(
+    'company_news',
+	'cxo_s_messages',
+	'document_store',
+  );
+  features_revert($features);
+}
+
+/**
+ * Implements hook_update_N().
+ * To enable Sakal Properties,birthdays module.  
+ * To enable Anniversary feature.
+ * To revert photo gallery,All Application,comapny news,announcement, holiday calendar feature.
+ */
+function sakal_utility_update_7004() {
+  // Enable Sakal Properties feature widget. 
+  $module_list = array(
+    'sakal_properties',
+	'birthdays',
+	'anniversary',
+  );
+  module_enable($module_list, TRUE); 
+  // Revert fetaures.
+  $features = array(
+    'cluster_of_link',
+	'photo_gallery',
+	'company_news',
+	'announcement',
+	'holiday_calendar',
+  );
+  features_revert($features);
+
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cluster Of Link feature.
+ */
+
+include_once 'cluster_of_link.features.inc';

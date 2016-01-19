@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the document store feature.
+ */
+
+include_once 'document_store.features.inc';

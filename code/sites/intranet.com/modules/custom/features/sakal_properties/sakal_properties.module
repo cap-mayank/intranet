@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Sakal Properties feature.
+ */
+
+include_once 'sakal_properties.features.inc';

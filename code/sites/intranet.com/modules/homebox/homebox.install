@@ -1,0 +1,88 @@
+<?php
+
+/**
+ * @file
+ * The install file for Homebox allows the module to install (and uninstall) itself. This is required as this module uses its own table.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function homebox_schema() {
+  // Schema for homebox pages
+  $schema['homebox_pages'] = array(
+    'fields' => array(
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'settings' => array(
+        'type' => 'blob',
+        'size' => 'big',
+        'not null' => TRUE,
+        'serialize' => TRUE,
+        'object default' => array(),
+      ),
+    ),
+    'primary key' => array('name'),
+  );
+  // Schema for user custom settings
+  $schema['homebox_users'] = array(
+    'fields' => array(
+      'uid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'settings' => array(
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => TRUE,
+        'serialize' => TRUE,
+        'object default' => array(),
+      ),
+    ),
+    'primary key' => array('uid', 'name'),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function homebox_uninstall() {
+  // Remove variables
+  variable_del('homebox_user_tab');
+  variable_del('homebox_version');
+}
+
+/**
+ * Set all existing hombox blocks to be used multiple times to not break
+ * existing behavior. This works only for blocks storede in database not
+ * in features or custom modules.
+ */
+function homebox_update_7001(&$sandbox) {
+  $pages = homebox_pages();
+
+  if (empty($pages)) {
+    // Nothing to update.
+    return;
+  }
+
+  foreach($pages as $page) {
+    foreach($page->settings['blocks'] as &$block) {
+      $block['multiple'] = 1;
+    }
+    homebox_save_page($page, TRUE);
+  }
+  menu_rebuild();
+}

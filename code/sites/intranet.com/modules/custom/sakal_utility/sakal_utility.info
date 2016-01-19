@@ -1,0 +1,6 @@
+name = Sakal Utility
+description = Module used to customize Drupal default behaviour as utility.
+package = Utility
+
+core = 7.x
+version = "7.x-2.0"

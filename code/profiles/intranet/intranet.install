@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the standard installation profile.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function intranet_install() {
+  include_once DRUPAL_ROOT . '/profiles/standard/standard.install';
+  standard_install();
+  // This may be missing from older installs.
+  $missing = array(
+    'date',
+    'imce',
+    'link',
+    'token',
+    'views',
+    'charts',
+    'ctools',
+    'entity',
+    'views_ui',
+    'calendar',
+    'features',
+    'pathauto',
+    'filedepot',
+    'libraries',
+    'scheduler',
+    'strongarm',
+    'admin_menu',
+    'date_api',
+    'imce_wysiwyg',
+    'date_popup',
+    'date_tools',
+    'date_views',
+    'charts_graphs',
+    'jquery_update',
+    'module_filter',
+    'calendar_block',
+    'event_calendar',
+    'entityreference',
+    'menu_attributes',
+    'menu_block',
+    'admin_devel',
+    'event_popup',
+    'charts_google',
+    'admin_menu_toolbar',
+    'event_calendar_colors',
+    'anonymous_login',
+    'field_validation',
+    'field_validation_extras',
+    'field_validation_ui',
+    'flexslider',
+    'flexslider_fields',
+    'flexslider_views',
+    'homebox',
+    'multifield',
+    'workbench_moderation',
+    'wysiwyg',
+    'ckeditor',
+    'poll',
+    'sakal_utility',
+  );
+  module_enable($missing);
+  
+  // Disable modules.
+  module_disable('shortcut');
+
+  // Set the default theme.
+  $theme = 'intranet';
+  theme_enable(array($theme));
+  variable_set('theme_default', $theme);
+  theme_disable(array('responsive_bartik', 'bartik'));
+}

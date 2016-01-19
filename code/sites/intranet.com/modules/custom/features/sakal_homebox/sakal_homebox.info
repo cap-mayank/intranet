@@ -1,0 +1,12 @@
+name = sakal homebox
+description = Home page layout for each user
+core = 7.x
+package = Sakal
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = homebox
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[homebox][] = home
+features[variable][] = site_frontpage

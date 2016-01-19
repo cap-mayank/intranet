@@ -1,0 +1,38 @@
+name = intranet
+description = Install profile for intranet_profile
+version = VERSION
+core = 7.x
+
+files[] = intranet.profile
+files[] = intranet.install
+
+dependencies[] = block
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = dblog
+dependencies[] = search
+dependencies[] = shortcut
+dependencies[] = toolbar
+dependencies[] = overlay
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+
+; Optional: Mark your installation profile as exclusive, so that the installer
+; will auto-select it.
+exclusive = true
+
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "intranet"
+datestamp = "1365027012"

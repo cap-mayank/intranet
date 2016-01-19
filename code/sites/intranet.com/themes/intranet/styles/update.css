@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+
+.breaking_news.lefter .block-js-news{
+	float:left;
+}
+#search-block-form input[type=submit]{
+	color:#FFF
+}
+.cat-div-top-news{
+	float:left;
+}
+
+.cat-div-top-news a{
+	margin-right:5px;
+}
+.small_posts li img{
+	width:70px;
+	height:70px;
+}
+#calendar_block{
+	width:100%!important;
+	float:left;
+	clear:both;
+	border-color:#FFF;
+}
+#calendar_row1 .hok, #calendar_row2 .hok, #calendar_row4 .hok, #calendar_row3 .hok, #calendar_row5 .hok{
+	background: #F3F3F3;
+	border: 1px solid #FFF;
+	background-image:none!important;
+}
+div.tags div{
+	float:left;
+	margin-right:3px;
+}
+.widget.block.block-blog ul li a{
+	padding:5px 0px;
+	display:block;
+}
+.cat_div_widget{
+	float:left;
+}
+.cat_div_widget a{
+	float:left;
+	margin-right:3px;
+}
+.small_posts li{
+	float:left;
+	clear:both;
+	width:100%;
+}
+.block-user input[type=text], .block-user input[type=password], #comment-form input[type=text], #contact-site-form input[type=text]{
+	width:100%;
+	padding:6px 0px;
+	color:#333;
+	float:left;
+	clear:both;
+	margin-bottom:15px;
+	border:solid 1px #3d3d3d;
+}
+.block-user input[type=submit], #comment-form input[type=submit], #contact-site-form input[type=submit]{
+	width:100%;
+	padding:7px 0px;
+	float:left;
+	margin-top:15px;
+	border:0px;
+}
+#comment-form input[type=submit], #contact-site-form input[type=submit]{
+	width:80px;
+	margin-right:10px;
+	padding:10px;
+	background:#000;
+	color:#FFF
+}
+#contact-site-form input[type=submit]{
+	width:100%;
+	padding:8px 0px;
+}
+.block-categories li{
+	width:100%;
+	float:left;
+	clear:both;
+}
+.block-categories li a{
+	display:block;
+	padding:6px 0px;
+}
+.block-categories li a:hover{
+	background:#252729;
+}
+
+
+.flickr-feed li a{
+	float:left;
+	margin:0px 10px 10px 0px;
+}
+.flickr-feed li a img:hover{
+	opacity: 0.7;
+}
+
+.related_posts_detail .owl-controls.clickable{
+	right:38px!important;
+}
+#breadcrumbs{
+	margin-bottom:20px;
+	float:left;
+	width:100%;
+}
+#breadcrumbs ul li{
+	float:left;
+	margin-right:15px;
+}

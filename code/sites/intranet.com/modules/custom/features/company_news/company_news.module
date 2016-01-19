@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Company News feature.
+ */
+
+include_once 'company_news.features.inc';

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Holiday Calendar feature.
+ */
+
+include_once 'holiday_calendar.features.inc';

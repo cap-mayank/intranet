@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Quote of the Day feature.
+ */
+
+include_once 'quote_of_the_day.features.inc';
