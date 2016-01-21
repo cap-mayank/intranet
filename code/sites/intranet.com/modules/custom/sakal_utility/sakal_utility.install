@@ -157,6 +157,8 @@ function sakal_utility_update_7004() {
 	'company_news',
 	'announcement',
 	'holiday_calendar',
+	'document_store',
+	'event',
   );
   features_revert($features);
 

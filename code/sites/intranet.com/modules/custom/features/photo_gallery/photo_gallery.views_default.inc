@@ -81,7 +81,7 @@ function photo_gallery_views_default_views() {
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = TRUE;
-  /* Field: Content: Logo */
+  /* Field: Content: Photo */
   $handler->display->display_options['fields']['field_gallery_image']['id'] = 'field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['table'] = 'field_data_field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['field'] = 'field_gallery_image';
@@ -146,7 +146,7 @@ function photo_gallery_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'photo_gallery_page');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Logo */
+  /* Field: Content: Photo */
   $handler->display->display_options['fields']['field_gallery_image']['id'] = 'field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['table'] = 'field_data_field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['field'] = 'field_gallery_image';
@@ -228,7 +228,7 @@ function photo_gallery_views_default_views() {
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Logo */
+  /* Field: Content: Photo */
   $handler->display->display_options['fields']['field_gallery_image']['id'] = 'field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['table'] = 'field_data_field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['field'] = 'field_gallery_image';

@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 	$(window).load(function () {
-  Drupal.homebox.equalizeColumnsHeights()
+  setTimeout(function(){ Drupal.homebox.equalizeColumnsHeights(); }, 200);	     
   });
 $(document).ready(function () {
 

@@ -21,6 +21,30 @@ function event_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function event_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: event_widget_listing_style.
+  $styles['event_widget_listing_style'] = array(
+    'label' => 'Event widget listing style',
+    'effects' => array(
+      5 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 100,
+          'height' => 100,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function event_node_info() {

@@ -155,13 +155,13 @@
 					if(s<10){
 						s = "0"+s;
 					}
-				 result = ''+days[day]+' '+months[month]+' '+d+' '+year+' '+h+':'+m+':'+s;
+				 result = ''+days[day]+', '+months[month]+' '+d+' '+year+' | '+h+':'+m+':'+s;
 				//result = ''+days[day]+' '+d+' '+months[month]+' '+year;
 				document.getElementById(id).innerHTML = result;
 				setTimeout('date_time("'+id+'");','1000');
 				return true;
 			}
-			window.onload = date_time('date_time');
+		 date_time('date_time');
 		/* ]]> */
 		</script>
 </body>

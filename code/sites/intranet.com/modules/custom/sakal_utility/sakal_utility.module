@@ -325,10 +325,15 @@ function sakal_utility_node_validate($node, $form, &$form_state) {
 
 
 function sakal_utility_node_form_submit_handler($form, &$form_state) {
- // unset($_REQUEST['destination']);
-  //unset($form['#redirect']);
   $form_state['redirect']  = $GLOBALS['base_url'];
-  //$GLOBALS['base_url']; 
   $_GET['destination']='/';
   
 }
+
+
+function sakal_utility_block_view_alter(&$data, $block) {
+  if(isset($block->subject) && $block->subject=='Alert'){
+    $block->homebox_classes=$block->homebox_classes.' alert_widget';
+  }
+}
+

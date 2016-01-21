@@ -11,7 +11,7 @@
 		<!-- /header -->
 
 		<div class="page-content">
-			<div class="row clearfix">
+			<div class="row clearfix contentMarginIP">
 				<div class="grid_12 alpha clearfix">
 					<?php
 						if ($page['top_news']):

@@ -135,6 +135,22 @@ function document_store_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Filedepot Files: File ID */
+  $handler->display->display_options['fields']['fid_1']['id'] = 'fid_1';
+  $handler->display->display_options['fields']['fid_1']['table'] = 'filedepot_files';
+  $handler->display->display_options['fields']['fid_1']['field'] = 'fid';
+  $handler->display->display_options['fields']['fid_1']['relationship'] = 'filedepot_folder_file_fid';
+  $handler->display->display_options['fields']['fid_1']['label'] = '';
+  $handler->display->display_options['fields']['fid_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['fid_1']['element_label_colon'] = FALSE;
+  /* Field: File: File ID */
+  $handler->display->display_options['fields']['fid']['id'] = 'fid';
+  $handler->display->display_options['fields']['fid']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['fid']['field'] = 'fid';
+  $handler->display->display_options['fields']['fid']['relationship'] = 'filedepot_folder_file_fid';
+  $handler->display->display_options['fields']['fid']['label'] = '';
+  $handler->display->display_options['fields']['fid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['fid']['element_label_colon'] = FALSE;
   /* Field: Filedepot Files: File Version */
   $handler->display->display_options['fields']['version']['id'] = 'version';
   $handler->display->display_options['fields']['version']['table'] = 'filedepot_files';
@@ -150,7 +166,7 @@ function document_store_views_default_views() {
   $handler->display->display_options['fields']['title']['relationship'] = 'filedepot_folder_file_fid';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '/filedepot_download/[nid]/[version]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '/filedepot_download/[nid]/[fid_1]';
   $handler->display->display_options['fields']['title']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: File: Upload date */
@@ -162,14 +178,6 @@ function document_store_views_default_views() {
   $handler->display->display_options['fields']['timestamp']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['timestamp']['date_format'] = 'document_store_date_formate';
   $handler->display->display_options['fields']['timestamp']['second_date_format'] = 'long';
-  /* Field: File: File ID */
-  $handler->display->display_options['fields']['fid']['id'] = 'fid';
-  $handler->display->display_options['fields']['fid']['table'] = 'file_managed';
-  $handler->display->display_options['fields']['fid']['field'] = 'fid';
-  $handler->display->display_options['fields']['fid']['relationship'] = 'filedepot_folder_file_fid';
-  $handler->display->display_options['fields']['fid']['label'] = '';
-  $handler->display->display_options['fields']['fid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['fid']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -209,14 +217,14 @@ function document_store_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Filedepot Files: File Version */
-  $handler->display->display_options['fields']['version']['id'] = 'version';
-  $handler->display->display_options['fields']['version']['table'] = 'filedepot_files';
-  $handler->display->display_options['fields']['version']['field'] = 'version';
-  $handler->display->display_options['fields']['version']['relationship'] = 'filedepot_folder_file_fid';
-  $handler->display->display_options['fields']['version']['label'] = '';
-  $handler->display->display_options['fields']['version']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['version']['element_label_colon'] = FALSE;
+  /* Field: Filedepot Files: File ID */
+  $handler->display->display_options['fields']['fid_1']['id'] = 'fid_1';
+  $handler->display->display_options['fields']['fid_1']['table'] = 'filedepot_files';
+  $handler->display->display_options['fields']['fid_1']['field'] = 'fid';
+  $handler->display->display_options['fields']['fid_1']['relationship'] = 'filedepot_folder_file_fid';
+  $handler->display->display_options['fields']['fid_1']['label'] = '';
+  $handler->display->display_options['fields']['fid_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['fid_1']['element_label_colon'] = FALSE;
   /* Field: Filedepot Files: File Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'filedepot_files';
@@ -224,7 +232,7 @@ function document_store_views_default_views() {
   $handler->display->display_options['fields']['title']['relationship'] = 'filedepot_folder_file_fid';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = '/filedepot_download/[nid]/[version]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = '/filedepot_download/[nid]/[fid_1]';
   $handler->display->display_options['fields']['title']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: File: Upload date */
@@ -272,6 +280,14 @@ function document_store_views_default_views() {
   $handler->display->display_options['fields']['name_1']['label'] = '';
   $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
+  /* Field: Filedepot Files: File Version */
+  $handler->display->display_options['fields']['version']['id'] = 'version';
+  $handler->display->display_options['fields']['version']['table'] = 'filedepot_files';
+  $handler->display->display_options['fields']['version']['field'] = 'version';
+  $handler->display->display_options['fields']['version']['relationship'] = 'filedepot_folder_file_fid';
+  $handler->display->display_options['fields']['version']['label'] = '';
+  $handler->display->display_options['fields']['version']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['version']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'policy-and-procedures';
   $export['policy_and_procedures'] = $view;
 

@@ -101,6 +101,13 @@ function photo_gallery_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'lightbox2_disable_zoom';
+  $strongarm->value = 1;
+  $export['lightbox2_disable_zoom'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_photo_gallery';
   $strongarm->value = array(
     0 => 'main-menu',

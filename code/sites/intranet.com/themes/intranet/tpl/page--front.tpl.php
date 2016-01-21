@@ -11,7 +11,7 @@
 		<!-- /header -->
 
 		<div class="page-content">
-			<div class="row clearfix">
+			<div class="row clearfix contentMargin">
 				<div class="grid_12 alpha clearfix">
 					<?php
 						if ($page['top_news']):
@@ -70,7 +70,7 @@
 			
 		</div>
 		<!-- /end page content -->
-<?php if ($page['content_bottom']): ?>
+		<?php if ($page['content_bottom']): ?>
 		      <div class="grid_full omega content_bottom_front">
 					<?php  print render($page['content_bottom']); ?>
 			  </div>	

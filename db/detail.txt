@@ -1,0 +1,95 @@
+*********************Intranet production application server**********************************
+
+	Domain Name		DrupalApp
+	Application Name	Drupal App
+	Lan IP			172.16.0.126
+	Host Name		DrupalApp
+	user name		drupalapp
+	password		drupalapp_1234
+	admin user		root
+	admin password		drupalapp_1234
+	Processor(Core)		4
+	Memory(GB) RAM		16GB
+	storage(GB)		250GB
+	OS			RHEL 6.5/Apache
+	COMMENT			Cache-enabled
+	Status			active
+
+*********************Intranet production database server**********************************
+
+	Domain Name		DrupalDb
+	Application Name	Drupal Db
+	Lan IP			172.16.0.127
+	Host Name		DrupalDb
+	user name		drupaldb
+	password		drupaldb_1234
+	admin user		root
+	admin password		drupaldb_1234			
+	Processor(Core)		2
+	Memory(GB) RAM		8GB
+	storage(GB)		250GB
+	OS			RHEL 6.5/Mysql
+	COMMENT			Cache-enabled
+	Status			deactivate
+
+*********************Intranet Test server**********************************
+
+	HJ-Pune_Network		10.51.228.223
+	Username          	root
+	Password           	Pspl123
+	End Date:		March 31, 2016 12:00:00 AM
+
+	setting file 		vim /etc/nginx/conf.d/virtual.conf
+	Drupal setup		cd /usr/share/nginx/html/intranet/code/
+	PHP.ini file		vim /etc/php.ini
+	change in any php- 	
+	-extenssion need 	sudo /etc/init.d/php-fpm restart
+
+*********************Intraner test server mysql*****************************
+
+	IP		10.51.228.123
+	Username        root
+	Password        root123 
+	Version 	5.5
+	Connect 	mysql -uroot -proot123
+	Database 	intranet_test
+	Import db	mysql -uroot -proot123 intranet_test < /srv/www/test/public_html/test_svn/db/intranet_com_build_1.sql
+*********************SVN*****************************
+	svn --version
+	svn, version 1.6.11 (r934486)
+	compiled Mar  6 2014, 10:49:10
+	which SVN
+	/usr/bin/svn 
+	
+	svn checkout https://svn.persistent.co.in/svn/Sakal_EDT_Program/Projects/IntranetPortal/Phase1/
+
+*********************GIT*****************************
+
+	git --version
+	git version 1.7.1
+
+	which git
+	/usr/bin/git
+
+********************************************************************
+
+
+iptables -I INPUT  -p tcp --dport <port no> -j ACCEPT 
+service iptables save
+service vncserver restart
+
+********************SAKAL VPN**********************
+
+	IP:- 124.30.219.79 
+	Name:-  amita.dessai
+	PWD:- damita_1234
+
+*******************SAKAL AD**********************
+
+	******Remote desktop connection details
+		IP   - 172.16.0.251
+		User - sakaltest\administrator   
+		Pass - sakal@123
+	******script connection details***************
+
+

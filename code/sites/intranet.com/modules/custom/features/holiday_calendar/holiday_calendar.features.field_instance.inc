@@ -124,6 +124,61 @@ function holiday_calendar_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-holiday_calendar-field_calendar_year'.
+  $field_instances['node-holiday_calendar-field_calendar_year'] = array(
+    'bundle' => 'holiday_calendar',
+    'deleted' => 0,
+    'description' => 'Enter The calendar year for which this holiday calendar is being made.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_calendar_year',
+    'label' => 'Calendar Year',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'Y-m-d H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-0:+10',
+      ),
+      'type' => 'date_popup',
+      'weight' => 31,
+    ),
+  );
+
   // Exported field_instance: 'node-holiday_calendar-field_holiday'.
   $field_instances['node-holiday_calendar-field_holiday'] = array(
     'bundle' => 'holiday_calendar',
@@ -198,6 +253,8 @@ function holiday_calendar_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Calendar Year');
+  t('Enter The calendar year for which this holiday calendar is being made.');
   t('Enter the date on which holiday shall be given.');
   t('Enter the occasion for which the holiday is planned.');
   t('Holiday');
