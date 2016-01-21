@@ -1,0 +1,12 @@
+		VM Details
+VM Name	 	  hj-prcpre1138
+VM Status	  Active
+IP Address	  10.51.229.52
+Project	  	  EDT Sakal Digital Transformation- Services
+Image	  	  WIN2012R2_STD_x64
+
+
+System Specifications
+Hard disk	  60GB
+RAM	  	  1GB
+VCPUs	  	  1
