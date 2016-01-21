@@ -232,3 +232,10 @@ function intranet_preprocess_user_login(&$variables) {
   $variables['form']['pass']['#title'] = '';
   $variables['form']['pass']['#description'] = '';
 }
+
+function intranet_preprocess_link(&$vars) {
+  global $user;	
+  if (user_is_logged_in() && $vars['path'] == 'user') {
+    $vars['text']=check_plain(ucfirst($user->name));
+  }	 
+}
