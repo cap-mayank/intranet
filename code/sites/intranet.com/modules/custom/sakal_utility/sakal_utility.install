@@ -163,3 +163,28 @@ function sakal_utility_update_7004() {
   features_revert($features);
 
 }
+/**
+ * Implements hook_update_N().
+ * To enable pchart module for poll widets
+ * Also disabled module charts_graphs,charts_google,charts
+ */
+function sakal_utility_update_7005() {
+  // Enable Sakal Properties feature widget. 
+  $module_list = array(
+    'pchart'
+  );
+  module_enable($module_list, TRUE); 
+    // Uninstall unused module.
+  if (module_exists('charts_graphs')) {
+    module_disable(array('charts_graphs'));
+    drupal_uninstall_modules(array('charts_graphs'));
+  }
+  if (module_exists('charts_google')) {
+    module_disable(array('charts_google'));
+    drupal_uninstall_modules(array('charts_google'));
+  }
+  if (module_exists('charts')) {
+    module_disable(array('charts'));
+    drupal_uninstall_modules(array('charts'));
+  }
+}

@@ -23,9 +23,6 @@ function sakal_utility_block_info() {
   $blocks['recent_poll']['info'] = t('Poll Block');
   $blocks['recent_poll']['properties']['administrative'] = TRUE;
   
- // $blocks['quick_link']['info'] = t('Quick Link');
- // $blocks['quick_link']['properties']['administrative'] = TRUE;
-  
   $blocks['all_applications']['info'] = t('All Applications');
   $blocks['all_applications']['properties']['administrative'] = TRUE;
   
@@ -61,39 +58,7 @@ function sakal_utility_block_view($delta = '' ) {
             $block['content'] = $poll->content;
           }
         }
-        break;
-      case 'quick_link':
-        $block= array();    
-        
-        // Retrieve latest 5 Quick link        
-        $query  = new EntityFieldQuery();
-        $record = $query->entityCondition('entity_type', 'node')
-          ->entityCondition('bundle', 'cluster_of_links') 
-          ->fieldCondition('field_linktype', 'value', 'Quick links', '=') 
-          ->range(0, 1)
-          ->addTag('node_access')
-          ->execute();
-        if ($record) {
-          $nids = array_keys($record['node']);
-          $nid = $nids[0];
-          if ($nid) {
-            $node = node_load($nid);
-            $input=$node->field_link_details['und'];
-            $view_link='';
-            $node->title='';
-            //unset($node->field_linktype);
-            $block_record_limit=variable_get('block_record_limit', 2);
-            if (count($input)>$block_record_limit) {
-              $first3Records = array_slice($input, 0, $block_record_limit);
-              $node->field_widget_detail['und']=$first3Records;
-              $view_link='<div class="view-header"><a href="' . $base_url . '/node/' . $node->nid . '">View All></a></div>';
-            }
-            $block['subject'] = t('Quick Links');
-            $node_view=node_view($node);
-            $block['content'] =  $view_link . render($node_view);
-          }
-        }
-        break;        
+        break; 
       case 'all_applications': 
         $block= array();    
 
@@ -150,30 +115,14 @@ function sakal_utility_block_latest_poll_view($node) {
   // No 'read more' link.
   $node->readmore = FALSE;
   $node->teaser = '';
-
   $links = array();
-  $links[] = array(
-    'title' => t('Older polls'),
-    'href' => 'poll',
-    'attributes' => array('title' => t('View the list of polls on this site.'))
-  );
-
-  if ($node->allowvotes) {
-    $links[] = array(
-      'title' => t('Results'),
-      'href' => 'node/' . $node->nid . '/results',
-      'attributes' => array('title' => t('View the current poll results.'))
-    );
-  }
-
-  $node->links = $links;
-
+ 
   if (!empty($node->allowvotes)) {
     $node->content['poll_view_voting'] =
       drupal_get_form('poll_view_voting', $node, TRUE);
     $node->content['links'] = array(
       '#theme' => 'links',
-      '#links' => $node->links,
+   //  '#links' => $node->links,
       '#weight' => 5,
     );
   }
@@ -191,22 +140,36 @@ function sakal_utility_graph_view(&$node) {
     $labels[] = $choice['chtext'];
     $data[] = (int) $choice['chvotes'];
   }
-  $chart = array(
-    '#type' => 'chart',
-    '#title' => $node->title,
-    '#chart_type' => 'pie',
-    '#chart_library' => 'highcharts',
-    '#legend_position' => 'right',
-    '#data_labels' => TRUE,
-    '#tooltips' => TRUE,
-  );
-  $chart['pie_data'] = array(
-    '#type' => 'chart_data',
-    '#title' => t('Gender'),
-    '#labels' => $labels,
-    '#data' => $data,
-  );
-  return drupal_render($chart);
+  // Include required files with pChart library.
+  $name = "pPie";
+  pchart_add($name);
+
+  /* Create and populate the pData object */
+  $MyData = new pData(); 
+  $MyData->addPoints($data,"Score"); 
+
+  /* Define the absissa serie */
+  $MyData->addPoints($labels,"Labels");
+  $MyData->setAbscissa("Labels");
+
+  /* Create the pChart object */
+  $myPicture = new pImage(370,300,$MyData);
+  $myPicture->setFontProperties(array("FontName"=>"sites/intranet.com/libraries/pchart/fonts/verdana.ttf","FontSize"=>8));
+
+  /* Create the pPie object */ 
+  $PieChart = new pPie($myPicture,$MyData);
+  $PieChart->setSliceColor(0,array("R"=>0,"G"=>100,"B"=>200));
+  
+  /* Draw an AA pie chart */ 
+  $PieChart->draw3DPie(180,160,array("WriteValues"=>TRUE,"Radius"=>70,"DrawLabels"=>TRUE,"LabelStacked"=>TRUE,"Border"=>TRUE, "ValueR"=>"0", "ValueG"=>"0", "ValueB"=>"0"));
+
+  /* Write the legend box */ 
+  $myPicture->setShadow(FALSE);
+  $PieChart->drawPieLegend(15,40,array("Alpha"=>20));
+  file_unmanaged_delete('sites/intranet.com/files/pictures/piechart.png');
+  $output = file_create_filename('piechart.png', 'sites/intranet.com/files/pictures');
+  $myPicture->Render($output);
+  return '<div id="pchart"><img src="' . file_create_url($output) . '" /></div>';
 }
 
 function sakal_utility_form_alter(&$form, &$form_state, $form_id) {
@@ -299,11 +262,11 @@ function sakal_utility_views_pre_render(&$view) {
   $results = &$view->result;
   if (count($results)>0 && $view->name=='policy_and_procedures' ) {	 	  
     foreach ($results as $key => $result) {
-      if (isset($result->file_managed_field_data_filedepot_folder_file__filedepot_fil_1)) {
-         $view->result[$key]->file_managed_field_data_filedepot_folder_file__filedepot_fil_1 =
+      if (isset($result->file_managed_field_data_filedepot_folder_file__filedepot_fil_2)) {
+         $view->result[$key]->file_managed_field_data_filedepot_folder_file__filedepot_fil_2 =
           preg_replace('/\\.[^.\\s]{3,4}$/',
             '',
-            $result->file_managed_field_data_filedepot_folder_file__filedepot_fil_1);
+            $result->file_managed_field_data_filedepot_folder_file__filedepot_fil_2);
       }
     }
   }
