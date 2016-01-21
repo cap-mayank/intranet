@@ -160,6 +160,8 @@ function sakal_utility_graph_view(&$node) {
   $PieChart = new pPie($myPicture,$MyData);
   $PieChart->setSliceColor(0,array("R"=>0,"G"=>100,"B"=>200));
   
+
+$myPicture->drawText(70,10,$node->title."?",array("R"=>0,"G"=>0,"B"=>0,"Align"=>TEXT_ALIGN_TOPMIDDLE,"FontSize"=>14));
   /* Draw an AA pie chart */ 
   $PieChart->draw3DPie(180,160,array("WriteValues"=>TRUE,"Radius"=>70,"DrawLabels"=>TRUE,"LabelStacked"=>TRUE,"Border"=>TRUE, "ValueR"=>"0", "ValueG"=>"0", "ValueB"=>"0"));
 

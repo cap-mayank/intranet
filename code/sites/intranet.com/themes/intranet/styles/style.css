@@ -360,7 +360,10 @@ textarea {
 	background: #1d1e20;
 }
 .logo {
-	float: left
+	    width: 16%;
+    margin-left: 20px;
+    margin-top: 10px;
+    float: left;
 }
 .center_logo {
 	float: none;
