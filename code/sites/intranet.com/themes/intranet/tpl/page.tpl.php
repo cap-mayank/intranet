@@ -1,6 +1,17 @@
 <div id="layout" class="boxed-margin">
+ <?php if (!empty($tabs['#primary']) || !empty($tabs['#secondary'])):
+				?>
+				<div class="tabsSettings"><span>&nbsp;</span>
+				<?php
+                print render($tabs);
+				?>
+				</div>
+				<?php
+              endif;
+			  ?>
   <?php include_once('header.tpl.php'); ?>
   <!-- /header -->
+  
   <div class="page-content">
     <div class="row clearfix contentMarginIP">
       <div class="grid_12 alpha clearfix">
@@ -22,9 +33,7 @@
               if (drupal_is_front_page()) {
                 unset($page['content']['system_main']['default_message']);
               }
-              if (!empty($tabs['#primary']) || !empty($tabs['#secondary'])):
-                print render($tabs);
-              endif;
+              
             endif;
           ?>
           </div><!-- end grid9 -->

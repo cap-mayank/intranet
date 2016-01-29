@@ -1,4 +1,25 @@
 jQuery(document).ready(function ($) {
+	
+	$(document).ready(function () {
+    $(".tabsSettings").click(function () {
+        //Toggle the child but don't include them in the hide selector using .not()
+        $('ul.primary').toggle();
+
+    });
+});
+	$(document).mouseup(function (e)
+{
+    var container = $("ul.primary");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container.hide();
+    }
+});
+	
+	
+	
 	$(window).load(function () {
   setTimeout(function(){ Drupal.homebox.equalizeColumnsHeights(); }, 200);	     
   });
