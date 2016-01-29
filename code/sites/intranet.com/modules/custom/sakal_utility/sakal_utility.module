@@ -183,7 +183,10 @@ function sakal_utility_graph_view(&$node) {
   //$myPicture->drawLegend(60,20,array("BoxSize"=>5,"R"=>173,"G"=>163,"B"=>83,"Surrounding"=>20,"Family"=>LEGEND_FAMILY_CIRCLE,"FontSize"=>10));
   $myPicture->drawLegend(10,10,array("BoxSize"=>5,"R"=>255,"G"=>255,"B"=>255,"Surrounding"=>20,"FontSize"=>10));
   /* Draw an AA pie chart */ 
-  $PieChart->draw3DPie(180,150,array("WriteValues"=>TRUE,"Radius"=>70,"DrawLabels"=>TRUE,"LabelStacked"=>TRUE,"Border"=>TRUE, "ValueR"=>"0", "ValueG"=>"0", "ValueB"=>"0"));
+
+  $PieChart->draw2DPie(180,150,array("WriteValues"=>TRUE,"ValuePosition"=>PIE_VALUE_INSIDE,"Radius"=>70,"DrawLabels"=>TRUE,"LabelStacked"=>TRUE,"Border"=>TRUE, "ValueR"=>"0", "ValueG"=>"0", "ValueB"=>"0"));
+  //$PieChart->draw2DRing(160,140,array("WriteValues"=>TRUE,"ValueR"=>255,"ValueG"=>255,"ValueB"=>255,"Border"=>TRUE));
+ 
 
 $PieChart->drawPieLegend(250,230);
   /* Write the legend box */ 
