@@ -98,10 +98,10 @@ function event_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '1',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '11',
         ),
       ),
       'display' => array(),

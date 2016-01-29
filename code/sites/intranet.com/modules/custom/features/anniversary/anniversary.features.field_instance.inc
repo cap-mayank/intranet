@@ -25,7 +25,7 @@ function anniversary_field_default_field_instances() {
     'description' => 'Please enter birthday.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'birthdays',
         'settings' => array(),
         'type' => 'birthdays_plaintext',
@@ -65,7 +65,7 @@ function anniversary_field_default_field_instances() {
     'description' => 'Please enter your work location.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -99,7 +99,7 @@ function anniversary_field_default_field_instances() {
     'description' => 'Please enter your designation.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -133,7 +133,7 @@ function anniversary_field_default_field_instances() {
     'description' => 'Please enter email of the employee.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -167,7 +167,7 @@ function anniversary_field_default_field_instances() {
     'description' => 'Enter the employee\'s office provided phone no.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -201,7 +201,7 @@ function anniversary_field_default_field_instances() {
     'description' => 'Please enter the project which you are assigned to.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',

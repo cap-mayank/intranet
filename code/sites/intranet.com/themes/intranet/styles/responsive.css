@@ -67,7 +67,12 @@
     .homebox-column-wrapper{width:100%!important;clear:both;}
 	.loginContainerright{float:none; width:80%;}
 	.contentMargin{ margin: 0 auto;}
-	#homebox-buttons{right:43px;}
+	#homebox-buttons{z-index: 4;
+    /* margin-left: -19px; */
+    top: 1px;
+    left: 12px;
+    /* right: 43px; */
+    position: relative;}
 	.view-company-news-view .flex-viewport .slides li{width:650px!important;}
 	.c2a8168cd2c4bfac37894268691a202e .views-field.views-field-title, .c2a8168cd2c4bfac37894268691a202e .views-field.views-field-body{width: 83%;}
 	#footer .logo { width: 12%;}
@@ -174,7 +179,6 @@
     z-index: 99;
     position: relative;
     border-left: none;
-   
     position: absolute;
     top: 44px;
     margin-right: 0;
@@ -182,6 +186,7 @@
     padding: 0;}
 	.right_bar .menu{margin-right:0;}
 	.right_bar .menu li{margin-right:0; margin-left:15px;}
+	.homebox-header{margin-top: 24px;margin-right: -17px;}
 }
 
 /*  #Mobile (Portrait) 320px

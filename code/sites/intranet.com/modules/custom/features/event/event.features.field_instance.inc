@@ -50,7 +50,7 @@ function event_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 4,
+      'weight' => 7,
     ),
   );
 
@@ -105,7 +105,7 @@ function event_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 6,
+      'weight' => 1,
     ),
   );
 
@@ -144,7 +144,7 @@ function event_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 10,
     ),
   );
 
@@ -181,7 +181,7 @@ function event_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 0,
+      'weight' => 2,
     ),
   );
 
@@ -218,7 +218,7 @@ function event_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -259,67 +259,7 @@ Ex. HR Team',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance: 'node-event_calendar-field_event_image'.
-  $field_instances['node-event_calendar-field_event_image'] = array(
-    'bundle' => 'event_calendar',
-    'deleted' => 0,
-    'description' => 'Please upload Event Image',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 3,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_event_image',
-    'label' => 'Event  Image',
-    'required' => 0,
-    'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 31,
-      'file_directory' => '',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'image',
-      'settings' => array(
-        'preview_image_style' => 'medium',
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'image_image',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
@@ -360,7 +300,7 @@ Ex. Sakal Head office Pune',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 4,
     ),
   );
 
@@ -410,7 +350,7 @@ Ex. Sakal Head office Pune',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 3,
+      'weight' => 9,
     ),
   );
 
@@ -504,7 +444,7 @@ Ex. Sakal Head office Pune',
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 2,
+      'weight' => 6,
     ),
   );
 
@@ -512,7 +452,6 @@ Ex. Sakal Head office Pune',
   // Included for use with string extractors like potx.
   t('Date');
   t('Describe Event status');
-  t('Event  Image');
   t('Event Category');
   t('Event Department');
   t('Event Description');
@@ -527,7 +466,6 @@ Ex. Sakal Head office Pune');
   t('Please enter event venue');
   t('Please enter organiser detail');
   t('Please select by which SMG brand , the event is organized.');
-  t('Please upload Event Image');
   t('Please upload at-least one image of event.');
   t('Select the category under which this event falls.');
   t('Select the start and end dates for this event.');

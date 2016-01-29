@@ -120,7 +120,7 @@ function announcement_views_default_views() {
   $handler->display->display_options['fields']['field_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_thumbnail']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_thumbnail']['settings'] = array(
-    'image_style' => 'application_icon',
+    'image_style' => 'announcement_icon',
     'image_link' => '',
   );
   /* Field: Content: Title */
@@ -146,7 +146,7 @@ function announcement_views_default_views() {
   $handler->display->display_options['fields']['field_publishing_date']['label'] = '';
   $handler->display->display_options['fields']['field_publishing_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_publishing_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'announcement_date_format',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -236,7 +236,7 @@ function announcement_views_default_views() {
   $handler->display->display_options['fields']['field_publishing_date']['label'] = '';
   $handler->display->display_options['fields']['field_publishing_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_publishing_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'announcement_date_format',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',

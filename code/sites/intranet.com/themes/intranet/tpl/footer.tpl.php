@@ -1,5 +1,9 @@
 <?php
 	$col_setting = theme_get_setting('footer_columns', 'intranet');
+	$col='';
+	if ($col_setting=='') {
+		$col= 'grid_2';
+	}
 	if($col_setting==3){
 		$col = 'grid_4';
 	}if($col_setting >= 4){
@@ -95,7 +99,7 @@
 	<!-- /row -->
 	<div class="row clearfix">
 		<div class="footer_last"><span class="copyright"><?php print theme_get_setting('footer_copyright_message', 'intranet'); ?></span>
-			<div id="toTop" class="toptip" title="Back to Top"><i class="icon-arrow-thin-up">Top</i></div>
+			<div id="toTop" class="toptip" ><i class="icon-arrow-thin-up">Top</i></div>
 		</div>
 		<!-- /last footer -->
 	</div>

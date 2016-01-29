@@ -35,7 +35,7 @@ function intranet_form_system_theme_settings_alter(&$form, $form_state) {
       '#title' => t('Upload background image'),
       '#maxlength' => 40,
       '#description' => t("If you don't have direct file access to the server, use this field to upload your logo.")
-   );
+   );/*
   $form['settings']['layout']['intranet_disable_switch'] = array(
       '#title' => t('Switcher style'),
       '#type' => 'select',
@@ -74,7 +74,7 @@ function intranet_form_system_theme_settings_alter(&$form, $form_state) {
       ),
       '#default_value' => theme_get_setting('version_c', 'intranet'),
   );
- 
+ */
   $form['settings']['header'] = array(
       '#type' => 'fieldset',
       '#title' => t('Header settings'),
@@ -108,14 +108,14 @@ function intranet_form_system_theme_settings_alter(&$form, $form_state) {
       '#title' => t('Footer copyright message'),
       '#default_value' => theme_get_setting('footer_copyright_message', 'intranet'),
   );
-
+/*
   $form['settings']['footer']['footer_columns'] = array(
       '#type' => 'select',
       '#title' => t('Footer columns'),
 	  '#options' => array('6'=>t('6 col'),'4'=>t('4 col'),'3'=>t('3 col')),
       '#default_value' => theme_get_setting('footer_columns', 'intranet'),
   );
-
+*/
   $form['settings']['footer']['footer_image_path'] = array(
       '#type' => 'textfield',
       '#title' => t('Path to custom footer image'),

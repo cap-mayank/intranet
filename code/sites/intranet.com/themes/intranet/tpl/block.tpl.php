@@ -30,7 +30,7 @@ elseif ($block->region == 'content') {
 elseif ($block->region == 'left_bar' || $block->region == 'right_bar' || $block->region == 'top_news') {
   $out .= $content;
 }
-elseif ($block->region == 'footer_col_one' || $block->region == 'footer_col_two' || $block->region == 'footer_col_three' || $block->region == 'footer_col_four') {
+elseif ($block->region == 'footer_col_one' || $block->region == 'footer_col_two' || $block->region == 'footer_col_three' || $block->region == 'footer_col_four' || $block->region == 'footer_col_five'|| $block->region == 'footer_col_six') {
 
   $out .= '<div class="widget ' . $classes . '">';
   $out .= render($title_suffix);

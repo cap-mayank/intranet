@@ -165,7 +165,7 @@ function company_news_views_default_views() {
   $handler->display->display_options['fields']['field_publishing_date']['label'] = '';
   $handler->display->display_options['fields']['field_publishing_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_publishing_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'announcement_date_format',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -237,6 +237,7 @@ function company_news_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'flexslider';
+  $handler->display->display_options['style_options']['optionset'] = 'company_news_slider';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -264,7 +265,7 @@ function company_news_views_default_views() {
   $handler->display->display_options['fields']['field_publishing_date']['label'] = '';
   $handler->display->display_options['fields']['field_publishing_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_publishing_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'announcement_date_format',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',

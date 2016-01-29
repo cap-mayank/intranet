@@ -167,6 +167,7 @@ function sakal_utility_update_7004() {
  * Implements hook_update_N().
  * To enable pchart module for poll widets
  * Also disabled module charts_graphs,charts_google,charts
+ * To Revert sakal property widget
  */
 function sakal_utility_update_7005() {
   // Enable Sakal Properties feature widget. 
@@ -187,4 +188,20 @@ function sakal_utility_update_7005() {
     module_disable(array('charts'));
     drupal_uninstall_modules(array('charts'));
   }
+   // Revert fetaures.
+  $features = array(
+    'sakal_properties',	
+  );
+  features_revert($features);
+}
+/**
+ * Implements hook_update_N().
+ * To Revert Document Store widget
+ */
+function sakal_utility_update_7006() {
+   // Revert fetaures.
+  $features = array(
+    'document_store',	
+  );
+  features_revert($features);
 }

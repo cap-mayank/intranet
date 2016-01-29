@@ -3,15 +3,12 @@
 global $base_url;
 
 function intranet_preprocess_html(&$variables) {
-
   drupal_add_css(base_path() . path_to_theme() . '/styles/style.css', array('type' => 'external'));
   drupal_add_css(base_path() . path_to_theme() . '/styles/icons.css', array('type' => 'external'));
   drupal_add_css(base_path() . path_to_theme() . '/styles/animate.css', array('type' => 'external'));
   drupal_add_css(base_path() . path_to_theme() . '/styles/responsive.css', array('type' => 'external'));
-  drupal_add_css('http://fonts.googleapis.com/css?family=Roboto:400,300,100,500', array('type' => 'external'));
 
-
-  $styling = theme_get_setting('styling', 'intranet');
+  /*$styling = theme_get_setting('styling', 'intranet');
   if ($styling == 'rtl')
     drupal_add_css(base_path() . path_to_theme() . '/styles/rtl.css', array('type' => 'external'));
 
@@ -19,16 +16,14 @@ function intranet_preprocess_html(&$variables) {
   $version = theme_get_setting('version_c', 'intranet');
   if ($version == 'dark')
     drupal_add_css(base_path() . path_to_theme() . '/styles/dark.css', array('type' => 'external'));
-
+  */
 
   drupal_add_css(base_path() . path_to_theme() . '/styles/update.css', array('type' => 'external'));
 
-  //drupal_add_js(base_path().path_to_theme().'/js/jquery.min.js', array('type' => 'file', 'scope' => 'footer'));
   drupal_add_js(base_path() . path_to_theme() . '/js/intranet.js', array('type' => 'file', 'scope' => 'footer'));
 
-  drupal_add_js(base_path() . path_to_theme() . '/js/owl.carousel.min.js', array('type' => 'file', 'scope' => 'footer'));
-  drupal_add_js(base_path() . path_to_theme() . '/js/jquery.ticker.js', array('type' => 'file', 'scope' => 'footer'));
   drupal_add_js(base_path() . path_to_theme() . '/js/custom.js', array('type' => 'file', 'scope' => 'footer'));
+  /*
 
   $disable_switcher = theme_get_setting('intranet_disable_switch', 'intranet');
   if (empty($disable_switcher))
@@ -38,9 +33,11 @@ function intranet_preprocess_html(&$variables) {
     drupal_add_js(base_path() . path_to_theme() . '/customizer/script.js', array('type' => 'file', 'scope' => 'footer'));
     drupal_add_css(base_path() . path_to_theme() . '/customizer/style.css', array('type' => 'external'));
     //End style
-  }
-  drupal_add_js(base_path() . path_to_theme() . '/js/jflickrfeed.js', array('type' => 'file', 'scope' => 'footer'));
+  }  */
   drupal_add_js(base_path() . path_to_theme() . '/js/update.js', array('type' => 'file', 'scope' => 'footer'));
+  
+  //included file validation js function
+  include_file_validation_js_function();
 }
 
 function intranet_preprocess_page(&$vars) {

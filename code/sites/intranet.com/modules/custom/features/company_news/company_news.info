@@ -39,6 +39,7 @@ features[variable][] = comment_default_per_page_company_news
 features[variable][] = comment_form_location_company_news
 features[variable][] = comment_preview_company_news
 features[variable][] = comment_subject_field_company_news
+features[variable][] = date_format_announcement_date_format
 features[variable][] = field_bundle_settings_node__company_news
 features[variable][] = menu_options_company_news
 features[variable][] = menu_parent_company_news

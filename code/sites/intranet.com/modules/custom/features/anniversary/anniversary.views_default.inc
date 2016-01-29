@@ -109,7 +109,7 @@ function anniversary_views_default_views() {
   /* Display: Anniversary Monthwise */
   $handler = $view->new_display('block', 'Anniversary Monthwise', 'anniversary_monthwise');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Anniversary Monthwisse';
+  $handler->display->display_options['title'] = 'Anniversary Monthwise';
   $handler->display->display_options['display_description'] = 'The block displays users having work anniversary in configured interval of time.';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: User: Picture */

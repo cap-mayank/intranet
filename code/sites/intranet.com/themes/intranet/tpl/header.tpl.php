@@ -55,6 +55,11 @@
 		<!-- /row -->
 	</div>
 	<!-- /b head -->
+  <?php if($messages): ?>
+    <div class="row clearfix">
+    <?php print $messages;?>
+    </div>  
+  <?php endif; ?>
 	<div class="row clearfix">
 		<div class="sticky_true">
 		

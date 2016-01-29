@@ -9,6 +9,10 @@
 /**
  * Implements hook_view().
  */
+ global $file_global_upload_max_size;
+ $file_global_upload_max_size=variable_get('file_global_upload_max_size', 2);
+
+ 
 function sakal_utility_node_view($node, $view_mode, $langcode) {
   if ($node->type == 'poll') {
     $node->content['poll_view_results']['#markup'] =
@@ -146,14 +150,26 @@ function sakal_utility_graph_view(&$node) {
 
   /* Create and populate the pData object */
   $MyData = new pData(); 
-  $MyData->addPoints($data,"Score"); 
+  $title=$node->title;
+  $title=wordwrap($title,55,"\n");
+  
+  
+  $MyData->addPoints($data,$title); 
 
   /* Define the absissa serie */
+
+ //$MyData->setAxisXY(0,AXIS_Y);
+
+
   $MyData->addPoints($labels,"Labels");
+
+
   $MyData->setAbscissa("Labels");
 
   /* Create the pChart object */
   $myPicture = new pImage(370,300,$MyData);
+  
+
   $myPicture->setFontProperties(array("FontName"=>"sites/intranet.com/libraries/pchart/fonts/verdana.ttf","FontSize"=>8));
 
   /* Create the pPie object */ 
@@ -161,14 +177,18 @@ function sakal_utility_graph_view(&$node) {
   $PieChart->setSliceColor(0,array("R"=>0,"G"=>100,"B"=>200));
   
 
-//$myPicture->drawText(70,10,$node->title."?",array("R"=>0,"G"=>0,"B"=>0,"Align"=>TEXT_ALIGN_TOPMIDDLE,"FontSize"=>14));
-  $myPicture->drawText(70,20,$node->title,array("R"=>0,"G"=>0,"B"=>0,"FontSize"=>10));
-  /* Draw an AA pie chart */ 
-  $PieChart->draw3DPie(180,160,array("WriteValues"=>TRUE,"Radius"=>70,"DrawLabels"=>TRUE,"LabelStacked"=>TRUE,"Border"=>TRUE, "ValueR"=>"0", "ValueG"=>"0", "ValueB"=>"0"));
 
+//$myPicture->drawText(70,10,$node->title."?",array("R"=>0,"G"=>0,"B"=>0,"Align"=>TEXT_ALIGN_TOPMIDDLE,"FontSize"=>14));
+ // $myPicture->drawText(70,20,$node->title."answer me best country best result best state best city best building best show",array("R"=>0,"G"=>0,"B"=>0,"FontSize"=>10));
+  //$myPicture->drawLegend(60,20,array("BoxSize"=>5,"R"=>173,"G"=>163,"B"=>83,"Surrounding"=>20,"Family"=>LEGEND_FAMILY_CIRCLE,"FontSize"=>10));
+  $myPicture->drawLegend(10,10,array("BoxSize"=>5,"R"=>255,"G"=>255,"B"=>255,"Surrounding"=>20,"FontSize"=>10));
+  /* Draw an AA pie chart */ 
+  $PieChart->draw3DPie(180,150,array("WriteValues"=>TRUE,"Radius"=>70,"DrawLabels"=>TRUE,"LabelStacked"=>TRUE,"Border"=>TRUE, "ValueR"=>"0", "ValueG"=>"0", "ValueB"=>"0"));
+
+$PieChart->drawPieLegend(250,230);
   /* Write the legend box */ 
   $myPicture->setShadow(FALSE);
-  $PieChart->drawPieLegend(15,40,array("Alpha"=>20));
+  //$PieChart->drawPieLegend(15,40,array("Alpha"=>20));
   file_unmanaged_delete('sites/intranet.com/files/piechart.png');
   $output = file_create_filename('piechart.png', 'sites/intranet.com/files');
   $myPicture->Render($output);
@@ -184,10 +204,31 @@ function sakal_utility_form_alter(&$form, &$form_state, $form_id) {
     $form['pass']['#title'] = '';
     $form['pass']['#attributes']['placeholder'] = 'Password';
   }
+  
+  
 
   if (isset($form['#node']) && $form['#node']->type .'_node_form' == $form_id) { 
     $form['actions']['submit']['#submit'][]= 'sakal_utility_node_form_submit_handler';
   }
+
+  switch ($form_id) {
+    case 'photo_gallery_node_form':
+      $form['#after_build'][] = 'sakal_utility_after_build';
+      break;
+	case 'system_file_system_settings':
+		$form['file_global_upload_max_size'] = array(
+		'#type' => 'textfield',
+		'#title' => t('File Global Upload Max Size (in MB)'),
+		'#default_value' =>variable_get('file_global_upload_max_size',2),
+		'#size' => 2,
+		'#maxlength' => 2,
+		'#element_validate' => array('element_validate_integer_positive'),
+		'#description' => t('Global Upload Max File Size (in MB).'),
+		'#required' => TRUE,
+		);
+		return system_settings_form($form);
+	  break;
+	}
 }
 /**
  * Implements hook_views_data().
@@ -303,3 +344,27 @@ function sakal_utility_block_view_alter(&$data, $block) {
   }
 }
 
+function sakal_utility_after_build($form, &$form_state) {
+	
+  include_file_validation_js_function();
+  return $form;
+}
+function include_file_validation_js_function(){
+  global $file_global_upload_max_size;
+  $path = drupal_get_path('theme', 'intranet');
+  $file_global_upload_max_size_bytes=human2byte($file_global_upload_max_size.'mb');
+  drupal_add_js(array('intranet' => array('file_global_upload_max_size' => $file_global_upload_max_size,'file_global_upload_max_size_bytes'=>$file_global_upload_max_size_bytes)), array('type' => 'setting'));
+  drupal_add_js ("$path/js/validation.js");
+	
+}
+function human2byte($value) {
+  return preg_replace_callback('/^\s*(\d+)\s*(?:([kmgt]?)b?)?\s*$/i', function ($m) {
+    switch (strtolower($m[2])) {
+      case 't': $m[1] *= 1024;
+      case 'g': $m[1] *= 1024;
+      case 'm': $m[1] *= 1024;
+      case 'k': $m[1] *= 1024;
+    }
+    return $m[1];
+  }, $value);
+}
