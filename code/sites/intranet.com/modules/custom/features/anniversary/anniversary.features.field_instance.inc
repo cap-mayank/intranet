@@ -159,6 +159,53 @@ function anniversary_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_employee_joining_date'.
+  $field_instances['user-user-field_employee_joining_date'] = array(
+    'bundle' => 'user',
+    'default_value' => array(
+      0 => array(
+        'year' => 0,
+        'month' => 0,
+        'day' => 0,
+        'triggers' => TRUE,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Please enter the date on which employee joined.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'birthdays',
+        'settings' => array(),
+        'type' => 'birthdays_plaintext',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_employee_joining_date',
+    'label' => 'Employee Joining date',
+    'required' => 0,
+    'settings' => array(
+      'admin_mail' => 0,
+      'dateformat' => 'd/m/Y',
+      'datepicker' => 1,
+      'hide_year' => 0,
+      'triggers' => array(
+        'description' => '',
+        'title' => 'Fire triggers on birthdays',
+        'user' => 0,
+      ),
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'birthdays',
+      'settings' => array(),
+      'type' => 'birthdays_textfield',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_offiice_phone_no'.
   $field_instances['user-user-field_offiice_phone_no'] = array(
     'bundle' => 'user',
@@ -232,11 +279,13 @@ function anniversary_field_default_field_instances() {
   t('Birthday');
   t('Designation');
   t('Email');
+  t('Employee Joining date');
   t('Enter the employee\'s office provided phone no.');
   t('Location');
   t('Offiice Phone No');
   t('Please enter birthday.');
   t('Please enter email of the employee.');
+  t('Please enter the date on which employee joined.');
   t('Please enter the project which you are assigned to.');
   t('Please enter your designation.');
   t('Please enter your work location.');

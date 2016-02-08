@@ -1,6 +1,21 @@
 jQuery(document).ready(function ($) {
 	
 	$(document).ready(function () {
+		
+		$('.lightbox-processed>img').click(function(){
+			
+			$('body').css('position', 'fixed');
+		})
+	
+	
+		
+		$('#bottomNavClose').click(function(){
+			
+			$('body').css('position', 'static');
+			
+			
+		});
+		
     $(".tabsSettings").click(function () {
         //Toggle the child but don't include them in the hide selector using .not()
         $('ul.primary').toggle();
@@ -379,6 +394,7 @@ $(document).ready(function () {
 });
 
 
+
 function date_time(id) {
   date = new Date;
   year = date.getFullYear();
@@ -387,7 +403,8 @@ function date_time(id) {
   d = date.getDate();
   day = date.getDay();
   days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-  h = date.getHours();
+   
+  /*h = date.getHours();
   if (h < 10) {
     h = "0" + h;
   }
@@ -398,11 +415,24 @@ function date_time(id) {
   s = date.getSeconds();
   if (s < 10) {
     s = "0" + s;
-  }
-  result = '' + days[day] + ', ' + months[month] + ' ' + d + ' ' + year + ' | ' + h + ':' + m + ':' + s;
+  }*/
+  var current_time = date.toLocaleTimeString().replace(/:\d+ /, ' ');
+  result = '<span class="clock">' +current_time + '</span> ' +'<span class="headerdate">' + days[day] + ', ' + months[month] + ' ' + d + 'th ' + year + '</span>';
   //result = ''+days[day]+' '+d+' '+months[month]+' '+year;
   document.getElementById(id).innerHTML = result;
   setTimeout('date_time("' + id + '");', '1000');
   return true;
 }
 date_time('date_time');
+
+
+// edit node buttons
+(function($){
+    // wait til everything loads before firing
+    $(document).ready(function(){
+        //insert edit icon into div.tabs
+        jQuery('ul.tabs').prepend(jQuery("<i class=\"icon-edit\"></i>"));  
+        //insert div.tabs into page title
+        jQuery('h1').prepend(jQuery('ul.tabs'));
+    }); 
+})(jQuery);

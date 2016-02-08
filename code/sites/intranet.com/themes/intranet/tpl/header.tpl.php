@@ -61,6 +61,25 @@
     </div>  
   <?php endif; ?>
 	<div class="row clearfix">
+	 <div class="" >
+	<?php
+                if ($page['top_news']):
+                  ?>
+                <div class="breaking_news lefter">
+				<div class="freq_out">
+					<div class="freq">
+						<div class="inner_f"></div>
+						<div id="layerBall"></div>
+					</div>
+				</div>
+
+                              <?php
+                              print render($page['top_news']);
+                              ?>
+                
+
+                <?php endif; ?>
+				</div>
 		<div class="sticky_true">
 		
 			<div class="c_head clearfix">

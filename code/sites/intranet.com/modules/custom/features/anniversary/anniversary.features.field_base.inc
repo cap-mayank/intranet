@@ -99,6 +99,30 @@ function anniversary_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_employee_joining_date'.
+  $field_bases['field_employee_joining_date'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_employee_joining_date',
+    'indexes' => array(
+      'date' => array(
+        0 => 'day',
+        1 => 'month',
+        2 => 'year',
+      ),
+      'triggers' => array(
+        0 => 'triggers',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'birthdays',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'birthdays_date',
+  );
+
   // Exported field_base: 'field_offiice_phone_no'.
   $field_bases['field_offiice_phone_no'] = array(
     'active' => 1,

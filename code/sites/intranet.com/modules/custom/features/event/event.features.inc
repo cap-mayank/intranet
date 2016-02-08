@@ -26,6 +26,21 @@ function event_views_api($module = NULL, $api = NULL) {
 function event_image_default_styles() {
   $styles = array();
 
+  // Exported image style: cxo_and_event_widget.
+  $styles['cxo_and_event_widget'] = array(
+    'label' => 'cxo and event widget',
+    'effects' => array(
+      8 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 90,
+          'height' => 90,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: event_widget_listing_style.
   $styles['event_widget_listing_style'] = array(
     'label' => 'Event widget listing style',
@@ -35,6 +50,21 @@ function event_image_default_styles() {
         'data' => array(
           'width' => 100,
           'height' => 100,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: photo_gallery_and_event.
+  $styles['photo_gallery_and_event'] = array(
+    'label' => 'photo gallery and event',
+    'effects' => array(
+      9 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 300,
         ),
         'weight' => 1,
       ),

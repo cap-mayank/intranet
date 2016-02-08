@@ -61,7 +61,7 @@ function sakal_properties_views_default_views() {
     'image_style' => 'property_logo',
     'image_link' => '',
   );
-  /* Field: Field: Link */
+  /* Field: Field: Property Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';

@@ -73,10 +73,10 @@ function document_store_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'filedepot_folder_file',
     'label' => 'Files',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'file_directory' => 'filedepot',
+      'file_directory' => '',
       'file_extensions' => 'txt pdf xls doc',
       'max_filesize' => '',
       'user_register_form' => FALSE,
@@ -87,7 +87,6 @@ function document_store_field_default_field_instances() {
       'settings' => array(
         'progress_indicator' => 'throbber',
       ),
-      'translatable' => 0,
       'type' => 'file_generic',
       'weight' => 1,
     ),

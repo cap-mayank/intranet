@@ -21,6 +21,7 @@ function intranet_preprocess_html(&$variables) {
   drupal_add_css(base_path() . path_to_theme() . '/styles/update.css', array('type' => 'external'));
 
   drupal_add_js(base_path() . path_to_theme() . '/js/intranet.js', array('type' => 'file', 'scope' => 'footer'));
+  drupal_add_js(base_path() . path_to_theme() . '/js/jquery.ticker.js', array('type' => 'file', 'scope' => 'header'));
 
   drupal_add_js(base_path() . path_to_theme() . '/js/custom.js', array('type' => 'file', 'scope' => 'footer'));
   /*
@@ -44,6 +45,7 @@ function intranet_preprocess_page(&$vars) {
 
   if (isset($vars['node'])) {
     $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
+    if ($vars['node']->type == 'cxo_messages') drupal_set_title('');
   }
 
   //404 page

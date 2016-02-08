@@ -11,7 +11,11 @@
  */
  global $file_global_upload_max_size;
  $file_global_upload_max_size=variable_get('file_global_upload_max_size', 2);
+ //module_load_include('inc', 'sakal_utility', 'sakal_utility.whistle_blower');
 
+ function sakal_utility_admin_content($form, $form_state) {
+	 print_R( $form['admin']['options']);die;
+ }
  
 function sakal_utility_node_view($node, $view_mode, $langcode) {
   if ($node->type == 'poll') {
@@ -30,12 +34,14 @@ function sakal_utility_block_info() {
   $blocks['all_applications']['info'] = t('All Applications');
   $blocks['all_applications']['properties']['administrative'] = TRUE;
   
+  $blocks['whistle_blower']['info'] = t('Whistle Blower');
+  $blocks['whistle_blower']['properties']['administrative'] = TRUE;
+  
   return $blocks;
 }
 
 /**
  * Implements hook_block_view().
- *
  * Generates a block containing the latest poll.
  */
 function sakal_utility_block_view($delta = '' ) {
@@ -64,8 +70,7 @@ function sakal_utility_block_view($delta = '' ) {
         }
         break; 
       case 'all_applications': 
-        $block= array();    
-
+        $block= array();
         // Retrieve all applications link        
         $query  = new EntityFieldQuery();
         $record = $query->entityCondition('entity_type', 'node')
@@ -81,19 +86,61 @@ function sakal_utility_block_view($delta = '' ) {
             $input=$node->field_link_details['und'];
             $view_link='';
             $node->title='';
-            //  unset($node->field_linktype);
             $block_record_limit=variable_get('block_record_limit', 9);
             if (count($input) > $block_record_limit) {
               $first3Records = array_slice($input, 0, $block_record_limit);
               $node->field_link_details['und']=$first3Records;
-              $view_link='<div class="view-header"><a href="' . $base_url . '/node/' . $node->nid . '">View All></a></div>';
+              $link_txt=l("View All", $base_url . '/node/' . $node->nid );
+              $view_link= array(
+                '#type' => 'html_tag',
+                '#tag' => 'div',
+                '#attributes' => array('class' => 'view-header'),
+                '#value' => $link_txt     
+              );
             }
             $block['subject'] = t('All Applications');
             $node_view=node_view($node);
-            $block['content'] =  $view_link . render($node_view);
+            $block['content'] =  render($view_link) . render($node_view);
           }
         }
-        break;  
+        break;
+      case 'whistle_blower':
+        // get whistle_blower content
+        ctools_include('modal');
+        ctools_modal_add_js();
+        $block['subject'] = variable_get('whistle_blower_title');
+        $whistle_blower_content = variable_get('whistle_blower_content');
+        $whistle_blower_content= (is_array($whistle_blower_content)) ? $whistle_blower_content["value"] : $whistle_blower_content;
+        drupal_add_js(array(
+          'my-modal-style' => array(
+            'modalSize' => array(
+            'type' => 'fixed',
+            'width' => 550,
+            'height' => 450,
+            ),
+          ),
+        ), 'setting');
+        $link_txt=l("Report Incident", 'whistle_blower_comment/nojs', array('attributes' => array('class' => 'ctools-use-modal ctools-modal-my-modal-style')));
+        $whistle_block= array(
+          '#type' => 'html_tag',
+          '#tag' => 'div',
+          '#attributes' => array('class' => 'whistle_block'),
+          '#value' => $whistle_blower_content,    
+          );
+        $whistle_button= array(
+          '#type' => 'html_tag',
+          '#tag' => 'div',
+          '#attributes' => array('id' => 'whistle_button'),
+          '#value' => l("Report Incident", 'whistle_blower_comment/nojs', array('attributes' => array('class' => 'ctools-use-modal'))),
+          );
+        $message= array(
+          '#type' => 'html_tag',
+          '#tag' => 'div',
+          '#attributes' => array('id' => 'posted-data'),
+          '#value' => ''
+          );
+        $block['content'] =render($whistle_block) . render($whistle_button) . render($message);
+        break; 
     }
   return $block;
   }
@@ -101,9 +148,8 @@ function sakal_utility_block_view($delta = '' ) {
 
 /**
  * Return content for 'latest poll' block.
- *
  * @param $node
- *   The node object to load.
+ * The node object to load.
  */
 function sakal_utility_block_latest_poll_view($node) {
   $output = '';
@@ -115,18 +161,15 @@ function sakal_utility_block_latest_poll_view($node) {
   // as the node output.
   $node = clone $node;
   unset($node->content);
-
   // No 'read more' link.
   $node->readmore = FALSE;
   $node->teaser = '';
-  $links = array();
- 
+  $links = array(); 
   if (!empty($node->allowvotes)) {
     $node->content['poll_view_voting'] =
       drupal_get_form('poll_view_voting', $node, TRUE);
     $node->content['links'] = array(
       '#theme' => 'links',
-   //  '#links' => $node->links,
       '#weight' => 5,
     );
   }
@@ -147,57 +190,63 @@ function sakal_utility_graph_view(&$node) {
   // Include required files with pChart library.
   $name = "pPie";
   pchart_add($name);
-
-  /* Create and populate the pData object */
+  
+  // Create and populate the pData object.
   $MyData = new pData(); 
-  $title=$node->title;
-  $title=wordwrap($title,55,"\n");
-  
-  
-  $MyData->addPoints($data,$title); 
-
-  /* Define the absissa serie */
-
- //$MyData->setAxisXY(0,AXIS_Y);
-
-
-  $MyData->addPoints($labels,"Labels");
-
-
+  $title=wordwrap($node->title, 55, "\n"); 
+  $MyData->addPoints($data, $title);
+  $MyData->addPoints($labels, "Labels");
   $MyData->setAbscissa("Labels");
 
-  /* Create the pChart object */
-  $myPicture = new pImage(370,300,$MyData);
-  
-
-  $myPicture->setFontProperties(array("FontName"=>"sites/intranet.com/libraries/pchart/fonts/verdana.ttf","FontSize"=>8));
+  // Create the pChart object.
+  $myPicture = new pImage(370, 320, $MyData);
+  $myPicture->setFontProperties(array(
+    "FontName" => "sites/intranet.com/libraries/pchart/fonts/verdana.ttf", "FontSize" => 8
+    )
+  );
 
   /* Create the pPie object */ 
-  $PieChart = new pPie($myPicture,$MyData);
-  $PieChart->setSliceColor(0,array("R"=>0,"G"=>100,"B"=>200));
-  
-
-
-//$myPicture->drawText(70,10,$node->title."?",array("R"=>0,"G"=>0,"B"=>0,"Align"=>TEXT_ALIGN_TOPMIDDLE,"FontSize"=>14));
- // $myPicture->drawText(70,20,$node->title."answer me best country best result best state best city best building best show",array("R"=>0,"G"=>0,"B"=>0,"FontSize"=>10));
-  //$myPicture->drawLegend(60,20,array("BoxSize"=>5,"R"=>173,"G"=>163,"B"=>83,"Surrounding"=>20,"Family"=>LEGEND_FAMILY_CIRCLE,"FontSize"=>10));
-  $myPicture->drawLegend(10,10,array("BoxSize"=>5,"R"=>255,"G"=>255,"B"=>255,"Surrounding"=>20,"FontSize"=>10));
+  $PieChart = new pPie($myPicture, $MyData);
+  $PieChart->setSliceColor(0,array("R" => 0, "G" => 100, "B" => 200));
+  $myPicture->drawLegend(10, 10, array("BoxSize" => 5, "R" => 255, "G" => 255, "B"=> 255, "Surrounding" => 20, "FontSize" => 10));
   /* Draw an AA pie chart */ 
 
-  $PieChart->draw2DPie(180,150,array("WriteValues"=>TRUE,"ValuePosition"=>PIE_VALUE_INSIDE,"Radius"=>70,"DrawLabels"=>TRUE,"LabelStacked"=>TRUE,"Border"=>TRUE, "ValueR"=>"0", "ValueG"=>"0", "ValueB"=>"0"));
-  //$PieChart->draw2DRing(160,140,array("WriteValues"=>TRUE,"ValueR"=>255,"ValueG"=>255,"ValueB"=>255,"Border"=>TRUE));
- 
+  $PieChart->draw2DPie(180, 150, array(
+    "WriteValues" => TRUE, 
+    "ValuePosition" => PIE_VALUE_INSIDE, 
+    "Radius" => 70, 
+    "DrawLabels" => TRUE, 
+    "LabelStacked" => FALSE, 
+    "Border" => TRUE, 
+    "ValueR" => "0", 
+    "ValueG" => "0", 
+    "ValueB" => "0"
+    )
+  );
 
-$PieChart->drawPieLegend(250,230);
+  $PieChart->drawPieLegend(15, 260,array("Mode" => LEGEND_VERTICAL));
   /* Write the legend box */ 
   $myPicture->setShadow(FALSE);
-  //$PieChart->drawPieLegend(15,40,array("Alpha"=>20));
   file_unmanaged_delete('sites/intranet.com/files/piechart.png');
   $output = file_create_filename('piechart.png', 'sites/intranet.com/files');
   $myPicture->Render($output);
-  return '<div id="pchart"><img src="' . file_create_url($output) . '" /></div>';
+  $variables = array(
+	  'path' => $output,
+  );
+  $img = theme('image', $variables);
+  $piechart_output= array(
+          '#type' => 'html_tag',
+          '#tag' => 'div',
+          '#attributes' => array('id' => 'pchart'),
+          '#value' => render($img),
+  );
+  return render($piechart_output);
 }
-
+/**
+ * Implements hook_form_alter().
+ * For user login Form
+ * to add field 'file_global_upload_max_size' in file system admin configuration file 
+ */
 function sakal_utility_form_alter(&$form, &$form_state, $form_id) {
   if ($form['#id'] == 'user-login') {
     $form['name']['#title'] = '';
@@ -207,10 +256,8 @@ function sakal_utility_form_alter(&$form, &$form_state, $form_id) {
     $form['pass']['#title'] = '';
     $form['pass']['#attributes']['placeholder'] = 'Password';
   }
-  
-  
 
-  if (isset($form['#node']) && $form['#node']->type .'_node_form' == $form_id) { 
+  if (isset($form['#node']) && $form['#node']->type . '_node_form' == $form_id) { 
     $form['actions']['submit']['#submit'][]= 'sakal_utility_node_form_submit_handler';
   }
 
@@ -218,148 +265,96 @@ function sakal_utility_form_alter(&$form, &$form_state, $form_id) {
     case 'photo_gallery_node_form':
       $form['#after_build'][] = 'sakal_utility_after_build';
       break;
-	case 'system_file_system_settings':
-		$form['file_global_upload_max_size'] = array(
-		'#type' => 'textfield',
-		'#title' => t('File Global Upload Max Size (in MB)'),
-		'#default_value' =>variable_get('file_global_upload_max_size',2),
-		'#size' => 2,
-		'#maxlength' => 2,
-		'#element_validate' => array('element_validate_integer_positive'),
-		'#description' => t('Global Upload Max File Size (in MB).'),
-		'#required' => TRUE,
-		);
-		return system_settings_form($form);
-	  break;
-	}
-}
-/**
- * Implements hook_views_data().
- */
-function sakal_utility_views_data() {
-  $data = array();
-  $data['filedepot_files']['table']['base'] = array(
-    'field' => 'fid',
-    'title' => t('Filedepot Files'),
-    'help' => t("Filedepot files base table"),
-    );
-  $data['filedepot_files']['table']['join']['file_managed'] = array(
-    'left_field' => 'fid',
-    'field' => 'drupal_fid',
-    );
-
-  $data['filedepot_files']['drupal_fid'] = array(
-    'title' => t('Drupal File Id'),
-    'help' => t('Some example content that references a node.'),
-    'field' => array(
-    'handler' => 'views_handler_field_numeric',
-    'click sortable' => TRUE,
-    ),
-    'filter' => array(
-      'handler' => 'views_handler_filter_numeric',
-    ),
-    'sort' => array(
-      'handler' => 'views_handler_sort',
-    ),
-   );
-  
-  // Example integer field.
-  $data['filedepot_files']['version'] = array(
-    'title' => t('File Version'),
-    'help' => t('File Version'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'filter' => array(
-      'handler' => 'views_handler_filter_numeric',
-    ),
-    'sort' => array(
-      'handler' => 'views_handler_sort',
-    ),
-  );
-  $data['filedepot_files']['cid'] = array(
-    'title' => t('Category Id'),
-    'help' => t('Some example content that references a node.'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'relationship' => array(
-      'base' => 'filedepot_categories', // The name of the table to join with.
-      'base field' => 'cid', // The name of the field on the joined table.
-      'field' => 'cid', //-- see hook_views_data_alter(); not needed here.
-      'handler' => 'views_handler_relationship',
-      'label' => t('Default label for the relationship'),
-      'title' => t('Title shown when adding the relationship'),
-      'help' => t('More information on this relationship'),
-    ),
-    'filter' => array(
-      'handler' => 'views_handler_filter_numeric',
-    ),
-    'sort' => array(
-      'handler' => 'views_handler_sort',
-    ),
-   
-  );
-  return $data;
-}
-
-function sakal_utility_views_pre_render(&$view) {
-  $results = &$view->result;
-  if (count($results)>0 && $view->name=='policy_and_procedures' ) {	 	  
-    foreach ($results as $key => $result) {
-      if (isset($result->file_managed_field_data_filedepot_folder_file__filedepot_fil_2)) {
-         $view->result[$key]->file_managed_field_data_filedepot_folder_file__filedepot_fil_2 =
-          preg_replace('/\\.[^.\\s]{3,4}$/',
-            '',
-            $result->file_managed_field_data_filedepot_folder_file__filedepot_fil_2);
-      }
+    case 'system_file_system_settings':
+      $form['file_global_upload_max_size'] = array(
+      '#type' => 'textfield',
+      '#title' => t('File Global Upload Max Size (in MB)'),
+      '#default_value' => variable_get('file_global_upload_max_size', 2),
+      '#size' => 2,
+      '#maxlength' => 2,
+      '#element_validate' => array('element_validate_integer_positive'),
+      '#description' => t('Global Upload Max File Size (in MB).'),
+      '#required' => TRUE,
+      );
+      $form['#validate'][] = 'system_file_system_settings_validate';
+      return system_settings_form($form);
+      break;
     }
-  }
 }
 
+/*
+ * Validate system file form 
+ */
+function system_file_system_settings_validate($form, &$form_state) {  
+  $file_size_limit_in_bytes=human2byte($form_state['values']['file_global_upload_max_size'] .'mb');
+  if($file_size_limit_in_bytes > (parse_size(ini_get('upload_max_filesize')))) {
+    form_set_error('file_global_upload_max_size', t('You are not allowed set size more than server upload maximum filesize limit'));
+  }
+} 
+
+/*
+ * Implementation of hook_views_api()
+ */
 function sakal_utility_views_api($module = NULL, $api = NULL) {
   return array("api" => "2.0");
 }
 
+/*
+ * Implementation of hook_node_validate()
+ * To restrict Authored date should be current time 
+ */
 function sakal_utility_node_validate($node, $form, &$form_state) {  
   if (isset($form_state['values']['date']) && $form_state['values']['date']!='') {  
     $created_date=gmdate("Y-m-d H:i", strtotime($form_state['values']['date']));
     $today=gmdate("Y-m-d H:i", time());
     if (strtotime($created_date)> strtotime($today)) {
       form_set_error('date', t('Authored on should not be future time'));
-    }	
+    }
   }
 }
 
-
+/**
+ * Implementation of hook_node_form_submit_handler()
+ * Redirect all form to home page after submiting
+ */
 function sakal_utility_node_form_submit_handler($form, &$form_state) {
   $form_state['redirect']  = $GLOBALS['base_url'];
   $_GET['destination']='/';
-  
 }
 
-
+/**
+ * Implementation of hook_block_view_alter()
+ * To apply custom class to block
+ */
 function sakal_utility_block_view_alter(&$data, $block) {
-  if(isset($block->subject) && $block->subject=='Alert'){
-    $block->homebox_classes=$block->homebox_classes.' alert_widget';
+  if (isset($block->subject) && $block->subject=='Alert') {
+    $block->homebox_classes=$block->homebox_classes . ' alert_widget';
   }
 }
 
+/**
+ * Implementation of hook_after_build()
+ * To apply js form validation to check file upload size
+ */
 function sakal_utility_after_build($form, &$form_state) {
-	
   include_file_validation_js_function();
   return $form;
 }
-function include_file_validation_js_function(){
+
+/**
+ * Function to apply js form validation to check file upload size
+ */
+function include_file_validation_js_function() {
   global $file_global_upload_max_size;
   $path = drupal_get_path('theme', 'intranet');
-  $file_global_upload_max_size_bytes=human2byte($file_global_upload_max_size.'mb');
-  drupal_add_js(array('intranet' => array('file_global_upload_max_size' => $file_global_upload_max_size,'file_global_upload_max_size_bytes'=>$file_global_upload_max_size_bytes)), array('type' => 'setting'));
-  drupal_add_js ("$path/js/validation.js");
-	
+  $file_global_upload_max_size_bytes=human2byte($file_global_upload_max_size . 'mb');
+  drupal_add_js(array('intranet_settings' => array('file_global_upload_max_size' => $file_global_upload_max_size , 'file_global_upload_max_size_bytes' => $file_global_upload_max_size_bytes)) , array('type' => 'setting'));
+  drupal_add_js("$path/js/validation.js");
 }
+
+/**
+ * Function to convert bytes size into KB,MB
+ */
 function human2byte($value) {
   return preg_replace_callback('/^\s*(\d+)\s*(?:([kmgt]?)b?)?\s*$/i', function ($m) {
     switch (strtolower($m[2])) {
@@ -370,4 +365,196 @@ function human2byte($value) {
     }
     return $m[1];
   }, $value);
+}
+
+/**
+ * Implementation of hook_node_form_submit_handler()
+ * Redirect all form to home page after submiting
+ */
+function sakal_utility_node_submit($node, $form, &$form_state) {
+  $form_state['redirect'] = '/';
+}
+
+/**
+ * Implements hook_libraries_info().
+ */
+function sakal_utility_libraries_info() {
+  $libraries = array();
+  $libraries['fullcalendar'] = array(
+    'name' => 'fullcalendar',
+    'vendor url' => 'http://fullcalendar.io/',
+    'download url' => 'https://github.com/arshaw/fullcalendar/releases/download/v2.6.0/fullcalendar-2.6.0.zip',
+    'version callback' => 'short_circuit_version',
+    'files' => array(
+      'js' => array(
+				'lib/moment.min.js',
+        'fullcalendar.js',
+				
+      ),
+			'css' => array(
+        'fullcalendar.css',
+      ),
+    ),
+  );
+  return $libraries;
+}
+/**
+* Short-circuit the version argument.
+*/
+function short_circuit_version() { 
+  return TRUE;
+}
+/**
+ * Implements hook_menu().
+ * Added menu link to whistle blower configuration page, poup callback page & comment form
+ */
+function sakal_utility_menu() {
+  $items = array();
+
+
+  $items['admin/config/content/whistle_blower'] = array(
+    'title' => 'Whistle Blower',
+    'description' => 'Configuration for Whistle Blower module',
+    'file' => 'sakal_utility.whistle_blower.inc',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('whistle_blower_admin_form'),
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+    
+  );
+   $items['whistle_blower_comment'] = array(
+    'file' => 'sakal_utility.whistle_blower.inc',
+    'page callback' => 'whistle_blower_comment_page',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['whistle_blower_comment/%ctools_js'] = array(
+    'file' => 'sakal_utility.whistle_blower.inc',
+    'page callback' => 'whistle_blower_comment_callback',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );  
+
+  return $items;
+}
+
+/**
+ * Implemented hook_theme
+ * To set whistle blower mail template
+ */
+function sakal_utility_theme($existing, $type, $theme, $path) {
+  // Ex 1: the "story" node edit form.
+   $items['whistle_mail_template'] = array(
+    'render element' => 'element',
+    'template' => 'whistle-mail-template',
+    'veriables' => array('params' => array()),   
+    'path' => drupal_get_path('theme', 'intranet') . '/tpl',
+  );
+  return $items;
+}
+
+/*
+ *  Implementation of hook_mail()
+ *  To sent the mail to whistle blower team 
+ */
+function sakal_utility_mail($key, &$message, $params) {
+  global  $base_path;
+  $theme_path=path_to_theme();
+  $base_url= $_SERVER['SERVER_NAME'] . base_path() . $theme_path;
+  $options = array(
+    'langcode' => $message['language']->language,
+  );
+  $params['base_url']=$base_url;
+  switch ($key) {
+    case 'whistle_blower':
+      $message['subject'] = t($params['subject']);
+      $message['headers']['mime-version'] = '1.0';
+      $message['headers']['content-type'] = 'multipart/mixed;';
+      $message['headers']['content-type'] = 'text/html;';
+      $variables = array(
+        'params' => $params    
+      );
+      $message['body'][] = theme('whistle_mail_template', $variables);
+    break;
+  }
+}
+
+/**
+ * Implement hook_content_alter_oprations.
+ * Hide publish options from /admin/content for authore user role.
+ * 
+ * @param $comment
+ *   Array of Oprations.
+ * @return
+ *    Array of Oprations.
+ */
+function sakal_utility_node_alter_operations($operations) {
+  if (!user_access('moderate content from needs_review to published')) {
+    unset($operations['publish']);
+  }
+  return $operations;
+}
+/**
+ * Implements hook_cron().
+ */
+function sakal_utility_cron() {
+    $events = array();
+    $users = entity_load('user');
+    if (!$users) {
+      return FALSE;
+    }
+    foreach ($users as $user) {
+      $uri = 'public://';
+      $field_birthday = field_get_items('user', $user, 'birthdays');
+      $field_joining_date = field_get_items('user',$user,'field_employee_joining_date');
+      $user_picture = !empty($user->picture)?file_create_url($user->picture->uri):file_create_url($uri).'/detail-user.png';
+      $username = !empty($user->name)?$user->name:'user';
+      if(!$field_joining_date && !$field_birthday){
+        continue;
+      }
+      else if (!$field_joining_date) {
+        $eventDate = date('Y').'-'.str_pad($field_birthday[0]['month'], 2, '0', STR_PAD_LEFT).'-'.str_pad($field_birthday[0]['day'], 2, '0', STR_PAD_LEFT);
+        $event= array(
+          "start" => $eventDate, 
+          "className" => "calendarBirthday",
+          "username" => $username,
+          "userpicture" => $user_picture,
+        );
+        array_push($events,$event);
+        continue;
+      }
+      else if(!$field_birthday){
+        $eventDate = date('Y').'-'.str_pad($field_joining_date[0]['month'], 2, '0', STR_PAD_LEFT).'-'.str_pad($field_joining_date[0]['day'], 2, '0', STR_PAD_LEFT);
+        $event= array(
+          "start" => $eventDate, 
+          "className" => "calendarAnniversary",
+          "username" => $username,
+          "userpicture" => $user_picture,
+        );
+        array_push($events,$event);
+        continue;
+      }
+      else{
+        $eventDate = date('Y').'-'.str_pad($field_birthday[0]['month'], 2, '0', STR_PAD_LEFT).'-'.str_pad($field_birthday[0]['day'], 2, '0', STR_PAD_LEFT);
+        $event= array(
+          "start" => $eventDate, 
+          "className" => "calendarBirthday",
+          "username" => $username,
+          "userpicture" => $user_picture,
+        );
+        array_push($events,$event);
+        $eventDate = date('Y').'-'.str_pad($field_joining_date[0]['month'], 2, '0', STR_PAD_LEFT).'-'.str_pad($field_joining_date[0]['day'], 2, '0', STR_PAD_LEFT);
+        $event= array(
+          "start" => $eventDate, 
+          "className" => "calendarAnniversary",
+          "username" => $username,
+          "userpicture" => $user_picture,
+        );
+        array_push($events,$event);
+      }
+    }
+    $path = drupal_realpath($uri);
+    variable_set('eventjson',$events);
 }

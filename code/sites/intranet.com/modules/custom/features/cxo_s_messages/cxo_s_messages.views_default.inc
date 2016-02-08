@@ -157,7 +157,7 @@ function cxo_s_messages_views_default_views() {
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'document_store_date_formate';
+  $handler->display->display_options['fields']['created']['date_format'] = 'cxo_message_date_formate';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';

@@ -94,6 +94,9 @@ function event_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -130,7 +133,8 @@ function event_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_event_calendar';
   $strongarm->value = array(
-    0 => 'revision',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_event_calendar'] = $strongarm;
 

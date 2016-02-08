@@ -24,7 +24,9 @@ function anniversary_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Birthday';
   $handler->display->display_options['use_ajax'] = TRUE;
-  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['use_more_text'] = 'View all';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -132,16 +134,16 @@ function anniversary_views_default_views() {
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: User: Created month */
-  $handler->display->display_options['arguments']['created_month']['id'] = 'created_month';
-  $handler->display->display_options['arguments']['created_month']['table'] = 'users';
-  $handler->display->display_options['arguments']['created_month']['field'] = 'created_month';
-  $handler->display->display_options['arguments']['created_month']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['created_month']['default_argument_type'] = 'php';
-  $handler->display->display_options['arguments']['created_month']['default_argument_options']['code'] = 'return date(\'m\', REQUEST_TIME);';
-  $handler->display->display_options['arguments']['created_month']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['created_month']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['created_month']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: User: Employee Joining date (field_employee_joining_date:month) */
+  $handler->display->display_options['arguments']['field_employee_joining_date_month_1']['id'] = 'field_employee_joining_date_month_1';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month_1']['table'] = 'field_data_field_employee_joining_date';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month_1']['field'] = 'field_employee_joining_date_month';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month_1']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month_1']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month_1']['default_argument_options']['code'] = 'return date(\'m\', REQUEST_TIME);';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month_1']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month_1']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month_1']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: User: Active */
@@ -213,26 +215,26 @@ function anniversary_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: User: Created month */
-  $handler->display->display_options['arguments']['created_month']['id'] = 'created_month';
-  $handler->display->display_options['arguments']['created_month']['table'] = 'users';
-  $handler->display->display_options['arguments']['created_month']['field'] = 'created_month';
-  $handler->display->display_options['arguments']['created_month']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['created_month']['default_argument_type'] = 'php';
-  $handler->display->display_options['arguments']['created_month']['default_argument_options']['code'] = 'return date(\'m\', REQUEST_TIME);';
-  $handler->display->display_options['arguments']['created_month']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['created_month']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['created_month']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: User: Created day */
-  $handler->display->display_options['arguments']['created_day']['id'] = 'created_day';
-  $handler->display->display_options['arguments']['created_day']['table'] = 'users';
-  $handler->display->display_options['arguments']['created_day']['field'] = 'created_day';
-  $handler->display->display_options['arguments']['created_day']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['created_day']['default_argument_type'] = 'php';
-  $handler->display->display_options['arguments']['created_day']['default_argument_options']['code'] = 'return date(\'d\', REQUEST_TIME);';
-  $handler->display->display_options['arguments']['created_day']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['created_day']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['created_day']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: User: Employee Joining date (field_employee_joining_date:month) */
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['id'] = 'field_employee_joining_date_month';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['table'] = 'field_data_field_employee_joining_date';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['field'] = 'field_employee_joining_date_month';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['default_argument_options']['code'] = 'return date(\'m\', REQUEST_TIME);';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: User: Employee Joining date (field_employee_joining_date:day) */
+  $handler->display->display_options['arguments']['field_employee_joining_date_day']['id'] = 'field_employee_joining_date_day';
+  $handler->display->display_options['arguments']['field_employee_joining_date_day']['table'] = 'field_data_field_employee_joining_date';
+  $handler->display->display_options['arguments']['field_employee_joining_date_day']['field'] = 'field_employee_joining_date_day';
+  $handler->display->display_options['arguments']['field_employee_joining_date_day']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_employee_joining_date_day']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_employee_joining_date_day']['default_argument_options']['code'] = ' return date(\'d\', REQUEST_TIME);';
+  $handler->display->display_options['arguments']['field_employee_joining_date_day']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_employee_joining_date_day']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_employee_joining_date_day']['summary_options']['items_per_page'] = '25';
 
   /* Display: Recent Joiner Monthwise */
   $handler = $view->new_display('block', 'Recent Joiner Monthwise', 'recent_joiner_monthwise');
@@ -267,26 +269,79 @@ function anniversary_views_default_views() {
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: User: Created year */
-  $handler->display->display_options['arguments']['created_year']['id'] = 'created_year';
-  $handler->display->display_options['arguments']['created_year']['table'] = 'users';
-  $handler->display->display_options['arguments']['created_year']['field'] = 'created_year';
-  $handler->display->display_options['arguments']['created_year']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['created_year']['default_argument_type'] = 'php';
-  $handler->display->display_options['arguments']['created_year']['default_argument_options']['code'] = 'return date(\'Y\');';
-  $handler->display->display_options['arguments']['created_year']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['created_year']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['created_year']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: User: Created month */
-  $handler->display->display_options['arguments']['created_month']['id'] = 'created_month';
-  $handler->display->display_options['arguments']['created_month']['table'] = 'users';
-  $handler->display->display_options['arguments']['created_month']['field'] = 'created_month';
-  $handler->display->display_options['arguments']['created_month']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['created_month']['default_argument_type'] = 'php';
-  $handler->display->display_options['arguments']['created_month']['default_argument_options']['code'] = 'return date(\'m\', REQUEST_TIME);';
-  $handler->display->display_options['arguments']['created_month']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['created_month']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['created_month']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: User: Employee Joining date (field_employee_joining_date:year) */
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['id'] = 'field_employee_joining_date_year';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['table'] = 'field_data_field_employee_joining_date';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['field'] = 'field_employee_joining_date_year';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['default_argument_options']['code'] = 'return date(\'Y\');';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: User: Employee Joining date (field_employee_joining_date:month) */
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['id'] = 'field_employee_joining_date_month';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['table'] = 'field_data_field_employee_joining_date';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['field'] = 'field_employee_joining_date_month';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['default_argument_options']['code'] = 'return date(\'m\', REQUEST_TIME);';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['summary_options']['items_per_page'] = '25';
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Recent Joiner Monthwise';
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'View all';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Picture */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: User: Employee Joining date (field_employee_joining_date:year) */
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['id'] = 'field_employee_joining_date_year';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['table'] = 'field_data_field_employee_joining_date';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['field'] = 'field_employee_joining_date_year';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['default_argument_options']['code'] = 'return date(\'Y\');';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_employee_joining_date_year']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: User: Employee Joining date (field_employee_joining_date:month) */
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['id'] = 'field_employee_joining_date_month';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['table'] = 'field_data_field_employee_joining_date';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['field'] = 'field_employee_joining_date_month';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['default_argument_options']['code'] = 'return date(\'m\', REQUEST_TIME);';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_employee_joining_date_month']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['path'] = 'recent_joiner';
   $export['birthdays'] = $view;
 
   return $export;

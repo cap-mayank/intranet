@@ -4,26 +4,8 @@
 
     <div class="page-content">
         <div class="row clearfix contentMargin">
-            <div class="grid_12 alpha clearfix">
-                <?php
-                if ($page['top_news']):
-                  ?>
-                  <div class="intranet_slider mbf">
-                      <div class="slider_a owl-carouseltheme">
-
-                          <div class="item clearfix">
-
-                              <?php
-                              print render($page['top_news']);
-                              ?>
-                          </div><!-- /slide -->
-
-                          <!-- /slide -->
-
-                      </div><!-- /slider -->
-                  </div>
-
-                <?php endif; ?>
+            <div class="grid_12 alpha clearfix" >
+                
 
 
                 <div class="grid_12 omega posts righter clearfix">

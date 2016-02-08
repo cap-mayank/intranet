@@ -4,8 +4,8 @@
 		 //alert(settings.intranet.file_global_upload_max_size);
 		
 		  $(document).ready(function(){
-		  var max_size_bytes=settings.intranet.file_global_upload_max_size_bytes;
-		  var max_size=settings.intranet.file_global_upload_max_size;
+		  var max_size_bytes=settings.intranet_settings.file_global_upload_max_size_bytes;
+		  var max_size=settings.intranet_settings.file_global_upload_max_size;
 		  $("input[type='file']").each(function( intIndex){
 				var $this=	$(this);
 			  $this.bind('change', function() {	

@@ -87,6 +87,9 @@ function company_news_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -109,9 +112,7 @@ function company_news_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_company_news';
-  $strongarm->value = array(
-    0 => 'menu-widget',
-  );
+  $strongarm->value = array();
   $export['menu_options_company_news'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -126,7 +127,8 @@ function company_news_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_company_news';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_company_news'] = $strongarm;
 

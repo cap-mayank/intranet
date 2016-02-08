@@ -46,7 +46,7 @@ function document_store_field_default_field_bases() {
     'settings' => array(
       'display_default' => 1,
       'display_field' => 1,
-      'uri_scheme' => 'temporary',
+      'uri_scheme' => 'public',
     ),
     'translatable' => 0,
     'type' => 'file',

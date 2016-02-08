@@ -93,7 +93,7 @@ function photo_gallery_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Broken/missing handler */
+  /* Field: : field_image_caption */
   $handler->display->display_options['fields']['field_image_caption']['id'] = 'field_image_caption';
   $handler->display->display_options['fields']['field_image_caption']['table'] = 'field_data_field_image_caption';
   $handler->display->display_options['fields']['field_image_caption']['field'] = 'field_image_caption';
@@ -145,6 +145,12 @@ function photo_gallery_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'photo_gallery_page');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Photo */
   $handler->display->display_options['fields']['field_gallery_image']['id'] = 'field_gallery_image';
@@ -211,7 +217,7 @@ function photo_gallery_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'photo_gallery_block');
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '8';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_photo_grid';

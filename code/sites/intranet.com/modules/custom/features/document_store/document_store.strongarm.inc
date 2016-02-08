@@ -22,7 +22,7 @@ function document_store_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'filedepot_extensions';
   $strongarm->value = 'jpg=jpg.gif, gif=gif.gif, bmp=bmp.gif, doc=doc.gif, docx=doc.gif, xls=xls.gif, xlsx=xls.gif
-ppt=ppt.gif, pptx=ppt.gif, mpp=mpp.gif, pdf=pdf.gif, txt=txt.gif, zip=zip.gif
+ppt=ppt.gif, pptx=ppt.gif, mpp=mpp.gif, pdf=pdf.gif, txt=txt.gif, zip=zip.gif, mp4=mp4
 ';
   $export['filedepot_extensions'] = $strongarm;
 
@@ -37,7 +37,7 @@ ppt=ppt.gif, pptx=ppt.gif, mpp=mpp.gif, pdf=pdf.gif, txt=txt.gif, zip=zip.gif
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'file_global_upload_max_size';
-  $strongarm->value = '3';
+  $strongarm->value = '2';
   $export['file_global_upload_max_size'] = $strongarm;
 
   return $export;

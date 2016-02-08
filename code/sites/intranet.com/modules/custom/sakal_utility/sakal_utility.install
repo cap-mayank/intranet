@@ -123,15 +123,15 @@ function sakal_utility_update_7003() {
   // Enable event feature widget. 
   $module_list = array(
     'event',
-	'holiday_calendar',
+    'holiday_calendar',
   );
   module_enable($module_list, TRUE); 
   
   // Revert fetaures.
   $features = array(
     'company_news',
-	'cxo_s_messages',
-	'document_store',
+    'cxo_s_messages',
+    'document_store',
   );
   features_revert($features);
 }
@@ -146,19 +146,19 @@ function sakal_utility_update_7004() {
   // Enable Sakal Properties feature widget. 
   $module_list = array(
     'sakal_properties',
-	'birthdays',
-	'anniversary',
+    'birthdays',
+    'anniversary',
   );
   module_enable($module_list, TRUE); 
   // Revert fetaures.
   $features = array(
     'cluster_of_link',
-	'photo_gallery',
-	'company_news',
-	'announcement',
-	'holiday_calendar',
-	'document_store',
-	'event',
+    'photo_gallery',
+    'company_news',
+    'announcement',
+    'holiday_calendar',
+    'document_store',
+    'event',
   );
   features_revert($features);
 
@@ -190,7 +190,7 @@ function sakal_utility_update_7005() {
   }
    // Revert fetaures.
   $features = array(
-    'sakal_properties',	
+    'sakal_properties',
   );
   features_revert($features);
 }
@@ -201,7 +201,107 @@ function sakal_utility_update_7005() {
 function sakal_utility_update_7006() {
    // Revert fetaures.
   $features = array(
-    'document_store',	
+    'document_store',
+  );
+  features_revert($features);
+}
+/**
+ * Implements hook_update_N().
+ * To Revert Document Store widget  add fetaure display role base file listing
+ * To enable Ticker Widget
+ */
+function sakal_utility_update_7007() {
+   // Revert fetaures.
+  $features = array(
+    'document_store',
+  );
+  features_revert($features);
+  // Enable Ticker widget. 
+  $module_list = array(
+    'ticker',
+    'smtp'
+  );
+  module_enable($module_list, TRUE); 
+}
+/**
+ * Implements hook_update_N().
+ * Create new table * 
+ */
+function sakal_utility_update_7008() {
+$schema['sakal_utility_whistle_blower_comment'] = array(
+    'description' => ('Custome table to store all users comment for whistle blower'),
+    'fields'      => array(
+      'wid' => array(
+        'description' => ('serial id'),
+        'type'        => 'serial',
+        'size'        => 'medium',
+        'not null'    => TRUE,
+      ),
+      'uid'         => array(
+        'description' => ('User Id : comment posted by this user'),
+        'type'        => 'int',
+        'size'        => 'medium',
+        'not null'    => TRUE,
+        'default'     => 0,
+      ),
+      'department_id'         => array(
+        'description' => ('Department Id with the reference of taxonomy vid'),
+        'type'        => 'int',
+        'not null'    => TRUE,
+        'default'     => 0,
+      ),   
+      'comment' => array(
+        'description' => ('Users comment!'),
+        'type'        => 'text',
+        'size'        => 'big',
+      ), 
+    ),
+    'primary key' => array(
+      0 => 'wid',
+    ),
+    'indexes' => array(
+      'wid' => 
+      array(
+        0 => 'wid',
+        1 => 'uid',
+      ),
+    ),
+  );
+  db_create_table('sakal_utility_whistle_blower_comment', $schema['sakal_utility_whistle_blower_comment']);
+   
+}
+
+/**
+ * Implements hook_update_N().
+ * To Revert photo gallery display images 6 in a block
+ */
+function sakal_utility_update_7009() {
+  // Revert fetaures.
+  $features = array(
+    'photo_gallery',
+  );
+
+  features_revert($features);
+  variable_set('whistle_blower_title', 'Whistle Blower');
+  variable_set('whistle_blower_content', 'A whistleblower (whistle-blower or whistle blower) is a person who exposes any kind of information or activity that is deemed illegal, unethical, or not correct within an organization that is either private or public.');
+  variable_set('whistle_blower_to_email', 'admin@intranet.com');
+  variable_set('whistle_blower_report_incident_content', 'AN ACT to establish a mechanism to receive complaints relating to disclosure on any allegation of corruption or wilful misuse of power or wilful misuse of discretion against any public servant and to inquire or cause an inquiry into such disclosure and to provide adequate safeguards against victimisation of the person making such complaint and for matters connected therewith and incidental thereto.');
+}
+
+
+/**
+ * Implements hook_update_N().
+ * To Revert features
+ */
+function sakal_utility_update_7010() {
+// Revert fetaures.
+  $features = array(
+    'cluster_of_link',
+    'photo_gallery',
+    'sakal_properties',
+    'cxo_s_messages',
+    'document_store',
+    'ticker',
   );
   features_revert($features);
 }

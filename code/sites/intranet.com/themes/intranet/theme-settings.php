@@ -108,14 +108,12 @@ function intranet_form_system_theme_settings_alter(&$form, $form_state) {
       '#title' => t('Footer copyright message'),
       '#default_value' => theme_get_setting('footer_copyright_message', 'intranet'),
   );
-/*
+
   $form['settings']['footer']['footer_columns'] = array(
-      '#type' => 'select',
-      '#title' => t('Footer columns'),
-	  '#options' => array('6'=>t('6 col'),'4'=>t('4 col'),'3'=>t('3 col')),
-      '#default_value' => theme_get_setting('footer_columns', 'intranet'),
+      '#type' => 'hidden',
+      '#default_value' => 6,
   );
-*/
+
   $form['settings']['footer']['footer_image_path'] = array(
       '#type' => 'textfield',
       '#title' => t('Path to custom footer image'),
@@ -149,5 +147,5 @@ function intranet_system_theme_settings_submit($form, &$form_state) {
 		 }
 		  $form_state['values'][$path] = $destination;
 	  }
-  }
+  }  
 }

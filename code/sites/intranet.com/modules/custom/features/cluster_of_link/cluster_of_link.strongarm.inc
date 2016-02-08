@@ -70,8 +70,8 @@ function cluster_of_link_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_cluster_of_links';
   $strongarm->value = array(
-    0 => 'status',
-    1 => 'promote',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_cluster_of_links'] = $strongarm;
 

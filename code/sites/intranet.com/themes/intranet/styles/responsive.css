@@ -19,7 +19,7 @@
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 	body {overflow-x: hidden}
 	.boxed, .boxed-margin, body[class^="frame_"] .full, body[class^="frame_"] .boxed, body[class^="frame_"] .boxed-margin {width: 100% !important;margin: 0 !important}
-	.row { width: 700px }
+	.row { width: 98%; }
 	.col1, .col2, .col3, .col4, .grid_9 {width: 100%;}
 	.sidebar, .post {width: 100%;margin: 0 0 40px}
 	.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12,
@@ -42,7 +42,7 @@
 	.sf-menu li { float: none !important; display: block !important; width: 100% !important;overflow: hidden; }
 	.sf-menu li a, .sf-menu li:first-child a, .sf-menu ul li, .sf-menu li.current { float: none !important; border: 0; padding:10px; }
 	.sf-menu li a.homeLink {padding-left: 21px;background: url(../images/home-icon.png) no-repeat 4% 46%;line-height: 15px;}
-	.sf-menu li:hover ul, .sf-menu li.sfHover ul {box-shadow: none;-webkit-animation: initial;animation: initial;-moz-animation: initial;-o-animation: initial; }
+	.sf-menu li:hover ul, .sf-menu li.sfHover ul {box-shadow: none;-webkit-animation: initial;anima 	tion: initial;-moz-animation: initial;-o-animation: initial; }
 	.sf-menu ul {position:static !important; display: none !important; width: 100%; }
 	.xpopdrop > ul {display: block !important; visibility: inherit !important }
 	.sf-menu li:hover > a, .sf-menu li > a:hover, .sf-menu li.current > a {border: 0}
@@ -53,7 +53,7 @@
 	.sf-menu li li li a {padding-left: 13% !important;}
 	.sf-menu li li li li a {padding-left: 16% !important;}
 	.second_menu .sf-menu {top: 31px}
-
+#toTop{display:none !important;}
 	.logo {margin: 0}
 	.ads {width: 468px;margin: 16px 0}
 	h3 {font-size: 16px}
@@ -61,10 +61,10 @@
 	.copyright {float: none;display: table;margin: 0 auto}
 	#footer .grid_3, #footer .grid_4, #footer .grid_9 {width: 48%; margin: 0 1% 30px}
 	.tabs li a {padding: 10px 5px}
-	.breaking_news {display: none}
+	/*.breaking_news {display: none}*/
 	.intranet_slider .slide_details h3 {padding: 4px 12px;font-size: 12px;font-weight: 300;line-height: 20px}
 	.grid_8 .grid_6 {width: 48%}
-    .homebox-column-wrapper{width:100%!important;clear:both;}
+    .homebox-column-wrapper{width:50%!important;}
 	.loginContainerright{float:none; width:80%;}
 	.contentMargin{ margin: 0 auto;}
 	#homebox-buttons{z-index: 4;
@@ -90,7 +90,10 @@
 .grid_3 {-webkit-box-ordinal-group: 3; -moz-box-ordinal-group: 3; box-ordinal-group: 3;}
 	
 	#homebox-add {background: #fff;margin: 0 0 0 10px; position: absolute; margin-left: 6px; z-index: 9999; border: #ccc solid 1px; width: 95%; border-radius: 3px; padding: 10px;}
-}
+
+	
+	
+	}
 
 @media only screen max-width: 768px) {
 	.loginContainerright{float:none; width:100%;}
@@ -103,7 +106,7 @@
 @media only screen and (min-width: 480px) and (max-width: 768px) {
 	body {overflow-x: hidden}
 	.col1, .col2, .col3, .col4, .boxed, .boxed-margin, body[class^="frame_"] .full, body[class^="frame_"] .boxed, body[class^="frame_"] .boxed-margin {width: 100% !important;margin: 0 !important}
-	.row { width: 400px }
+	.row { width: 94%; }
 	.sidebar, .post {width: 100%;margin: 0 0 40px}
 	.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12,
 	.grid_1.alpha,.grid_1.omega, .grid_2.alpha,.grid_2.omega, .grid_3.alpha,.grid_3.omega, .grid_4.alpha,.grid_4.omega, .grid_5.alpha,.grid_5.omega,
@@ -137,14 +140,14 @@
 	.second_menu .sf-menu {top: 31px}
 
 	.logo {    float: left;
-    width: 30%;
+    width: 23%;
     /* display: table; */
     margin: 24px auto 10px;}
 	h3 {font-size: 16px}
 	.pagination-tt {margin: 0 0 60px 0}
 	.copyright {float: none;display: table;margin: 0 auto}
 	.tabs li a {padding: 10px 5px}
-	.breaking_news, .social_head {display: none}
+	/*.breaking_news, .social_head {display: none}*/
 	.grid_8 .grid_6 {width: 48%}
 	.intranet_slider .slide_details {display: none}
 	.posts_block .alpha {margin-left: 0 !important;margin-right: 1% !important;}
@@ -152,6 +155,7 @@
 	#date_time {padding: 5px 10px}
 	.view-id-intranet_blocks .view-content .grid_6.alpha .float-shadow img, .view-header .view-news-group .view-content .grid_6 alpha .views-field img{width:95%!important;}
 	.homebox-column-wrapper{width:100%!important;clear:both;}
+	#homebox-buttons {margin-top: -36px;}
 	.loginContainerright{float:none; width:100%;}
 	.contentMargin {margin: 0 auto;}
 	#homebox-add { width: 91.3%;}
@@ -186,7 +190,42 @@
     padding: 0;}
 	.right_bar .menu{margin-right:0;}
 	.right_bar .menu li{margin-right:0; margin-left:15px;}
-	.homebox-header{margin-top: 24px;margin-right: -17px;}
+	.homebox-header{margin-top: 0px;margin-right: -17px;}
+.grid_12.alpha, .grid_12.omega{width:100%;}
+.node-type-holiday-calendar .grid_9.alpha, .grid_9.omega{width:91% !important;}
+#toTop{display:none!important;}
+.view-id-announcement_view .views-exposed-form .views-exposed-widget, .page-companynews .views-exposed-form .views-exposed-widget, #edit-field-brand-tid-wrapper, #edit-field-location-tid-wrapper{width:100%;}
+
+.views-exposed-form label {
+    float: left;
+    font-weight: normal;
+    margin-top: 7px;
+    /* color: #fff; */
+    margin-right: 10px;
+    display: block;
+    width: 100%;}
+	#edit-field-brand-tid, #edit-field-location-tid {
+    width: 99%;
+}
+.views-submit-button {
+    width: 20% !important;
+    margin-top: 15px!important;
+margin-left: 0px;}
+.breaking_news.lefter .block-js-news {
+    margin-top: -12px;
+    float: left;
+}
+#footer{width:100%}
+.grid_12.alpha.clearfix{display: -webkit-box; display: -moz-box; display: box; -webkit-box-orient: vertical;-moz-box-orient: vertical;box-orient: vertical;}
+	.grid_9 {-webkit-box-ordinal-group: 2;-moz-box-ordinal-group: 2; box-ordinal-group: 2;}
+.grid_3 {-webkit-box-ordinal-group: 3; -moz-box-ordinal-group: 3; box-ordinal-group: 3;}
+.sticky_true {
+    width: 98%;
+    margin-top: 83px;
+}
+#header .c_head{margin-top:10px;}
+.breaking_news.lefter .block-js-news{margin-left:0; width:100%;}
+.copyright{right:25px;}
 }
 
 /*  #Mobile (Portrait) 320px
@@ -194,12 +233,12 @@
 @media only screen and (min-width: 100px) and (max-width: 480px) {
 	body {overflow-x: hidden}
 	.col1, .col2, .col3, .col4, .boxed, .boxed-margin, body[class^="frame_"] .full, body[class^="frame_"] .boxed, body[class^="frame_"] .boxed-margin {width: 100% !important;margin: 0 !important}
-	.row { width: 290px; padding: 0; }
+	.row { width: 95%; padding: 0; }
 	.sidebar, .post {width: 100%;margin: 0 0 40px}
 	.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12,
 	.grid_1.alpha,.grid_1.omega, .grid_2.alpha,.grid_2.omega, .grid_3.alpha,.grid_3.omega, .grid_4.alpha,.grid_4.omega, .grid_5.alpha,.grid_5.omega,
 	.grid_6.alpha,.grid_6.omega, .grid_7.alpha,.grid_7.omega, .grid_8.alpha,.grid_8.omega, .grid_9.alpha,.grid_9.omega, .grid_10.alpha,.grid_10.omega, .grid_11.alpha,.grid_11.omega {width: 100%;margin: 0 0 30px}
-
+#toTop{display:none!important;}
 	#mobilepro, .subarrow { display: block; }
 	.subarrow {display: block;z-index: 99;position: absolute;top: 0;right: 0;cursor: pointer;font-size: 16px;}
 	.sf-menu {position: absolute;top: 52px;right: auto;left: 0;background: #1D1E20;}
@@ -232,12 +271,52 @@
 	.pagination-tt {margin: 0 0 60px 0}
 	.copyright {float: none;display: table;margin: 0 auto}
 	.tabs li a {padding: 10px 5px}
-	.breaking_news {display: none}
+	/*.breaking_news {display: none}*/
 	.social a {width: 24px}
 	.intranet_slider .slide_details, .social_head, [class^='small_slider_'] .owl-controls, [class^='carousel_'] .owl-controls, [class^='carousel-'] .owl-controls {display: none !important}
 	.posts_block .alpha {margin-left: 0 !important;margin-right: 1% !important;}
 	.posts_block .omega {margin-right: 0 !important;margin-left: 1% !important;}
 	.post_day .relative .cat:after {border: 0}
 	.homebox-column-wrapper{width:100%!important;clear:both;}
-	.loginContainerright{float:none; width:100%;}
+	.loginContainerright{float:none; width:100%;}.right_icons{    margin-top: -34px;}
+	.grid_12.alpha, .grid_12.omega{width:100%;}
+	.node-type-holiday-calendar .grid_9.alpha, .grid_9.omega{width:91% !important;}
+	.view-id-announcement_view .views-exposed-form .views-exposed-widget, .page-companynews .views-exposed-form .views-exposed-widget, #edit-field-brand-tid-wrapper, #edit-field-location-tid-wrapper{width:100%;}
+	.views-exposed-form label {
+    float: left;
+    font-weight: normal;
+    margin-top: 7px;
+    /* color: #fff; */
+    margin-right: 10px;
+    display: block;
+    width: 100%;}
+	#edit-field-brand-tid, #edit-field-location-tid {
+    width: 99%;
+}
+.views-submit-button {
+    width: 20% !important;
+    margin-top: 15px!important;
+margin-left: 0px;}
+.breaking_news.lefter .block-js-news {
+    margin-top: -12px;
+    float: left;
+}
+#footer{width:100%}
+.grid_12.alpha.clearfix{display: -webkit-box; display: -moz-box; display: box; -webkit-box-orient: vertical;-moz-box-orient: vertical;box-orient: vertical;}
+	.grid_9 {-webkit-box-ordinal-group: 2;-moz-box-ordinal-group: 2; box-ordinal-group: 2;}
+.grid_3 {-webkit-box-ordinal-group: 3; -moz-box-ordinal-group: 3; box-ordinal-group: 3;}
+.sticky_true {
+    width: 98%;
+    margin-top: 83px;
+}
+#header .c_head{margin-top:10px;}
+.breaking_news.lefter .block-js-news{margin-left:0; width:100%;}
+#footer{width:auto; height:auto;}
+#footer img{display:none;}
+#footer div.row.clearfix {padding: 0 20px;margin: 0 auto;}
+#footer .grid_2{    height: 196px;
+    width: 33%;
+    margin-bottom: 10px;}
+#footer .logo {display: none;}
+.copyright{right:25px;}
 }

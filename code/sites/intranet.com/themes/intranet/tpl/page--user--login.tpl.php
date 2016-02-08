@@ -12,7 +12,6 @@
             <?php if ($page['content'] || isset($messages)):  ?>
               <?php print render($page['content']); ?>
             <?php endif; ?>
-            <div class="welcomeLogin">Forgot Fassword</div>
           </div><!-- wellcome login -->
         </div><!-- end grid9 -->
       </div><!-- end grid9 -->

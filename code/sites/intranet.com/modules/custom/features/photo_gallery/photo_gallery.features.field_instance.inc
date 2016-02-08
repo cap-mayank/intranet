@@ -21,7 +21,7 @@ function photo_gallery_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'flexslider_thumbnail',
+          'image_style' => 'photo_gallery_and_event',
         ),
         'type' => 'image',
         'weight' => 0,

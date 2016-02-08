@@ -191,22 +191,22 @@ function holiday_calendar_field_default_field_instances() {
             ),
           ),
         ),
-        'field_publishing_date' => array(
-          'und' => array(
-            0 => array(
-              'value' => '2016-01-11 19:15:00',
-              'show_todate' => TRUE,
-              'timezone' => 'Asia/Kolkata',
-              'offset' => 19800,
-              'offset2' => 19800,
-              'value2' => '2016-01-11 19:15:00',
-            ),
-          ),
-        ),
         'field_location' => array(
           'und' => array(
             0 => array(
               'tid' => NULL,
+            ),
+          ),
+        ),
+        'field_publishing_date' => array(
+          'und' => array(
+            0 => array(
+              'value' => '2016-01-11 00:00:00',
+              'show_todate' => FALSE,
+              'timezone' => 'Asia/Kolkata',
+              'offset' => 19800,
+              'offset2' => 19800,
+              'value2' => '2016-01-11 00:00:00',
             ),
           ),
         ),
@@ -238,7 +238,7 @@ function holiday_calendar_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_holiday',
     'label' => 'Holiday',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),

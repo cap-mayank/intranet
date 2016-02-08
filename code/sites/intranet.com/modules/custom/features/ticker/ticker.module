@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Ticker feature.
+ */
+
+include_once 'ticker.features.inc';

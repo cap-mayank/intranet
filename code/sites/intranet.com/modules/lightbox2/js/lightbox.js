@@ -174,7 +174,11 @@ Lightbox = {
 
     // Setup onclick handlers.
     if (Lightbox.disableCloseClick) {
-      $('#lightbox2-overlay').click(function() { Lightbox.end(); return false; } ).hide();
+      $('#lightbox2-overlay').click(function() {
+		  $('body').css('position', 'static');
+		  Lightbox.end(); 
+	  return false;
+	  } ).hide();
     }
     $('#loadingLink, #bottomNavClose').click(function() { Lightbox.end('forceClose'); return false; } );
     $('#prevLink, #framePrevLink').click(function() { Lightbox.changeData(Lightbox.activeImage - 1); return false; } );
