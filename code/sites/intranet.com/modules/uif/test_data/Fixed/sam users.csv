@@ -1,0 +1,137 @@
+field_emp_id,field_first_name,field_last_name,field_position,mail,field_employee_joining_date,field_pers_area,field_employee_group,field_department,field_per_s_area,field_vertical,field_sub_vertical,birthdays,field_employee_function,field_blood_group,field_marital_status,field_marriage_date,field_cost_center,field_emp_status,field_ee_sub_group,field_emplopee_sub_group,field_py_area,field_middle_name,pass
+218,hanumant,kumbhar,Sr-Manager-Marketing,hanumant.kumbhar@esakal.com,,Pune, ETC ,Circulation - Sales & Marketing, Shivaji Nagar , TV ,, 01.06.1964 , TV ,,,,,,,,,,218
+433,amit,golwalkar,Special-Correspondent,amit.golwalkar@esakal.com,,Pune, ETC ,Editorial, Pune Main , TV ,, 16.05.1968 , TV ,,,,,,,,,,433
+521,mahendra,kurundkar,Sr-Manager-Advt-Sales,mahendra.kurundkar@saamtv.com,,Kolhapur, ETC ,"Advt - Sales, Marketing & Other", Kolhapur Main , TV ,, 28.08.1969 , TV ,,,,,,,,,,521
+739,rajendra,kapure,Sr-Manager-Advt-Sales,rajendra.kapure@saamtv.com,,Nashik, ETC ,"Advt - Sales, Marketing & Other", Nasik City Office , TV ,, 17.07.1971 , TV ,,,,,,,,,,739
+200115,sunil,shedolkar,Manager-Advt-Sales,sunil.shedolkar@esakal.com,,Aurangabad, ACTIVE - OPEN ENDED ,"Advt - Sales, Marketing & Other", Aurangabad Main , TV ,, 25.07.1964 , TV ,,,,,,,,,,200115
+200691,shubhangi,patankar,Sr-Manager-Sales,shubhangi.patankar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,"Advt - Sales, Marketing & Other", Fort (Pune) , TV ,, 06.11.1980 , TV ,,,,,,,,,,200691
+200779,sanjay,tumram,Reporter-TVDivision,sanjay.tumram@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Editorial, Pune - Chandrap , TV ,, 04.01.1973 , TV ,,,,,,,,,,200779
+200781,sanjay,daf,Reporter-TVDivision,sanjay.daf@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Editorial, Pune - Nagpur , TV ,, 29.03.1981 , TV ,,,,,,,,,,200781
+201087,sudhakar,sharma,Creative-Head-Graphics,sudhakar.sharma@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Graphics Department (TV), Pune - Belapur , TV ,, 25.09.1975 , TV ,,,,,,,,,,201087
+201144,deepak,keluskar,Sr-Video-Editor,deepak.keluskar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 22.05.1987 , TV ,,,,,,,,,,201144
+201152,rupesh,dalvi,Video-Editor,rupesh.dalvi@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 24.11.1982 , TV ,,,,,,,,,,201152
+201158,anil,singh,Manager-Accounts,anil.singh@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Finance and Accounts, Pune - Belapur , TV ,, 07.12.1965 , TV ,,,,,,,,,,201158
+201258,manoj,achrekar,Manager-Distribution-TV,manoj.achrekar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Circulation - Sales & Marketing, Pune - Belapur , TV ,, 19.05.1972 , TV ,,,,,,,,,,201258
+201382,santosh,jadhav,Production-Head,santosh.jadhav@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 07.03.1975 , TV ,,,,,,,,,,201382
+201384,kiran,pradhan,Director-of-Photography,kiran.pradhan@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 24.09.1979 , TV ,,,,,,,,,,201384
+201387,ramesh,biradar,Injest-Scheduling-Incharge,ramesh.biradar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 03.03.1977 , TV ,,,,,,,,,,201387
+201389,pravin,owhal,Asst-Manager-Production,pravin.owhal@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Finance and Accounts, Pune - Belapur , TV ,, 15.01.1985 , TV ,,,,,,,,,,201389
+201391,Bhagwan,jadhav,Asst-Manager-Advt-Scheduling-Support,Bhagwan.jadhav@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Advt - Scheduling & Support, Pune - Belapur , TV ,, 17.04.1984 , TV ,,,,,,,,,,201391
+201441,ashok,vyavahare,Executive-Producer,ashok.vyavahare@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Programming (TV), Pune - Belapur , TV ,, 01.06.1981 , TV ,,,,,,,,,,201441
+201458,sagar,lad,Sr-Executive-Make-up,sagar.lad@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Make up, Pune - Belapur , TV ,, 31.12.1977 , TV ,,,,,,,,,,201458
+201459,sameer,bhosale,Sr-Executive-Electrical,sameer.bhosale@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Engineering (TV), Pune - Belapur , TV ,, 02.03.1977 , TV ,,,,,,,,,,201459
+201465,Chandramohan,Puppala,Business-Head-SAAM-TV-Mumbai-Unit,champ@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Admin - Locations, Pune - Belapur , TV ,, 24.06.1970 , TV ,,,,,,,,,,201465
+300540,milind,wankhede,District-Correspondent-,milind.wankhede@saamtv.com,,Aurangabad, ACTIVE - OPEN ENDED ,Editorial, Aurangabad Main , TV ,, 01.06.1980 , TV ,,,,,,,,,,300540
+301132,ashok,surwase,Sr-Executive-Producer-News-Current-Affairs,ashok.surwase@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 04.01.1969 , TV ,,,,,,,,,,301132
+301259,durgesh,sonar,Sr-Producer,durgesh.sonar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 09.10.1978 , TV ,,,,,,,,,,301259
+301275,sunil,dange,Cameraman-News,sunil.dange@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune Main , TV ,, 08.01.1961 , TV ,,,,,,,,,,301275
+301283,ninad,mahadik,Executive-Injest,ninad.mahadik@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 25.07.1985 , TV ,,,,,,,,,,301283
+301284,shankar,khetle,Production-Organiser,shankar.khetle@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 01.06.1978 , TV ,,,,,,,,,,301284
+301285,sanjay,kesarkar,Production-Organiser,sanjay.kesarkar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 18.09.1973 , TV ,,,,,,,,,,301285
+301287,shailendra,kanade,Assistant-Production-Organiser,shailendra.kanade@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 13.05.1977 , TV ,,,,,,,,,,301287
+301288,ganesh,kanade,Cameraman,ganesh.kanade@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 26.12.1979 , TV ,,,,,,,,,,301288
+301298,yogesh,narkar,Asst-Production-Organiser,yogesh.narkar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 05.01.1982 , TV ,,,,,,,,,,301298
+301301,subhash,kesarkar,Asst-Production-Organiser,subhash.kesarkar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 07.01.1981 , TV ,,,,,,,,,,301301
+301306,avinash,balkawde,Cameraman,avinash.balkawde@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 24.04.1981 , TV ,,,,,,,,,,301306
+301405,suraj,salunkhe,Asst-Production-Organiser-Dress-Department,suraj.salunkhe@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 15.08.1977 , TV ,,,,,,,,,,301405
+301424,sachin,sawant,Cameraman,sachin.sawant@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Kolhapur , TV ,, 02.01.1983 , TV ,,,,,,,,,,301424
+201790,anup,kulkarni,Cameraman-News,anup.kulkarni@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 12.04.1973 , TV ,,,,,,,,,,201790
+301472,mohammed,imran,Cameraman-News,mohammed.imran@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Aurangabad , TV ,, 12.12.1982 , TV ,,,,,,,,,,301472
+301475,pranali,more,Sr-Reporter-TVDivision,pranali.more@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 19.11.1981 , TV ,,,,,,,,,,301475
+201791,rajendra,gamare,Cameraman-News,rajendra.gamare@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 29.06.1972 , TV ,,,,,,,,,,201791
+301478,sampat,more,Cameraman-News,sampat.more@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune Main , TV ,, 12.03.1978 , TV ,,,,,,,,,,301478
+301513,surekha,patil,Graphic-Artist-TVDivision,surekha.patil@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Graphics Department (TV), Pune - Belapur , TV ,, 01.06.1980 , TV ,,,,,,,,,,301513
+301519,ashok,dandekar,Asst-Art-Director-TVDivision,ashok.dandekar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 21.03.1967 , TV ,,,,,,,,,,301519
+301546,pandurang,kanade,Light-Boy,pandurang.kanade@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 01.06.1975 , TV ,,,,,,,,,,301546
+301547,manoj,khetle,Cameraman,manoj.khetle@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 07.03.1985 , TV ,,,,,,,,,,301547
+301548,nilesh,jadhav,Light-Boy,nilesh.jadhav@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 06.05.1986 , TV ,,,,,,,,,,301548
+301551,arvind,raorane,Cameraman,arvind.raorane@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 23.05.1983 , TV ,,,,,,,,,,301551
+301552,anil,tikhe,Sr-Executive-Electrical,anil.tikhe@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Engineering (TV), Pune - Belapur , TV ,, 01.12.1972 , TV ,,,,,,,,,,301552
+301555,swapnil,belnekar,Asst-Executive-Producer,swapnil.belnekar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Programming (TV), Pune - Belapur , TV ,, 22.12.1979 , TV ,,,,,,,,,,301555
+301559,sunil,bhor,Video-Editor,sunil.bhor@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 09.12.1979 , TV ,,,,,,,,,,301559
+301560,manoj,kadam,Video-Editor,manoj.kadam@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 12.02.1980 , TV ,,,,,,,,,,301560
+301583,yogesh,tawsalkar,Cameraman,yogesh.tawsalkar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 03.01.1973 , TV ,,,,,,,,,,301583
+301590,prakash,korgaonkar,Cameraman,prakash.korgaonkar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 13.11.1967 , TV ,,,,,,,,,,301590
+301591,suryakant,ghorpade,Cameraman,suryakant.ghorpade@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 26.01.1977 , TV ,,,,,,,,,,301591
+301592,prakash,bhatt,Sr-Executive-Stores,prakash.bhatt@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 10.02.1972 , TV ,,,,,,,,,,301592
+301593,yogesh,shinde,Sr-Executive-Stores,yogesh.shinde@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 29.09.1979 , TV ,,,,,,,,,,301593
+301607,milind,ghag,Cameraman,milind.ghag@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 18.06.1975 , TV ,,,,,,,,,,301607
+301609,parshuram,haryan,Asst-Production-Organiser,parshuram.haryan@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 11.05.1975 , TV ,,,,,,,,,,301609
+301611,shekhar,jadhav,Jr-Executive-Injest,shekhar.jadhav@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 16.09.1987 , TV ,,,,,,,,,,301611
+301618,rakesh,nerurkar,Cameraman-News,rakesh.nerurkar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 25.11.1979 , TV ,,,,,,,,,,301618
+301619,parag,kharat,Video-Editor,parag.kharat@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 09.09.1976 , TV ,,,,,,,,,,301619
+301620,pachendra,tembhare,Cameraman-News,pachendra.tembhare@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 08.07.1978 , TV ,,,,,,,,,,301620
+301622,amit,keer,Cameraman-News,amit.keer@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 15.06.1980 , TV ,,,,,,,,,,301622
+201793,anil,thakare,Cameraman-News,anil.thakare@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Chandrap , TV ,, 25.06.1985 , TV ,,,,,,,,,,201793
+201794,manoj,aglawe,Cameraman-News,manoj.aglawe@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Nagpur , TV ,, 15.04.1980 , TV ,,,,,,,,,,201794
+301634,mahesh,mhatre,Electrician,mahesh.mhatre@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Engineering (TV), Pune - Belapur , TV ,, 01.08.1980 , TV ,,,,,,,,,,301634
+301646,vijay,lotankar,Sr-Executive-Stores,vijay.lotankar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 21.03.1984 , TV ,,,,,,,,,,301646
+301759,mahendra,gurav,Jr-Executive-IT,mahendra.gurav@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Information Technology, Pune - Belapur , TV ,, 10.03.1983 , TV ,,,,,,,,,,301759
+301835,parshuram,chavan,Asst-Manager-Accounts,parshuram.chavan@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Finance and Accounts, Pune - Belapur , TV ,, 14.08.1980 , TV ,,,,,,,,,,301835
+301916,sunil,joshi,Bulletin-Producer,sunil.joshi@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 13.09.1976 , TV ,,,,,,,,,,301916
+301919,rachana,vichare,Anchor,rachana.vichare@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 13.08.1974 , TV ,,,,,,,,,,301919
+301920,mahesh,bagal,Reporter-TVDivision,mahesh.bagal@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 23.12.1982 , TV ,,,,,,,,,,301920
+301945,tushar,shende,Video-Editor,tushar.shende@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 25.02.1981 , TV ,,,,,,,,,,301945
+301963,milind,tambe,Reporter-TVDivision,milind.tambe@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 08.11.1978 , TV ,,,,,,,,,,301963
+201496,surendra,nag,Chief-Video-Editor,surendra.nag@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 13.10.1970 , TV ,,,,,,,,,,201496
+201511,vihang,thakur,Bulletin-Producer,vihang.thakur@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 14.06.1984 , TV ,,,,,,,,,,201511
+201800,dattaram,vharavadekar,Smoke-Artist,dattaram.vharavadekar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 29.04.1978 , TV ,,,,,,,,,,201800
+201520,ashish,vyas,Regional-Head-Advt-Sales-Retail,ashish.vyas@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,"Advt - Sales, Marketing & Other", Pune - Belapur , TV ,, 08.04.1970 , TV ,,,,,,,,,,201520
+302152,yogesh,gaikwad,Video-Editor,yogesh.gaikwad@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 16.01.1988 , TV ,,,,,,,,,,302152
+302157,kapalini,sinkar,Reporter-TVDivision,kapalini.sinkar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 26.11.1988 , TV ,,,,,,,,,,302157
+302250,sagar,shinde,MCR-Executive,sagar.shinde@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 11.10.1987 , TV ,,,,,,,,,,302250
+302260,dinu,gavit,Video-Editor,dinu.gavit@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 15.04.1984 , TV ,,,,,,,,,,302260
+302286,sandesh,mhatre,Sr-Executive-Advt-Scheduling-Support,sandesh.mhatre@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Advt - Scheduling & Support, Pune - Belapur , TV ,, 13.05.1981 , TV ,,,,,,,,,,302286
+201740,ajay,petkar,Asst-Manager-Advt-Sales-TV,ajay.petkar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,"Advt - Sales, Marketing & Other", Shivaji Nagar , TV ,, 09.06.1981 , TV ,,,,,,,,,,201740
+302296,jithender,akkaldevi,Manager-Advt-Sales,jithender.akkaldevi@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,"Advt - Sales, Marketing & Other", Pune - Belapur , TV ,, 12.10.1985 , TV ,,,,,,,,,,302296
+400371,nitin,mohite,Jr-Executive-Injest,nitin.mohite@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 26.08.1983 , TV ,,,,,,,,,,400371
+302322,swati,ketkar,Assistant-Producer,swati.ketkar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 29.08.1983 , TV ,,,,,,,,,,302322
+302328,abhishek,shah,Assistant-Executive-Producer,abhishek.shah@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Programming (TV), Pune - Belapur , TV ,, 09.01.1983 , TV ,,,,,,,,,,302328
+302329,shilpa,gujar,Anchor-Cum-Producer,shilpa.gujar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 17.08.1985 , TV ,,,,,,,,,,302329
+302345,nitin,bodhare,Cameraman,nitin.bodhare@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 29.01.1983 , TV ,,,,,,,,,,302345
+302348,sandeep,bhujabal,Producer,sandeep.bhujabal@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 07.06.1984 , TV ,,,,,,,,,,302348
+302351,akshaykumar,bansode,PCR-Executive,akshaykumar.bansode@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 27.10.1986 , TV ,,,,,,,,,,302351
+201771,shivaji,bhosale,Technical-Head,shivaji.bhosale@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 05.08.1977 , TV ,,,,,,,,,,201771
+302437,tejaswi,kamath,Sr-Online-Content-Executive,tejaswi.kamath@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 21.09.1988 , TV ,,,,,,,,,,302437
+302504,narender,bisht,Head-Advt-Sales-Govt-Business,narender.bisht@saamtv.com,,Pune, ACTIVE - FIXED TERM ,"Advt - Sales, Marketing & Other", Delhi , TV ,, 31.08.1971 , TV ,,,,,,,,,,302504
+302511,kiran,kajale,Cameraman,kiran.kajale@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune Main , TV ,, 28.04.1980 , TV ,,,,,,,,,,302511
+302578,mayuresh,kadav,Bulletin-Producer-Cum-Anchor,mayuresh.kadav@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 01.05.1981 , TV ,,,,,,,,,,302578
+302614,rahul,shinde,Sr-Executive-Library,rahul.shinde@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Editorial - Library, Pune - Belapur , TV ,, 23.08.1988 , TV ,,,,,,,,,,302614
+302675,shailendra,badad,Camera-Attendant,shailendra.badad@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 07.10.1988 , TV ,,,,,,,,,,302675
+202249,devendra,hambire,OB-MCR-Executive,devendra.hambire@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 01.04.1985 , TV ,,,,,,,,,,202249
+202251,Mangesh,Chivate,Special-Correspondent,#N/A,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 15.06.1988 , TV ,,,,,,,,,,202251
+202269,prashant,agawane,Sr-Bulletin-Producer,prashant.agawane@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 13.04.1972 , TV ,,,,,,,,,,202269
+302763,abhijit,sawant,PCR-Executive,abhijit.sawant@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Technical & Broadcasting, Pune - Belapur , TV ,, 12.05.1987 , TV ,,,,,,,,,,302763
+202270,Abhay,Sharma,Graphics-Artist,#N/A,,Pune, ACTIVE - OPEN ENDED ,Graphics Department (TV), Pune - Belapur , TV ,, 05.01.1985 , TV ,,,,,,,,,,202270
+400447,ramesh,pawar,Jr-Executive-Technical-Broad-Casting,ramesh.pawar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Technical & Broadcasting, Pune - Belapur , TV ,, 07.10.1992 , TV ,,,,,,,,,,400447
+400448,yuvraj,nalawade,Jr-Executive-Technical-Broad-Casting,yuvraj.nalawade@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Technical & Broadcasting, Pune - Belapur , TV ,, 29.11.1989 , TV ,,,,,,,,,,400448
+400449,rohit,rade,Jr-Executive-Technical-Broad-Casting,rohit.rade@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Technical & Broadcasting, Pune - Belapur , TV ,, 16.12.1987 , TV ,,,,,,,,,,400449
+302770,yashodhan,pane,PCR-Executive,yashodhan.pane@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Technical & Broadcasting, Pune - Belapur , TV ,, 06.10.1990 , TV ,,,,,,,,,,302770
+302782,pravin,badhe,Asst-Video-Editor,pravin.badhe@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Production (TV), Pune - Belapur , TV ,, 05.09.1988 , TV ,,,,,,,,,,302782
+202287,santosh,jadhav,Sr-Executive-PCR,santosh.jadhav@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 15.12.1975 , TV ,,,,,,,,,,202287
+202288,sameer,jawale,Bulletin-Producer,sameer.jawale@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 12.12.1981 , TV ,,,,,,,,,,202288
+202299,mahendra,more,Sr-Reporter,mahendra.more@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 13.06.1982 , TV ,,,,,,,,,,202299
+400453,sagar,mhatre,Jr-Executive-Engineering,sagar.mhatre@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Engineering (TV), Pune - Belapur , TV ,, 05.07.1991 , TV ,,,,,,,,,,400453
+302805,dinesh,jagtap,Electrician,dinesh.jagtap@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Engineering (TV), Pune - Belapur , TV ,, 01.09.1990 , TV ,,,,,,,,,,302805
+202314,joseph,dlima,Head-Corporate-Sales,joseph.dlima@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,"Advt - Sales, Marketing & Other", Pune - Belapur , TV ,, 31.07.1978 , TV ,,,,,,,,,,202314
+202360,rehman,siddiqui,Asst-Manager-Corporate-Sales,rehman.siddiqui@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,"Advt - Sales, Marketing & Other", Pune - Belapur , TV ,, 22.02.1984 , TV ,,,,,,,,,,202360
+302852,sumit,bagul,Sr-Online-Content-Executive,sumit.bagul@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 18.04.1987 , TV ,,,,,,,,,,302852
+302853,shailaja,jogal,Assistant-Producer-Ticker,shailaja.jogal@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 11.11.1992 , TV ,,,,,,,,,,302853
+202379,sanjay,awate,Editor-SAAM-TV,sanjay.awate@esakal.com,,Mumbai, ACTIVE - OPEN ENDED ,Editorial, Navi Mumbai , TV ,, 01.06.1975 , TV ,,,,,,,,,,202379
+302894,onkar,andurlekar,Assistant-Video-Editor,onkar.andurlekar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Production (TV), Pune - Belapur , TV ,, 01.04.1990 , TV ,,,,,,,,,,302894
+302895,mukund,pawar,Assistant-Video-Editor,mukund.pawar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Production (TV), Pune - Belapur , TV ,, 05.09.1988 , TV ,,,,,,,,,,302895
+202380,shashank,kondvilkar,Video-Editor,shashank.kondvilkar@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Production (TV), Pune - Belapur , TV ,, 01.06.1987 , TV ,,,,,,,,,,202380
+202381,tushar,bagde,Manager-Advt-Sales,tushar.bagde@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,"Advt - Sales, Marketing & Other", Pune - Nagpur , TV ,, 10.12.1970 , TV ,,,,,,,,,,202381
+302911,sambhaji,thorat,Reporter,sambhaji.thorat@esakal.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Kolhapur , TV ,, 02.07.1981 , TV ,,,,,,,,,,302911
+302935,lokesh,mali,Cameraman,lokesh.mali@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Light & Camera (TV), Pune - Nashik , TV ,, 01.01.1985 , TV ,,,,,,,,,,302935
+302937,jayram,puri,Reporter,jayram.puri@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Nashik , TV ,, 24.05.1985 , TV ,,,,,,,,,,302937
+302945,Nilesh,Karandikar,Cameraman-Assistant,#N/A,,Pune, ACTIVE - FIXED TERM ,Light & Camera (TV), Pune - Belapur , TV ,, 25.08.1993 , TV ,,,,,,,,,,302945
+302951,harshal,bhadane,Asst-Producer,harshal.bhadane@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 02.04.1993 , TV ,,,,,,,,,,302951
+302952,trupti,palkar,Asst-Producer,trupti.palkar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 26.04.1983 , TV ,,,,,,,,,,302952
+202465,simmi,karna,Content-Head-SAAM-TV,simmi.karna@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Editorial, Pune - Belapur , TV ,, 18.09.1965 , TV ,,,,,,,,,,202465
+303025,ashwini,jadhav,Reporter,ashwini.jadhav@esakal.com,,Pune, ACTIVE - FIXED TERM ,Editorial, Pune Main , TV ,, 20.10.1988 , TV ,,,,,,,,,,303025
+400494,pooja,vichare,Trainee-Producer,pooja.vichare@saamtv.com,,Pune, ACTIVE - TEMP EMPL ,News & Current Affairs (TV), Pune - Belapur , TV ,, 07.11.1992 , TV ,,,,,,,,,,400494
+400495,pramil,kshetre,Trainee-Input-Producer,pramil.kshetre@saamtv.com,,Pune, ACTIVE - TEMP EMPL ,News & Current Affairs (TV), Pune - Belapur , TV ,, 14.10.1991 , TV ,,,,,,,,,,400495
+303040,ankush,kevat,Stores-Assistant,ankush.kevat@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Production (TV), Pune - Belapur , TV ,, 01.02.1992 , TV ,,,,,,,,,,303040
+303042,prashant,sagvekar,Bulletin-Producer,prashant.sagvekar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 11.07.1979 , TV ,,,,,,,,,,303042
+400500,priyanka,gorad,Trainee-Bulletin-Producer,priyanka.gorad@saamtv.com,,Pune, ACTIVE - TEMP EMPL ,News & Current Affairs (TV), Pune - Belapur , TV ,, 15.09.1990 , TV ,,,,,,,,,,400500
