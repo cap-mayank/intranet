@@ -1,19 +1,19 @@
 <?php
 /**
  * @file
- * unites.strongarm.inc
+ * units.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function unites_strongarm() {
+function units_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__unites';
+  $strongarm->name = 'field_bundle_settings_node__units';
   $strongarm->value = array(
     'view_modes' => array(
       'teaser' => array(
@@ -47,45 +47,45 @@ function unites_strongarm() {
       'display' => array(),
     ),
   );
-  $export['field_bundle_settings_node__unites'] = $strongarm;
+  $export['field_bundle_settings_node__units'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_unites';
+  $strongarm->name = 'menu_options_units';
   $strongarm->value = array();
-  $export['menu_options_unites'] = $strongarm;
+  $export['menu_options_units'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_unites';
+  $strongarm->name = 'menu_parent_units';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_unites'] = $strongarm;
+  $export['menu_parent_units'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_unites';
+  $strongarm->name = 'node_options_units';
   $strongarm->value = array(
     0 => 'moderation',
     1 => 'revision',
   );
-  $export['node_options_unites'] = $strongarm;
+  $export['node_options_units'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_unites';
+  $strongarm->name = 'node_preview_units';
   $strongarm->value = '1';
-  $export['node_preview_unites'] = $strongarm;
+  $export['node_preview_units'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_unites';
+  $strongarm->name = 'node_submitted_units';
   $strongarm->value = 0;
-  $export['node_submitted_unites'] = $strongarm;
+  $export['node_submitted_units'] = $strongarm;
 
   return $export;
 }

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * unites.views_default.inc
+ * units.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function unites_views_default_views() {
+function units_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -80,7 +80,7 @@ function unites_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'unites' => 'unites',
+    'units' => 'units',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
 

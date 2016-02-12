@@ -1,18 +1,18 @@
 <?php
 /**
  * @file
- * unites.features.field_instance.inc
+ * units.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function unites_field_default_field_instances() {
+function units_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-unites-body'.
-  $field_instances['node-unites-body'] = array(
-    'bundle' => 'unites',
+  // Exported field_instance: 'node-units-body'.
+  $field_instances['node-units-body'] = array(
+    'bundle' => 'units',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Description about unit should be added here.',
@@ -55,9 +55,9 @@ function unites_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-unites-field_location'.
-  $field_instances['node-unites-field_location'] = array(
-    'bundle' => 'unites',
+  // Exported field_instance: 'node-units-field_location'.
+  $field_instances['node-units-field_location'] = array(
+    'bundle' => 'units',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Unit Office location.',
@@ -92,9 +92,9 @@ function unites_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-unites-field_unit_address'.
-  $field_instances['node-unites-field_unit_address'] = array(
-    'bundle' => 'unites',
+  // Exported field_instance: 'node-units-field_unit_address'.
+  $field_instances['node-units-field_unit_address'] = array(
+    'bundle' => 'units',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Unit postal address should be added here.',
@@ -132,9 +132,9 @@ function unites_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-unites-field_unit_email'.
-  $field_instances['node-unites-field_unit_email'] = array(
-    'bundle' => 'unites',
+  // Exported field_instance: 'node-units-field_unit_email'.
+  $field_instances['node-units-field_unit_email'] = array(
+    'bundle' => 'units',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Unit corporate email should be added here.',
@@ -172,9 +172,9 @@ function unites_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-unites-field_unit_head'.
-  $field_instances['node-unites-field_unit_head'] = array(
-    'bundle' => 'unites',
+  // Exported field_instance: 'node-units-field_unit_head'.
+  $field_instances['node-units-field_unit_head'] = array(
+    'bundle' => 'units',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Head of the Unit Name should be added here.',
@@ -212,9 +212,9 @@ function unites_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-unites-field_unit_images'.
-  $field_instances['node-unites-field_unit_images'] = array(
-    'bundle' => 'unites',
+  // Exported field_instance: 'node-units-field_unit_images'.
+  $field_instances['node-units-field_unit_images'] = array(
+    'bundle' => 'units',
     'deleted' => 0,
     'description' => 'Photo Of unit should be added here.',
     'display' => array(
@@ -262,9 +262,9 @@ function unites_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-unites-field_unit_intro'.
-  $field_instances['node-unites-field_unit_intro'] = array(
-    'bundle' => 'unites',
+  // Exported field_instance: 'node-units-field_unit_intro'.
+  $field_instances['node-units-field_unit_intro'] = array(
+    'bundle' => 'units',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Short Introduction of Unit should be here. 
@@ -303,9 +303,9 @@ introduction will display at home page widget.  ',
     ),
   );
 
-  // Exported field_instance: 'node-unites-field_unit_website'.
-  $field_instances['node-unites-field_unit_website'] = array(
-    'bundle' => 'unites',
+  // Exported field_instance: 'node-units-field_unit_website'.
+  $field_instances['node-units-field_unit_website'] = array(
+    'bundle' => 'units',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'unit website should be added  here. 

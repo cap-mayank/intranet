@@ -1,18 +1,18 @@
 <?php
 /**
  * @file
- * unites.features.user_permission.inc
+ * units.features.user_permission.inc
  */
 
 /**
  * Implements hook_user_default_permissions().
  */
-function unites_user_default_permissions() {
+function units_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'create unites content'.
-  $permissions['create unites content'] = array(
-    'name' => 'create unites content',
+  // Exported permission: 'create units content'.
+  $permissions['create units content'] = array(
+    'name' => 'create units content',
     'roles' => array(
       'administrator' => 'administrator',
       'content approver' => 'content approver',
@@ -22,9 +22,9 @@ function unites_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any unites content'.
-  $permissions['delete any unites content'] = array(
-    'name' => 'delete any unites content',
+  // Exported permission: 'delete any units content'.
+  $permissions['delete any units content'] = array(
+    'name' => 'delete any units content',
     'roles' => array(
       'administrator' => 'administrator',
       'content approver' => 'content approver',
@@ -33,21 +33,9 @@ function unites_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own unites content'.
-  $permissions['delete own unites content'] = array(
-    'name' => 'delete own unites content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'content approver' => 'content approver',
-      'content author' => 'content author',
-      'site administrator' => 'site administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any unites content'.
-  $permissions['edit any unites content'] = array(
-    'name' => 'edit any unites content',
+  // Exported permission: 'delete own units content'.
+  $permissions['delete own units content'] = array(
+    'name' => 'delete own units content',
     'roles' => array(
       'administrator' => 'administrator',
       'content approver' => 'content approver',
@@ -57,9 +45,21 @@ function unites_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own unites content'.
-  $permissions['edit own unites content'] = array(
-    'name' => 'edit own unites content',
+  // Exported permission: 'edit any units content'.
+  $permissions['edit any units content'] = array(
+    'name' => 'edit any units content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'content approver' => 'content approver',
+      'content author' => 'content author',
+      'site administrator' => 'site administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own units content'.
+  $permissions['edit own units content'] = array(
+    'name' => 'edit own units content',
     'roles' => array(
       'administrator' => 'administrator',
       'content approver' => 'content approver',

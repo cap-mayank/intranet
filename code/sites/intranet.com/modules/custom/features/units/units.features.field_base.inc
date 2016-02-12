@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * unites.features.field_base.inc
+ * units.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function unites_field_default_field_bases() {
+function units_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'field_unit_address'.
