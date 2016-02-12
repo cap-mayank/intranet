@@ -26,9 +26,9 @@ function units_views_api($module = NULL, $api = NULL) {
 function units_node_info() {
   $items = array(
     'units' => array(
-      'name' => t('Unites'),
+      'name' => t('Units'),
       'base' => 'node_content',
-      'description' => t('Sakal Unites should added here. Unites will display under Unites menulink of main menu.'),
+      'description' => t('Sakal Units should added here. Units will display under Units menulink of main menu.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
