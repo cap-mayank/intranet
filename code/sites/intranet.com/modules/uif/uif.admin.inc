@@ -890,11 +890,9 @@ function uif_is_supported_field($field_type) {
  * Return list of supported fields.
  */
 function uif_get_supported_fields() {
-  $supported_fields = &drupal_static(__FUNCTION__);
-	watchdog('Supported fields','<pre>'.print_r($supported_fields,true).'</pre>');
+  $supported_fields = &drupal_static(__FUNCTION__);	
   if (!isset($supported_fields)) {
-		$supported_fields = module_invoke_all('uif_supported_fields');
-		watchdog('Supported fields','<pre>'.print_r($supported_fields,true).'</pre>');
+	$supported_fields = module_invoke_all('uif_supported_fields');
     drupal_alter('uif_supported_fields', $supported_fields);
   }
   return $supported_fields;
