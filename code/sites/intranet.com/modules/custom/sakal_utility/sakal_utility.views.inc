@@ -8,16 +8,38 @@
  * Implements hook_views_post_execute().
  */
 function sakal_utility_views_post_execute(&$view) {
+  global $base_url;  
   if ($view->name == 'policy_and_procedures') {
-    $result_array=$view->result;
-    foreach ($result_array as $key => $value) {
+    
+     $new_view=array();
+    foreach ($view->result as $key => $value) {
+      $insert=TRUE;
+      $is_pdf= FALSE;
+      if ($value->file_managed_field_data_filedepot_folder_file__filedepot_fil_4=='pdf') {   
+        $is_pdf=TRUE;       
+      }
+      
+      if ($value->downloadroles != 1 && $value->readonly == 1 && $is_pdf==TRUE) {        
+        //$view->display['policy_block']->handler->display->handler->handlers['field']['title']->options['alter']['path'] = $base_url."/system/files/filedepot/".
+        //$value->file_managed_field_data_filedepot_folder_file__filedepot_fil_6 . "/" . $value->file_managed_field_data_filedepot_folder_file__filedepot_fil_5;
+      }
+      elseif ($value->downloadroles == 0) { 
+          unset($view->result[$key]); 
+          $insert=FALSE;
+        }
       if (isset($value->file_managed_field_data_filedepot_folder_file__filedepot_fil_2)) {
         $cid=$value->file_managed_field_data_filedepot_folder_file__filedepot_fil_2;
         if ($cid) {
           $value->filedepot_categories_filedepot_files_name=parent_folder($cid);
         }
       }
+      if ($insert ==TRUE) {
+        $new_view[]=$value;
+      }
+      
     }
+    $view->result=$new_view;
+    
   }
 }
 /*
@@ -107,6 +129,47 @@ function sakal_utility_views_data() {
     ),
    
   );
+  
+  $data['filedepot_files']['readroles'] = array(
+    'title' => t('Readonly permission'),
+    'help' => t('Readonly Permission.'),
+    'field' => array(
+        'handler' => 'views_handler_field',
+    ),
+    'sort' => array(
+        'handler' => 'views_handler_sort',
+    ),
+    'filter' => array(
+        'handler' => 'views_handler_filter_string',
+    ),
+  );
+  $data['filedepot_files']['downloadroles'] = array(
+    'title' => t('Download permission'),
+    'help' => t('Download Permission.'),
+    'field' => array(
+        'handler' => 'views_handler_field',
+    ),
+    'sort' => array(
+        'handler' => 'views_handler_sort',
+    ),
+    'filter' => array(
+        'handler' => 'views_handler_filter_string',
+    ),
+  );
+   $data['filedepot_files']['extension'] = array(
+    'title' => t('File Extension'),
+    'help' => t('File Extension.'),
+    'field' => array(
+        'handler' => 'views_handler_field',
+    ),
+    'sort' => array(
+        'handler' => 'views_handler_sort',
+    ),
+    'filter' => array(
+        'handler' => 'views_handler_filter_string',
+    ),
+);
+  
  // Applied Role base access 
  $data['filedepot_access']['table']['group'] = t('Filedepot Access');
  $data['filedepot_access']['table']['base'] = array(
@@ -197,22 +260,13 @@ function sakal_utility_views_data() {
   return $data;
 }
 
-/**
- * Implementation of hook_views_query_alter()
- * To document store applied role base constraint
- */
-function sakal_utility_views_query_alter(&$view, &$query) {
-  global $user;
-  if ($view->name == "policy_and_procedures" ) {
-    $rids = array_keys($user->roles);
-    $query->add_where_expression(0, "filedepot_categories_filedepot_files__filedepot_access.permid in ( :user_role)", array(':user_role' => $rids));      
-  }
-}
+
 /**
  * Implementation of hook_views_pre_render()
  * To remove file extension from file title
  */
 function sakal_utility_views_pre_render(&$view) {
+  global $base_url;
   $results = &$view->result;
   if (count($results)>0 && $view->name=='policy_and_procedures' ) {
     foreach ($results as $key => $result) {
@@ -220,16 +274,15 @@ function sakal_utility_views_pre_render(&$view) {
          $view->result[$key]->file_managed_field_data_filedepot_folder_file__filedepot_fil_1 =
           preg_replace('/\\.[^.\\s]{3,4}$/',
             '',
-            $result->file_managed_field_data_filedepot_folder_file__filedepot_fil_1);
+            $result->file_managed_field_data_filedepot_folder_file__filedepot_fil_1);       
+     
       }
     }
   }
-	
+
   //$nodes = node_load_multiple(array_keys($result['node']));
-	// Get current year and get the corresponding published holiday calendar which will be unique.
+  // Get current year and get the corresponding published holiday calendar which will be unique.
   if ($view->name == "birthdays" && $view-> current_display != "recent_joiner_monthwise") {
-		//print_r($view-> current_display);
-		//watchdog('view display', '<pre>'.print_r($view->display,true).'</pre>');
 		$query = new EntityFieldQuery();
 		$result = $query->entityCondition('entity_type', 'node')
 			->entityCondition('bundle', 'holiday_calendar')
@@ -244,5 +297,44 @@ function sakal_utility_views_pre_render(&$view) {
 		$view->display_handler->set_option('link_display', 'custom_url');
 		$view->display_handler->set_option('link_url', 'node/'.$node_id);
 	}
+}
+/**
+ * Implementation of hook_views_query_alter()
+ * To document store applied role base constraint
+ */
+function sakal_utility_views_query_alter(&$view, &$query) {
+  global $user;
+  if ($view->name == "policy_and_procedures" ) {
+    $rids = array_keys($user->roles);    
+    $subexpression=array();
+    foreach ($rids as $key => $values) {
+      $subexpression[]= "IF( 
+      IF(
+      file_managed_field_data_filedepot_folder_file__filedepot_files.readroles IS NULL, 0,
+      FIND_IN_SET(
+      '" . $values . "',file_managed_field_data_filedepot_folder_file__filedepot_files.readroles
+      )
+      )>0,1,0
+      )";
+    }
+    $subexpression=implode(' , ', $subexpression);
+    $query->set_distinct(TRUE);
+    $query->add_field('', 'IF(GREATEST(' . $subexpression . ')>0,1,0)', 'readonly');
+     
+    $subexpression=array();
+    foreach ($rids as $key => $values) {
+      $subexpression[]= "IF(
+      IF(
+      file_managed_field_data_filedepot_folder_file__filedepot_files.downloadroles IS NULL,0, 
+      FIND_IN_SET(
+      '" . $values . "',file_managed_field_data_filedepot_folder_file__filedepot_files.downloadroles
+      )
+      )>0,1,0)";
+    }
+    $subexpression=implode(' , ', $subexpression);
+    $query->add_field('', 'IF(GREATEST(' . $subexpression . ')>0,1,0)', 'downloadroles');
+    $query->add_where_expression(0, "filedepot_categories_filedepot_files__filedepot_access.permid in ( :user_role)", array(':user_role' => $rids));
+    
+  }
 }
 

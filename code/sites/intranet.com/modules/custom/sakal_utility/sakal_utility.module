@@ -22,7 +22,57 @@ function sakal_utility_node_view($node, $view_mode, $langcode) {
     $node->content['poll_view_results']['#markup'] =
       sakal_utility_graph_view($node);
   }
+  if ($node->type == 'filedepot_folder' && arg(2)!='' && arg(1)!='') {
+    $nid=arg(1);
+    $fid=arg(2);
+    $rec= db_select('filedepot_files', 'ff')
+        ->fields('ff')
+        ->condition('ff.fid', $fid, '=')
+        ->execute()
+        ->fetchAssoc();
+    if (count($rec)>0) {
+      if ($rec['downloadroles']!='')
+        $download_access=check_downloadaccess($rec['downloadroles']);
+      else
+        $download_access=0;   
+
+      if ($rec['extension']=='pdf' && $download_access==0) {
+        //display pdf
+        $node_files=$node->content['filedepot_folder_file']['#items'];
+        $new_nodel_file=array();
+        foreach ($node_files as $key => $value) {
+          if ($value['fid']==$rec['drupal_fid']) {
+            $new_nodel_file[]=$value;        
+          }
+        }
+        $node->filedepot_folder_file['und']=$new_nodel_file;
+       $node->content['filedepot_folder_file']['#items']=$new_nodel_file; 
+      }
+      else {
+       drupal_goto('filedepot_download/' . $nid . '/' . $fid);
+      }        
+    }       
+  }//$node->type == 'filedepot_folder'     
+  
 }
+
+/*
+ * Function to check dowanlod permission with user permission
+ */
+function check_downloadaccess($allowedroles='') {
+  global $user;
+  if (strpos($allowedroles, ",")>0) {
+    $rec['downloadroles']=explode(",", $allowedroles);
+   }
+   else {
+    $rec['downloadroles']=array('0' => $allowedroles);
+   }
+   $roles=array_keys($user->roles);  
+   $download_access=count(array_intersect($roles, $rec['downloadroles']));
+   if ($download_access > 0) $download_access = 1;  
+   return $download_access;
+}
+
  
 /**
  * Implements hook_block_info().
@@ -131,7 +181,7 @@ function sakal_utility_block_view($delta = '' ) {
           '#type' => 'html_tag',
           '#tag' => 'div',
           '#attributes' => array('id' => 'whistle_button'),
-          '#value' => l("Report Incident", 'whistle_blower_comment/nojs', array('attributes' => array('class' => 'ctools-use-modal'))),
+          '#value' => l("Report Incident", 'whistle_blower_comment/nojs', array('attributes' => array('class' => 'ctools-use-modal ctools-modal-my-modal-style'))),
           );
         $message= array(
           '#type' => 'html_tag',
@@ -248,6 +298,7 @@ function sakal_utility_graph_view(&$node) {
  * to add field 'file_global_upload_max_size' in file system admin configuration file 
  */
 function sakal_utility_form_alter(&$form, &$form_state, $form_id) {
+  include_file_validation_js_function();
   if ($form['#id'] == 'user-login') {
     $form['name']['#title'] = '';
     $form['name']['#description'] = '';
@@ -286,9 +337,10 @@ function sakal_utility_form_alter(&$form, &$form_state, $form_id) {
  * Validate system file form 
  */
 function system_file_system_settings_validate($form, &$form_state) {  
-  $file_size_limit_in_bytes=human2byte($form_state['values']['file_global_upload_max_size'] .'mb');
-  if($file_size_limit_in_bytes > (parse_size(ini_get('upload_max_filesize')))) {
-    form_set_error('file_global_upload_max_size', t('You are not allowed set size more than server upload maximum filesize limit'));
+  $file_size_limit_in_bytes=human2byte($form_state['values']['file_global_upload_max_size'] . 'mb');
+  //if ($file_size_limit_in_bytes > (parse_size(ini_get('upload_max_filesize')))) {
+  if ($file_size_limit_in_bytes > (parse_size('8M'))) {  
+    form_set_error('file_global_upload_max_size', t('You are not allowed set size more than server upload maximum filesize limit'. ini_get('upload_max_filesize')));
   }
 } 
 
@@ -435,8 +487,16 @@ function sakal_utility_menu() {
     'page arguments' => array(1),
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
-  );  
-
+  ); 
+  $items['admin/config/content/page_title'] = array(
+    'title' => 'Configure Page Title',
+    'description' => 'Configuration for content page title',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('page_title_admin_form'),
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+    
+  );
   return $items;
 }
 
@@ -451,7 +511,7 @@ function sakal_utility_theme($existing, $type, $theme, $path) {
     'template' => 'whistle-mail-template',
     'veriables' => array('params' => array()),   
     'path' => drupal_get_path('theme', 'intranet') . '/tpl',
-  );
+  );  
   return $items;
 }
 
@@ -509,7 +569,7 @@ function sakal_utility_cron() {
       $uri = 'public://';
       $field_birthday = field_get_items('user', $user, 'birthdays');
       $field_joining_date = field_get_items('user',$user,'field_employee_joining_date');
-      $user_picture = !empty($user->picture)?file_create_url($user->picture->uri):file_create_url($uri).'/detail-user.png';
+      $user_picture = !empty($user->picture) ? file_create_url($user->picture->uri) : file_create_url($uri) . 'detail-user.png';
       $username = !empty($user->name)?$user->name:'user';
       if(!$field_joining_date && !$field_birthday){
         continue;
@@ -556,5 +616,30 @@ function sakal_utility_cron() {
       }
     }
     $path = drupal_realpath($uri);
-    variable_set('eventjson',$events);
+    $fp = fopen($path.'/event_birth_anniversary.json', 'w');
+    $birth_anniversary_string = json_encode($events);
+    fwrite($fp, $birth_anniversary_string);
+    fclose($fp);
+}
+/* Admin Confiugration page to set page title
+ * 
+ */
+function page_title_admin_form($form, &$form_state) {
+  $types = node_type_get_types();
+  $types= array_keys($types);
+  if (count($types)>0) {
+    foreach ($types as $key => $value) {
+      $field_name='page_title_' . $value;
+      $label= ucfirst(str_replace("_", " ", $value));
+      $form[$field_name] = array(
+        '#type' => 'textfield',
+        '#title' => t(check_plain($label) . ' Page Title'),
+        '#default_value' => variable_get($field_name, $label),
+        '#size' => 50,
+        '#maxlength' => 50,
+        '#required' => FALSE,
+      );
+    }
+  }  
+  return system_settings_form($form);
 }

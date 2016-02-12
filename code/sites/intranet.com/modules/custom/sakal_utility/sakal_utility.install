@@ -305,3 +305,52 @@ function sakal_utility_update_7010() {
   );
   features_revert($features);
 }
+/**
+ * Implements hook_update_N().
+ * Enable pdf module 
+ * To Revert Document store feature
+ */
+function sakal_utility_update_7011() {
+// Enable PDF modulefor Document store widget. 
+  $module_list = array(
+    'pdf'
+  );
+  module_enable($module_list, TRUE); 
+// Revert fetaures.
+  $features = array(
+    'document_store',
+  );
+  features_revert($features);
+}
+/**
+ * Implements hook_update_N().
+ * To Revert CXO message feature
+ */
+function sakal_utility_update_7012() {
+  // Revert fetaures.
+  $features = array(
+    'cxo_s_messages',
+  );
+  features_revert($features);
+}
+
+/**
+ * Implements hook_update_N().
+ * To Enable Vedio Gallery & dependent module 
+ */
+function sakal_utility_update_7013() {
+  // Enable PDF modulefor Document store widget. 
+  $module_list = array(
+    'file_resup', 
+    'mediaelement', 
+    'video_gallery',
+  );
+  module_enable($module_list, TRUE);
+  // Revert fetaures.
+  $features = array(
+    'document_store',
+    'photo_gallery'
+  );
+  features_revert($features);
+}
+

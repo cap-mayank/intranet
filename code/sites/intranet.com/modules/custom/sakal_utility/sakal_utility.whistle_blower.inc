@@ -25,6 +25,7 @@ function whistle_blower_admin_form($form, &$form_state) {
     '#resizable' => FALSE,
     '#wysiwyg' => TRUE,
     '#required' => TRUE,
+    '#rows' => 1,
     '#maxlength' => 200
   );
   
@@ -43,7 +44,7 @@ function whistle_blower_admin_form($form, &$form_state) {
   $form['whistle_blower_to_email'] = array(
    '#type' => 'textfield',
    '#title' => t('Whistle Blower Receiver Email Address'),
-   '#description' => t('Enter email-id address to receive all comments.'),
+   '#description' => t('Enter email-id to receive all comments.'),
      '#required' => TRUE,
     '#default_value' => variable_get('whistle_blower_to_email'),
     );
@@ -116,7 +117,17 @@ function whistle_blower_comment_form_submit(&$form, &$form_state) {
     $param['department']=$department;
     $param['user_name']=$user->name;
     $param['user_email']=$user->mail;
-    //whistle_blower_send_mail($param);
+    try {
+      $result=whistle_blower_send_mail($param);
+      if ($result == TRUE) {
+        $msg='Whistle Blower comment has been sent successfully';
+      }   
+    } 
+    catch (Exception $e) {
+      //echo 'Caught exception: ',  $e->getMessage(), "\n";
+      watchdog('mail', 'Error in  e-mail sending due to %error', array('%error' =>$e->getMessage()), WATCHDOG_ERROR);
+      $msg='Whistle Blower comment has not been sent ';    
+    }
     $msg='Whistle Blower comment has been sent successfully';    
   }
   else{
@@ -163,8 +174,7 @@ function whistle_blower_send_mail($param) {
   $key = 'whistle_blower';
   $language=language_default();
   $whistle_blower_to=variable_get('whistle_blower_to_email');
- // $to='shagupta_faras@persistent.com;' . $whistle_blower_to;
-  $to='shagupta_faras@persistent.com';
+  $to=$whistle_blower_to;
   $from = $param['user_email'];
   $params = array(
     'comment' => $param['comment'],
@@ -172,15 +182,18 @@ function whistle_blower_send_mail($param) {
     'user_name' => $param['user_name'], 
     'subject' => 'Whistler Blower Comment', 
   );
+
   // Retrieve the responsible implementation for this message.
-  if (drupal_mail($module, $key, $to, $language, $params, $from, TRUE)) {
-    $email_list=$to;
-    drupal_set_message(t('An e-mail has been successfully to Whistle Blower Team.'));
+  $mail=drupal_mail($module, $key, $to, $language, $params, $from, TRUE);
+  if ($mail['result']) {
+    $result=TRUE; 
   }
   else{
-    drupal_set_message(t('Sorry! We are unable to send an e-mail. Request you to contact the site administrator.'));
+    $error_msg = 'Failed to send the email';
+    watchdog('canvas-email', $error_msg, array(), WATCHDOG_ALERT);
+    $result=FALSE;
   }
-
+  return $result;
 }
 /**
  * Function to get list of taxonomy term by there vocabulaory
