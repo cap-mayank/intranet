@@ -99,8 +99,10 @@ field_emp_id,field_first_name,field_last_name,field_position,mail,field_employee
 302614,rahul,shinde,Sr-Executive-Library,rahul.shinde@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Editorial - Library, Pune - Belapur , TV ,, 23.08.1988 , TV ,302614,employee
 302675,shailendra,badad,Camera-Attendant,shailendra.badad@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Light & Camera (TV), Pune - Belapur , TV ,, 07.10.1988 , TV ,302675,employee
 202249,devendra,hambire,OB-MCR-Executive,devendra.hambire@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Technical & Broadcasting, Pune - Belapur , TV ,, 01.04.1985 , TV ,202249,employee
+202251,Mangesh,Chivate,Special-Correspondent,#N/A,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 15.06.1988 , TV ,202251,employee
 202269,prashant,agawane,Sr-Bulletin-Producer,prashant.agawane@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,News & Current Affairs (TV), Pune - Belapur , TV ,, 13.04.1972 , TV ,202269,employee
 302763,abhijit,sawant,PCR-Executive,abhijit.sawant@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Technical & Broadcasting, Pune - Belapur , TV ,, 12.05.1987 , TV ,302763,employee
+202270,Abhay,Sharma,Graphics-Artist,#N/A,,Pune, ACTIVE - OPEN ENDED ,Graphics Department (TV), Pune - Belapur , TV ,, 05.01.1985 , TV ,202270,employee
 400447,ramesh,pawar,Jr-Executive-Technical-Broad-Casting,ramesh.pawar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Technical & Broadcasting, Pune - Belapur , TV ,, 07.10.1992 , TV ,400447,employee
 400448,yuvraj,nalawade,Jr-Executive-Technical-Broad-Casting,yuvraj.nalawade@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Technical & Broadcasting, Pune - Belapur , TV ,, 29.11.1989 , TV ,400448,employee
 400449,rohit,rade,Jr-Executive-Technical-Broad-Casting,rohit.rade@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Technical & Broadcasting, Pune - Belapur , TV ,, 16.12.1987 , TV ,400449,employee
@@ -123,6 +125,7 @@ field_emp_id,field_first_name,field_last_name,field_position,mail,field_employee
 302911,sambhaji,thorat,Reporter,sambhaji.thorat@esakal.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Kolhapur , TV ,, 02.07.1981 , TV ,302911,employee
 302935,lokesh,mali,Cameraman,lokesh.mali@saamtv.com,,Pune, ACTIVE - FIXED TERM ,Light & Camera (TV), Pune - Nashik , TV ,, 01.01.1985 , TV ,302935,employee
 302937,jayram,puri,Reporter,jayram.puri@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Nashik , TV ,, 24.05.1985 , TV ,302937,employee
+302945,Nilesh,Karandikar,Cameraman-Assistant,#N/A,,Pune, ACTIVE - FIXED TERM ,Light & Camera (TV), Pune - Belapur , TV ,, 25.08.1993 , TV ,302945,employee
 302951,harshal,bhadane,Asst-Producer,harshal.bhadane@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 02.04.1993 , TV ,302951,employee
 302952,trupti,palkar,Asst-Producer,trupti.palkar@saamtv.com,,Pune, ACTIVE - FIXED TERM ,News & Current Affairs (TV), Pune - Belapur , TV ,, 26.04.1983 , TV ,302952,employee
 202465,simmi,karna,Content-Head-SAAM-TV,simmi.karna@saamtv.com,,Pune, ACTIVE - OPEN ENDED ,Editorial, Pune - Belapur , TV ,, 18.09.1965 , TV ,202465,employee

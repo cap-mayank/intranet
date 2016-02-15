@@ -59,7 +59,7 @@ function uif_import_form($form, &$form_state) {
       $form['preview_count'] = array(
         '#type' => 'select',
         '#title' => t('Users to preview'),
-        '#default_value' => 10,
+        '#default_value' => 0,
         '#options' => $preview_count,
         '#description' => t('Number of users to preview before importing. Note: If you run out of memory set this lower or increase your memory.')
       );
