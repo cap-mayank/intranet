@@ -40,7 +40,6 @@ function announcement_views_default_views() {
   $handler->display->display_options['relationships']['field_brand_tid']['id'] = 'field_brand_tid';
   $handler->display->display_options['relationships']['field_brand_tid']['table'] = 'field_data_field_brand';
   $handler->display->display_options['relationships']['field_brand_tid']['field'] = 'field_brand_tid';
-  $handler->display->display_options['relationships']['field_brand_tid']['required'] = TRUE;
   /* Field: Taxonomy term: Thumbnail */
   $handler->display->display_options['fields']['field_thumbnail']['id'] = 'field_thumbnail';
   $handler->display->display_options['fields']['field_thumbnail']['table'] = 'field_data_field_thumbnail';

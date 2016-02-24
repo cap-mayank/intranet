@@ -27,11 +27,7 @@ function units_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'View all';
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'time';
-  $handler->display->display_options['cache']['results_lifespan'] = '518400';
-  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
-  $handler->display->display_options['cache']['output_lifespan'] = '21600';
-  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
@@ -98,6 +94,7 @@ function units_views_default_views() {
   $handler->display->display_options['fields']['field_unit_images']['field'] = 'field_unit_images';
   $handler->display->display_options['fields']['field_unit_images']['label'] = '';
   $handler->display->display_options['fields']['field_unit_images']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_unit_images']['empty'] = '<img  src="sites/intranet.com/files/unit-default.jpeg" > ';
   $handler->display->display_options['fields']['field_unit_images']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_unit_images']['settings'] = array(
     'image_style' => 'photo_gallery_and_event',
@@ -120,7 +117,7 @@ function units_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
-    'trim_length' => '600',
+    'trim_length' => '100',
   );
   /* Field: Content: Unit Head name */
   $handler->display->display_options['fields']['field_unit_head']['id'] = 'field_unit_head';
@@ -161,6 +158,7 @@ function units_views_default_views() {
   $handler->display->display_options['fields']['field_unit_images']['field'] = 'field_unit_images';
   $handler->display->display_options['fields']['field_unit_images']['label'] = '';
   $handler->display->display_options['fields']['field_unit_images']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_unit_images']['empty'] = '<img  src="sites/intranet.com/files/units-widget.png" > ';
   $handler->display->display_options['fields']['field_unit_images']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_unit_images']['settings'] = array(
     'image_style' => 'thumbnail',
@@ -181,6 +179,10 @@ function units_views_default_views() {
   $handler->display->display_options['fields']['field_unit_intro']['field'] = 'field_unit_intro';
   $handler->display->display_options['fields']['field_unit_intro']['label'] = '';
   $handler->display->display_options['fields']['field_unit_intro']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_unit_intro']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['field_unit_intro']['settings'] = array(
+    'trim_length' => '50',
+  );
   /* Field: Content: Unit Head name */
   $handler->display->display_options['fields']['field_unit_head']['id'] = 'field_unit_head';
   $handler->display->display_options['fields']['field_unit_head']['table'] = 'field_data_field_unit_head';

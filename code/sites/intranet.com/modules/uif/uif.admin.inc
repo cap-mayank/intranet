@@ -59,7 +59,7 @@ function uif_import_form($form, &$form_state) {
       $form['preview_count'] = array(
         '#type' => 'select',
         '#title' => t('Users to preview'),
-        '#default_value' => 0,
+        '#default_value' => 10,
         '#options' => $preview_count,
         '#description' => t('Number of users to preview before importing. Note: If you run out of memory set this lower or increase your memory.')
       );
@@ -116,10 +116,9 @@ function uif_import_form_validate($form, &$form_state) {
       // Validate the upload file
       $validators = array(
         'file_validate_extensions' => array('csv'),
-        
+        'file_validate_size' => array(file_upload_max_size()),
       );
-       //echo '<pre>'.print_r($form_state).'</pre>';
-       //die;
+
       if ($user_file = file_save_upload('user_upload', $validators)) {
         $errors = uif_validate_user_file($user_file->uri, $data, $form_state);
         if (!empty($errors)) {
@@ -131,7 +130,7 @@ function uif_import_form_validate($form, &$form_state) {
         form_set_error('user_upload', t('Cannot save the import file to temporary storage.  Please try again.'));
         return;
       }
-	
+
       // Save the validated data to avoid reparsing
       $form_state['storage']['data'] = $data;
       break;
@@ -202,7 +201,7 @@ function uif_validate_user_file($uri, &$data, $form_state) {
       return $errors;
     }
     $data['header'] = $header_row;
-   
+    
     // Gather core and entity field info
     $data['fields'] = uif_get_field_info($header_row);
     
@@ -216,8 +215,8 @@ function uif_validate_user_file($uri, &$data, $form_state) {
 
       if (uif_row_has_data($row)) {
         $user_row = uif_clean_and_key_row($header_row, $row, $line);
-		$args = array(':field_emp_id_value' => db_like($user_row['field_emp_id']));
-        $uid = db_query_range('SELECT  entity_id FROM {field_data_field_emp_id} WHERE field_emp_id_value = :field_emp_id_value', 0, 1, $args)->fetchField();
+        $args = array(':mail' => db_like($user_row['mail']));
+        $uid = db_query_range('SELECT uid FROM {users} WHERE mail LIKE :mail', 0, 1, $args)->fetchField();
         
         $more_errors = module_invoke_all('uif_validate_user', $user_row, $uid, $header_row, $form_state);
         uif_add_line_number($more_errors, $line);
@@ -337,13 +336,10 @@ function uif_uif_validate_header($header) {
  */
 function uif_uif_validate_user($user_data, $uid, $header = NULL) {
   $errors = array();
-  //print_r($user_data);die;
+  
   if (!valid_email_address($user_data['mail'])) {
     $errors[] = t('Missing or invalid email address: %mail', array('%mail' => $user_data['mail']));
   }
-	if(empty($user_data['field_emp_id'])){
-		$errors[] = t('Employee id is empty.It is mandetory', array()); 
-	}
   if (isset($user_data['name']) && empty($user_data['name'])) {
     $errors[] = t('Username is empty. Leave this column out to create a unique username based on email address.', array());    
   }
@@ -407,8 +403,9 @@ function theme_uif_preview_one_user($variables) {
   foreach ($user_data as $field => $value) {
     $rows[] = array($field, $value);
   }
-  $args = array(':field_emp_id_value' => db_like($user_data['field_emp_id']));
-  $user_exists = db_query('SELECT  COUNT(*) FROM {field_data_field_emp_id} WHERE field_emp_id_value = :field_emp_id_value', $args)->fetchField();
+  
+  $args = array(':mail' => db_like($user_data['mail']));
+  $user_exists = db_query('SELECT COUNT(*) FROM {users} WHERE mail LIKE :mail', $args)->fetchField();
   $annotation = $user_exists ? t('update') : t('create');
   $heading = $user_data['mail'] . ' (' . $annotation . ')';
   
@@ -489,12 +486,9 @@ function uif_batch_import_users_finished($success, $results, $operations) {
  * Import one user.
  */
 function uif_import_user($user_data, $notify, &$results, $form_state) {
-	
-  //$args = array(':mail' => db_like($user_data['mail']));
-  //if ($uid = db_query('SELECT uid FROM {users} WHERE mail LIKE :mail', $args)->fetchField()) {
-  $args = array(':field_emp_id_value' => db_like($user_data['field_emp_id']));
-  if ($uid = db_query('SELECT entity_id FROM {field_data_field_emp_id} WHERE field_emp_id_value = :field_emp_id_value', $args)->fetchField()) {
-	global $user;
+  $args = array(':mail' => db_like($user_data['mail']));
+  if ($uid = db_query('SELECT uid FROM {users} WHERE mail LIKE :mail', $args)->fetchField()) {
+    global $user;
     if ($uid === $user->uid) {
       $results['self'] = $user_data;
       return;
@@ -503,17 +497,9 @@ function uif_import_user($user_data, $notify, &$results, $form_state) {
     $results['updated']++;
   }
   else {
-	$account = uif_create_user($user_data, $notify, $form_state);
+    $account = uif_create_user($user_data, $notify, $form_state);
     $results['created']++;
   }
-	//making it based on employeed id
-	 $args_new = array(':empid' => $user_data['field_emp_id']);
-	/*if($user_id = db_query('SELECT field_data_field_emp_id.entity_id FROM {field_data_field_emp_id} WHERE field_data_field_emp_id.field_emp_id_value = :empid', $args_new)){
-		//print_r($user_id );die;
-		
-	}*/
-	//$user_id = db_query('SELECT field_data_field_emp_id.entity_id FROM {field_data_field_emp_id} WHERE field_data_field_emp_id.field_emp_id_value = :empid', $args_new);
-	//print_r($user_id);	
 }
 
 /**
@@ -555,7 +541,7 @@ function uif_create_user($user_data, $notify, $form_state) {
  */
 function uif_update_user($user_data, $uid, $form_state) {
   $account = user_load($uid);
-  //print_r($account);die;
+  
   // todo: Support update of user mail. This requires optional inclusion of uid column,
   // which would override use of email column as uid lookup method.
   $changes = module_invoke_all('uif_pre_update', $account, $user_data, $form_state);
@@ -577,7 +563,7 @@ function uif_update_user($user_data, $uid, $form_state) {
   if (isset($user_data['roles'])) {
     $changes['roles'] = uif_parse_roles($user_data['roles']);
   }
- 
+  
   $account = user_save($account, $changes);
   module_invoke_all('uif_post_update', $account, $user_data, $form_state);
   
@@ -651,11 +637,11 @@ function theme_uif_form_help() {
   // Core user table fields
   $supported_fields = uif_get_supported_fields();
   foreach ($supported_fields as $name => $data) {
-    //if ($data['type'] == 'core') {
+    if ($data['type'] == 'core') {
       $required = uif_isset_or($data['required']) ? t('required') : t('optional');
       $subs = array('@name' => $name, '@required' => $required, '!description' => $data['description']);
       $items[] = t('@name (@required) - !description', $subs);
-    //}
+    }
   }
   
   // Entity fields
@@ -778,16 +764,15 @@ function uif_assign_presave_fields($account, $user_data, $form_state) {
       $user_fields[$label] = $parser($account, $info['data'], $user_data[$label]);
     }
     elseif ($info['type'] == 'entity') {
-	
       $field_values = array();
       $values = explode($value_delimiter, $user_data[$label]);
       $key = uif_isset_or($info['import']['key']) ? $info['import']['key'] : 'value';
-     
+      
       foreach ($values as $value) {
         $value = trim($value);
         if (drupal_strlen($value)) {
           $parsed_value = $parser($account, $info['data'], $value);
-		  if (!is_null($parsed_value)) {
+          if (!is_null($parsed_value)) {
             $field_values[] = $parsed_value;
           }
         }
@@ -797,18 +782,14 @@ function uif_assign_presave_fields($account, $user_data, $form_state) {
         if (($info['data']['cardinality'] == 1) && ($delta > 0)) {
           break;
         }
-		
-		if (drupal_strlen($field_values[$delta])) {
+
+        if (drupal_strlen($field_values[$delta])) {
           $user_fields[$label][LANGUAGE_NONE][$delta][$key] = $field_values[$delta];
-        }elseif(is_array($field_values[$delta])){
-        //This is exclusively for handling field of type birthday.
-		  //if($label == 'field_bithday' ) {
-			$user_fields[$label][LANGUAGE_NONE][$delta]  =   $field_values[$delta];
-		  //}	
-		}
+        }
       }
     }
   }
+  
   return $user_fields;
 }
 
@@ -817,13 +798,13 @@ function uif_assign_presave_fields($account, $user_data, $form_state) {
  */
 function uif_get_field_info($header) {
   $field_info = array();
- 
+  
   $users_table = drupal_get_schema('users');
   $instance_fields = uif_field_info_instances('user', 'user');
   $supported_fields = uif_get_supported_fields();
-	
- foreach ($header as $label) {
-	if (isset($users_table['fields'][$label])) {
+  
+  foreach ($header as $label) {
+    if (isset($users_table['fields'][$label])) {
       $supported = isset($supported_fields[$label]);
 
       $field_info[$label] = array(
@@ -837,8 +818,8 @@ function uif_get_field_info($header) {
       }
     }
     elseif (isset($instance_fields[$label])) {
-	$data = uif_field_info_field($label);
-	$supported = isset($supported_fields[$data['type']]);
+      $data = uif_field_info_field($label);
+      $supported = isset($supported_fields[$data['type']]);
       
       $field_info[$label] = array(
         'type' => 'entity',
@@ -850,7 +831,7 @@ function uif_get_field_info($header) {
         $field_info[$label]['import'] = $supported_fields[$data['type']];
       }
     }
-    else {		
+    else {
       // Contrib module handling?
       $supported = isset($supported_fields[$label]);
       if (!$supported) {
@@ -865,7 +846,7 @@ function uif_get_field_info($header) {
       drupal_set_message(t('Unknown column @field in the import file. Data in this column will be ignored.', array('@field' => $label)), 'warning');
     }
   }
-   
+  
   return $field_info;
 }
 
@@ -890,9 +871,9 @@ function uif_is_supported_field($field_type) {
  * Return list of supported fields.
  */
 function uif_get_supported_fields() {
-  $supported_fields = &drupal_static(__FUNCTION__);	
+  $supported_fields = &drupal_static(__FUNCTION__);
   if (!isset($supported_fields)) {
-	$supported_fields = module_invoke_all('uif_supported_fields');
+    $supported_fields = module_invoke_all('uif_supported_fields');
     drupal_alter('uif_supported_fields', $supported_fields);
   }
   return $supported_fields;
@@ -920,10 +901,6 @@ function uif_uif_supported_fields() {
     'name' => array(
       'type' => 'core',
       'description' => t('a name for the user. If not provided, a name is created based on the email.'),
-    ),
-    'datetime' => array(
-      'type' => 'datestamp',
-      'description' => t('date field csutom.'),
     ),
     'pass' => array(
       'type' => 'core',
@@ -1021,11 +998,6 @@ function uif_uif_supported_fields() {
       'key' => 'tid',
       'description' => t('taxonomy term ID or name'),
     ),
-	'birthdays_date' => array(
-	  'type' => 'entity',
-      'parser' => 'uif_set_birthday_format',
-	  'description' => t('birthdays as a text'),
-	),
   );
 }
 
@@ -1052,22 +1024,6 @@ function uif_get_taxonomy_value($account, $field_info, $value) {
     }
   }
 }
-
-/**
- * Helper function to process import data for core supported fields.
- */
-function uif_set_birthday_format($account, $field_info, $value) {
-	$csv_birthday = $value;
-	$csv_birthday = explode('.',$csv_birthday);
-	$value = array (
-			'day' => $csv_birthday[0], 
-			'month' => $csv_birthday[1],
-			'year' => $csv_birthday[2],
-			'triggers' => 1,
-	);
-	return $value;
-}
-
 
 /**
  * Helper function to convert date string to timestamp.
@@ -1110,6 +1066,6 @@ function uif_field_info_instances($entity_type = NULL, $bundle_name = NULL) {
 /**
  * Wrapper for field_info_field() to avoid module dependency.
  */
-function uif_field_info_field($field_name) {	
-  return function_exists('field_info_field') ? field_info_field($field_name) : array('Hie');
+function uif_field_info_field($field_name) {
+  return function_exists('field_info_field') ? field_info_field($field_name) : array();
 }

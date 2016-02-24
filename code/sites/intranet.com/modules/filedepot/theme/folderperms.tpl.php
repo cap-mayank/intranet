@@ -4,7 +4,6 @@
   * folderperms.tpl.php
   */
 ?>
-
 <div style="margin:2px;border:1px solid #CCC">
 <form name="frmFolderPerms" method="POST">
 <input type="hidden" name="op" value="">

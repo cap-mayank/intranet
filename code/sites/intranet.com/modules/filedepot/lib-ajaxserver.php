@@ -593,7 +593,8 @@ function filedepot_getFileListingSQL($cid, &$out_limit_start, &$out_limit_end) {
   }
 
   $sql = "SELECT file.fid as fid,file.cid,file.title,file.fname,file.date,file.version,file.submitter,file.status,file.fileorder,folderindex.folderprefix,";
-  $sql .= "file.description,category.name as foldername,category.pid,category.nid,category.last_modified_date,status_changedby_uid as changedby_uid, size ";
+  $sql .= "file.description,category.name as foldername,category.pid,category.nid,category.last_modified_date,status_changedby_uid as changedby_uid, size, ";
+  $sql .= "file.readroles as readroles, file.downloadroles as downloadroles ";
   $sql .= "FROM {filedepot_files} file ";
   $sql .= "LEFT JOIN {filedepot_categories} category ON file.cid=category.cid ";
   $sql .= "LEFT JOIN {filedepot_folderindex} folderindex ON file.cid=folderindex.cid AND folderindex.uid = {$user->uid} ";
@@ -768,6 +769,8 @@ function filedepotAjaxServer_loadFileDetails() {
   $retval['lockperm'] = FALSE;
   $retval['notifyperm'] = FALSE;
   $retval['broadcastperm'] = FALSE;
+  $retval['readroles'] = FALSE;
+  $retval['downloadroles'] = FALSE;
   $retval['tags'] = '';
 
   $validfile = FALSE;
@@ -822,7 +825,8 @@ function filedepotAjaxServer_loadFileDetails() {
       $validfile = TRUE;
 
       $sql = "SELECT file.fid,file.cid,file.title,file.description,file.fname,file.date,file.size,file.version,file.submitter,u.name, ";
-      $sql .= "file.status,category.pid,category.name as folder,category.nid,v.notes as version_note,file.status_changedby_uid ";
+      $sql .= "file.status,category.pid,category.name as folder,category.nid,v.notes as version_note,file.status_changedby_uid, ";
+      $sql .= "file.readroles,file.downloadroles ";
       $sql .= "FROM {filedepot_files} file ";
       $sql .= "LEFT JOIN {filedepot_categories} category ON file.cid=category.cid ";
       $sql .= "LEFT JOIN {filedepot_fileversions} v ON v.fid=file.fid ";
@@ -841,7 +845,7 @@ function filedepotAjaxServer_loadFileDetails() {
       else {
         $retval['locked'] = FALSE;
       }
-
+      $download_roles=$retval['downloadroles'];
       // Check and see if user has subscribed to this file
       $direct = FALSE;
       $ignorefilechanges = FALSE;
@@ -880,6 +884,13 @@ function filedepotAjaxServer_loadFileDetails() {
       $retval['broadcastperm'] = FALSE;
       $folderoptions = filedepot_recursiveAccessOptions('admin', 0);
       $retval['folderoptions'] = '<select name="folder" style="width:220px;">' . $folderoptions . '</select>';
+      $readroles=explode(",",$retval['readroles']);
+      $readrolesoptions=filedepot_getRoleOptionsWithMultipleSelectedValue($readroles);   
+      $retval['readroles'] = '<select name="readroles[]" multiple size=10 class="form-select" style="width:100%;">' . $readrolesoptions . '</select>';
+      $downloadroles=explode(",",$retval['downloadroles']);
+      $downloadrolesoptions=filedepot_getRoleOptionsWithMultipleSelectedValue($downloadroles);   
+      $retval['downloadroles'] = '<select name="downloadroles[]" multiple size=10 class="form-select" style="width:100%;">' . $downloadrolesoptions . '</select>';
+
     }
     else {
       $retval['dispfolder'] = $retval['folder'];
@@ -897,6 +908,14 @@ function filedepotAjaxServer_loadFileDetails() {
       else {
         $retval['folderoptions'] = '<input type="text" name="folder" value="' . $retval['folder'] . '" READONLY />';
       }
+       $readroles=explode(",",$retval['readroles']);
+      $readrolesoptions=filedepot_getRoleOptionsWithMultipleSelectedValue($readroles);
+      $retval['readroles'] = '<select name="readroles[]" multiple size=10 class="form-select" style="width:100%;">' . $readrolesoptions . '</select>';
+      
+      $downloadroles=explode(",",$retval['downloadroles']);
+      $downloadrolesoptions=filedepot_getRoleOptionsWithMultipleSelectedValue($downloadroles);   
+      $retval['downloadroles'] = '<select name="downloadroles[]" multiple size=10 class="form-select" style="width:100%;">' . $downloadrolesoptions . '</select>';
+
       if ($filedepot->checkPermission($retval['cid'], 'admin')) {
         $retval['downloadperm'] = TRUE;
         $retval['editperm'] = TRUE;
@@ -957,6 +976,11 @@ function filedepotAjaxServer_loadFileDetails() {
             $retval['editperm'] = TRUE;
           }
         }
+        $download_access= check_downloadaccess($download_roles);
+        if($download_access==0) {
+          $retval['downloadperm'] = FALSE;
+        }
+        
       }
       else {
         $retval['tagperms'] = FALSE;
@@ -1000,7 +1024,7 @@ function filedepotAjaxServer_getMoreActions($op) {
         // $retval .= '<option value="archive">' . t('Download as an archive') . '</option>';
         $retval .= '<option value="markfavorite">' . t('Mark Favorite') . '</option>';
         $retval .= '<option value="clearfavorite">' . t('Clear Favorite') . '</option>';
-        $retval .= '<option value="download">' . t('Download Archive') . '</option>';
+        //$retval .= '<option value="download">' . t('Download Archive') . '</option>';
       }
       break;
 

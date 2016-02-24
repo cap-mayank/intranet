@@ -41,7 +41,7 @@ function units_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '9',
+          'weight' => '12',
         ),
       ),
       'display' => array(),

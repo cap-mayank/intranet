@@ -164,7 +164,7 @@ function sakal_utility_block_view($delta = '' ) {
         drupal_add_js(array(
           'my-modal-style' => array(
             'modalSize' => array(
-            'type' => 'fixed',
+            'type' => 'dynamic',
             'width' => 550,
             'height' => 450,
             ),
@@ -338,8 +338,8 @@ function sakal_utility_form_alter(&$form, &$form_state, $form_id) {
  */
 function system_file_system_settings_validate($form, &$form_state) {  
   $file_size_limit_in_bytes=human2byte($form_state['values']['file_global_upload_max_size'] . 'mb');
-  //if ($file_size_limit_in_bytes > (parse_size(ini_get('upload_max_filesize')))) {
-  if ($file_size_limit_in_bytes > (parse_size('8M'))) {  
+  if ($file_size_limit_in_bytes > (parse_size(ini_get('upload_max_filesize')))) {
+  //if ($file_size_limit_in_bytes > (parse_size('8M'))) {  
     form_set_error('file_global_upload_max_size', t('You are not allowed set size more than server upload maximum filesize limit'. ini_get('upload_max_filesize')));
   }
 } 
@@ -370,8 +370,9 @@ function sakal_utility_node_validate($node, $form, &$form_state) {
  * Redirect all form to home page after submiting
  */
 function sakal_utility_node_form_submit_handler($form, &$form_state) {
+ 
   $form_state['redirect']  = $GLOBALS['base_url'];
-  $_GET['destination']='/';
+ // $_GET['destination']='/';
 }
 
 /**
@@ -424,7 +425,7 @@ function human2byte($value) {
  * Redirect all form to home page after submiting
  */
 function sakal_utility_node_submit($node, $form, &$form_state) {
-  $form_state['redirect'] = '/';
+ // $form_state['redirect'] = '/';
 }
 
 /**
@@ -642,4 +643,11 @@ function page_title_admin_form($form, &$form_state) {
     }
   }  
   return system_settings_form($form);
+}
+
+function sakal_utility_field_widget_select_or_other_buttons_form_alter(&$element, &$form_state, $context) {
+  print('got you ');die;
+  $element['#select_ajax'] = array(
+     'callback' => 'my_module_ajax_callback',
+  );     
 }

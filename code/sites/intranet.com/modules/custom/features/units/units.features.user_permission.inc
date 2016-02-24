@@ -15,8 +15,6 @@ function units_user_default_permissions() {
     'name' => 'create units content',
     'roles' => array(
       'administrator' => 'administrator',
-      'content approver' => 'content approver',
-      'content author' => 'content author',
       'site administrator' => 'site administrator',
     ),
     'module' => 'node',
@@ -27,7 +25,6 @@ function units_user_default_permissions() {
     'name' => 'delete any units content',
     'roles' => array(
       'administrator' => 'administrator',
-      'content approver' => 'content approver',
       'site administrator' => 'site administrator',
     ),
     'module' => 'node',
@@ -38,8 +35,6 @@ function units_user_default_permissions() {
     'name' => 'delete own units content',
     'roles' => array(
       'administrator' => 'administrator',
-      'content approver' => 'content approver',
-      'content author' => 'content author',
       'site administrator' => 'site administrator',
     ),
     'module' => 'node',
@@ -50,8 +45,6 @@ function units_user_default_permissions() {
     'name' => 'edit any units content',
     'roles' => array(
       'administrator' => 'administrator',
-      'content approver' => 'content approver',
-      'content author' => 'content author',
       'site administrator' => 'site administrator',
     ),
     'module' => 'node',
@@ -62,8 +55,6 @@ function units_user_default_permissions() {
     'name' => 'edit own units content',
     'roles' => array(
       'administrator' => 'administrator',
-      'content approver' => 'content approver',
-      'content author' => 'content author',
       'site administrator' => 'site administrator',
     ),
     'module' => 'node',

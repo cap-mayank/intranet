@@ -421,6 +421,7 @@ function template_preprocess_filedepot_filelisting(&$variables) {
           array('html' => TRUE, 'attributes' => array('title' => t('Download File'))));
         $variables['action2_link'] = '';
         $variables['actionclass'] = 'oneaction';
+
       }
     }
     else {
@@ -449,6 +450,17 @@ function template_preprocess_filedepot_filelisting(&$variables) {
         $variables['action2_link'] = '';
         $variables['actionclass'] = 'oneaction';
       }
+    }
+
+  //Restrict to download
+    $download_access= check_downloadaccess($rec['downloadroles']);
+    if($download_access==0) {
+        $path = drupal_get_path('module', 'filedepot') . '/css/images/' . $filedepot->getFileIcon('download');
+        $downloadlinkimage = theme('image', array('path' => $path));
+        $variables['action1_link'] = '<div style="width:25px;">&nbsp;</div>';
+        $variables['action2_link'] = '';
+        $variables['actionclass'] = 'oneaction';
+      
     }
 
   }

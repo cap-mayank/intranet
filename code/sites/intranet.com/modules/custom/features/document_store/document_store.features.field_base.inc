@@ -36,6 +36,9 @@ function document_store_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'filedepot_folder_file',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',

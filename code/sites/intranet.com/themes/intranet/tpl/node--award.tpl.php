@@ -7,7 +7,6 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
@@ -26,8 +25,8 @@
       hide($content['comments']);
       hide($content['links']);
       $uri = 'public://';
-      $user_picture = !empty($content['body']['#object']->field_user_identity['und'][0]['entity']->picture)?file_create_url($content['body']['#object']->field_user_identity['und'][0]['entity']->picture->uri):file_create_url($uri).'/detail-user.png';
-      print('<div class="awardDetailUserImage"><img src="'.$user_picture.'"/></div>');
+      //$user_picture = !empty($content['body']['#object']->field_user_identity['und'][0]['entity']->picture)?file_create_url($content['body']['#object']->field_user_identity['und'][0]['entity']->picture->uri):file_create_url($uri).'/detail-user.png';
+      print($user_picture);
       print('<div class="awardDetailUserName">'.$content['body']['#object']->field_user_identity['und'][0]['entity']->name.'</div>');
       print('<div class="awardDetailDesignation">'.$content['body']['#object']->field_user_identity['und'][0]['entity']->field_designation['und'][0]['value'].'</div>');
       print('<div class="awardDetailDate">'.date_format(date_create($content['body']['#object']->field_publishing_date['und'][0]['value']), 'l, F j, Y').'</div>');

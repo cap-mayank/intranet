@@ -53,7 +53,7 @@ function photo_gallery_image_default_styles() {
 function photo_gallery_node_info() {
   $items = array(
     'photo_gallery' => array(
-      'name' => t('photo gallery'),
+      'name' => t('Photo Gallery'),
       'base' => 'node_content',
       'description' => t('photo gallery'),
       'has_title' => '1',

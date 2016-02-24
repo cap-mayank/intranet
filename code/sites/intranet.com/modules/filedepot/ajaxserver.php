@@ -497,10 +497,28 @@ function filedepot_dispatcher($action) {
       $vernote  = $_POST['version_note'];
       $approved  = check_plain($_POST['approved']);
       $tags  = $_POST['tags'];
+      $readroles  = $_POST['readroles'];
+      $downloadroles  = $_POST['downloadroles'];
       $data = array();
       $data['tagerror'] = '';
       $data['errmsg'] = '';
       $token = isset($_POST['ftoken']) ? $_POST['ftoken'] : NULL;
+
+      if(count($readroles)>0) {
+      $downloadroles = array_merge(array_diff($downloadroles, $readroles), array_diff($readroles, $downloadroles));
+      $downloadroles = array_diff($downloadroles, $readroles);
+      }
+      if(count($downloadroles)==0) $downloadroles=NULL;
+      if(count($readroles)==0) $readroles=NULL;
+      
+
+      if(count($readroles) > 0) {
+        $readroles = implode(',', $readroles);
+      }
+
+      if(count($downloadroles) > 0) {
+        $downloadroles = implode(',', $downloadroles);
+      }
 
       if (($token == NULL) || (!drupal_valid_token($token, FILEDEPOT_TOKEN_FILEDETAILS))) {
         $data['retcode'] = 403; // forbidden
@@ -548,11 +566,13 @@ function filedepot_dispatcher($action) {
 
           // Allow updating the category, title, description and image for the current version and primary file record
           if ($version == $current_version) {
-            db_query("UPDATE {filedepot_files} SET title=:title,description=:desc,date=:time WHERE fid=:fid", array(
+            db_query("UPDATE {filedepot_files} SET title=:title,description=:desc,date=:time,readroles=:readroles,downloadroles=:downloadroles WHERE fid=:fid", array(
               ':title' => $filetitle,
               ':desc' => $description,
               ':time' => time(),
               ':fid' => $fid,
+              ':readroles' => $readroles,
+              ':downloadroles' => $downloadroles,
             ));
 
             // Test if user has selected a different directory and if they have perms then move else return FALSE;

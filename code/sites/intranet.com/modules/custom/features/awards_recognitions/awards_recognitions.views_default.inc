@@ -71,7 +71,7 @@ function awards_recognitions_views_default_views() {
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_always'] = TRUE;
   $handler->display->display_options['defaults']['use_more_text'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'View all';
+  $handler->display->display_options['use_more_text'] = 'View All';
   $handler->display->display_options['defaults']['link_display'] = FALSE;
   $handler->display->display_options['link_display'] = 'page_1';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -114,6 +114,7 @@ function awards_recognitions_views_default_views() {
   $handler->display->display_options['fields']['picture']['relationship'] = 'field_user_identity_target_id';
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['picture']['empty'] = '<img  src="sites/intranet.com/files/default_user_award_listing.png" > ';
   $handler->display->display_options['fields']['picture']['image_style'] = 'announcement_icon';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';

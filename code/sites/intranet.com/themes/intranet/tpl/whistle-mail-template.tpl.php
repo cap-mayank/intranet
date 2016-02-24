@@ -20,13 +20,13 @@
 											<p><?php print $params['user_name']; ?></p>
 										</td>
 									</tr>
-									<tr>
+									<!--<tr>
 										<td align="left">
 											<a>
 												<img align="center" src="http://<?php print $params['base_url']; ?>/images/logo.png" alt="sakal Logo" width="231" >
 											</a>
 										</td>
-									</tr>
+									</tr>-->
 								</table>
 							</td>
 						</tr>

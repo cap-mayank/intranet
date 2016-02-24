@@ -1,0 +1,315 @@
+<?php
+/**
+ *  Implements of hook_menu()
+ */
+$GLOBALS['count_ann_month'] = 0;
+$GLOBALS['count_ann_day'] = 0;
+$GLOBALS['count_birth_month'] = 0;
+$GLOBALS['count_birth_day'] = 0;
+$GLOBALS['count_recent_join'] = 0;
+$GLOBALS['count_awards'] = 0;
+/**
+ * Implements hook_menu()
+ */
+function anniversary_wish_menu() {
+  $items['wish/%ctools_js/%/%'] = array(
+      'title' => 'Send Wishes',
+      'access callback' => TRUE,
+      'page callback' => 'anniversary_wish_callback',
+      'page arguments' => array(1,2,3),
+      'access arguments' => array('access content'),
+      'description' => t('Greetings'),
+      'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+/**
+ * Implements hook_views_pre_render()
+ */
+function anniversary_wish_views_pre_render(&$views) {
+  if ($views->name == 'birthdays') {
+      ctools_include('ajax');
+      ctools_include('modal');
+      // Add CTools' javascript to the page.
+      ctools_modal_add_js();
+      // Create our own javascript that will be used to theme a modal.
+      $happy_style = array(
+        'happy-modal-style' => array(
+          'modalSize' => array(
+            'type' => 'fixed',
+            'width' => 550,
+            'height' => 300,
+            'addWidth' => 10,
+            'addHeight' => 10,
+            'contentRight' => 0,
+            'contentBottom' => 0,
+          ),
+          'modalOptions' => array(
+            'opacity' => .6,
+            'background-color' => '#684C31',
+          ),
+          'animation' => 'fadeIn',
+          'modalTheme' => 'happy_modal',
+          // Customize the AJAX throbber like so:
+          // This function assumes the images are inside the module directory's "images"
+          // directory:
+           //ctools_image_path($image, $module = 'anniversary_wish', $dir = 'images');
+          //'throbber' => theme('image', array('path' => ctools_image_path('ajax-loader.gif', 'anniversary_wish'), 'alt' => t('Loading...'), 'title' => t('Loading'))),
+          //'closeImage' => theme('image', array('path' => ctools_image_path('modal-close.png', 'anniversary_wish'), 'alt' => t('Close window'), 'title' => t('Close window'))),
+        ),
+      );
+    // Add the settings array defined above to Drupal 7's JS settings:
+    drupal_add_js($happy_style, 'setting');
+    ctools_add_js('anniversary_wish', 'anniversary_wish');
+  }
+}
+/**
+* Implements hook_theme(). To set template.
+*/
+function anniversary_wish_theme($existing, $type, $theme, $path) {
+   $items['anniversary_wish_template'] = array(
+    'render element' => 'element',
+    'template' => 'anniversary-wish-mail-template',
+    'veriables' => array('params' => array()),   
+    'path' => drupal_get_path('theme', 'intranet') . '/tpl',
+  );  
+  return $items;
+}
+/*
+ * Implements hook_preprocess_view()
+ */
+function anniversary_wish_preprocess_views_view_fields(&$vars) {
+  
+  if ($vars['view']->name == 'birthdays'){
+    $name= 'Wish';
+    ctools_include('ajax');
+    ctools_include('modal');
+    if ($vars['view']->current_display == 'anniversary_monthwise') {
+      
+      $href = 'wish/nojs/'.$vars['view']->result[ $GLOBALS['count_ann_month']]->users_mail.'/ann';
+      $vars['ctools_link'] = ctools_modal_text_button($name, $href, t('Wish'), 'ctools-modal-happy-modal-style ctools-use-modal');
+      $vars['theme_hook_suggestions'][] = 'views_view_fields__birthdays__block';
+      $GLOBALS['count_ann_month']++;
+    }
+    else if ($vars['view']->current_display == 'anniversary_daywise') {
+      $href = 'wish/nojs/'.$vars['view']->result[$GLOBALS['count_ann_day']]->users_mail.'/ann';
+      $vars['ctools_link'] = ctools_modal_text_button($name, $href, t('Wish'), 'ctools-modal-happy-modal-style ctools-use-modal');
+      $vars['theme_hook_suggestions'][] = 'views_view_fields__birthdays__block';
+      $GLOBALS['count_ann_day']++;
+    }
+    else if ($vars['view']->current_display == 'birthday_monthwise') {
+      $href = 'wish/nojs/'.$vars['view']->result[$GLOBALS['count_birth_month']]->users_mail.'/birth';
+      $vars['ctools_link'] = ctools_modal_text_button($name, $href, t('Wish'), 'ctools-modal-happy-modal-style ctools-use-modal');
+      $vars['theme_hook_suggestions'][] = 'views_view_fields__birthdays__block';
+      $GLOBALS['count_birth_month']++;
+    }
+    else if ($vars['view']->current_display == 'birthday_daywise') {
+      $href = 'wish/nojs/'.$vars['view']->result[$GLOBALS['count_birth_day']]->users_mail.'/birth';
+      $vars['ctools_link'] = ctools_modal_text_button($name, $href, t('Wish'), 'ctools-modal-happy-modal-style ctools-use-modal');
+      $vars['theme_hook_suggestions'][] = 'views_view_fields__birthdays__block';
+      $GLOBALS['count_birth_day']++;
+    }
+    else if ($vars['view']->current_display == 'recent_joiner_monthwise') {
+      $href = 'wish/nojs/'.$vars['view']->result[$GLOBALS['count_recent_join']]->users_mail.'/recent';
+      $vars['ctools_link'] = ctools_modal_text_button($name, $href, t('Wish'), 'ctools-modal-happy-modal-style ctools-use-modal');
+      $vars['theme_hook_suggestions'][] = 'views_view_fields__birthdays__block';
+      $GLOBALS['count_recent_join']++;
+    }
+  }
+  else if ($vars['view']->name == 'awards' && $vars['view']->current_display == 'block') {
+    //echo '<pre>'.print_r($vars['view']->result,true).'</pre>';die;
+    ctools_include('ajax');
+    ctools_include('modal');
+    $href = 'wish/nojs/'.$vars['view']->result[$GLOBALS['count_awards']]->users_field_data_field_user_identity_mail.'/award';
+    $vars['ctools_link'] = ctools_modal_text_button('Congratulate', $href, t('Congratulate'), 'ctools-modal-happy-modal-style ctools-use-modal');
+    $vars['theme_hook_suggestions'][] = 'views_view_fields__awards__block';
+    $GLOBALS['count_awards']++;
+  }
+} 
+/**
+ * Ajax menu callback.
+ */
+function anniversary_wish_callback($ajax,$email,$annType) {
+  global $user;
+  if ($ajax) {
+    ctools_include('ajax');
+    ctools_include('modal');
+
+    $form_state = array(
+      'ajax' => TRUE,
+      'title' => t('Greetings'),
+      'recievermail' => $email,
+      'annType' => $annType,
+    );
+
+    // Use ctools to generate ajax instructions for the browser to create
+    // a form in a modal popup.
+    $output = ctools_modal_form_wrapper('anniversary_wish_my_form', $form_state);
+
+    // If the form has been submitted, there may be additional instructions
+    // such as dismissing the modal popup.
+    if (!empty($form_state['ajax_commands'])) {
+      $output = $form_state['ajax_commands'];
+    }
+
+    // Return the ajax instructions to the browser via ajax_render().
+    print ajax_render($output);
+    drupal_exit();
+  }
+  else {
+    return drupal_get_form('anniversary_wish_my_form');
+  }
+}  
+/*
+ * Popup form for anniversary wish()
+ */
+function anniversary_wish_my_form($form, &$form_state) { 
+ 
+  $form = array();
+  $form['recievermail'] = array(
+   '#type' => 'hidden',
+    '#default_value' => $form_state['recievermail'], 
+  );
+  
+  $form['annType'] = array(
+   '#type' => 'hidden',
+   '#default_value' => $form_state['annType'],
+  );
+  $form['wishcomment'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Enter a Wish'),
+    '#resizable' => FALSE,
+    '#rows' => 10,
+    '#cols' => 60,
+    '#description' => t('Please enter your wish here'),
+    '#required' => TRUE,
+  );
+ 
+  $form['wishsubmit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  $form['#prefix'] = '<div class="wishErrorMsg"></div><div id="container" class="whistle_form">';
+  $form['#suffix'] = '</div>';
+  return $form;
+}
+/**
+ * Page callback: whristle blower Comement form submit 
+ */
+function anniversary_wish_my_form_submit(&$form, &$form_state) {
+  $comment = check_plain($form_state['values']['wishcomment']);
+  if ($comment!='' ) {
+    $param =array(
+      'recievermail' => $form_state['values']['recievermail'],
+      'wish' => $form_state['values']['wishcomment'],
+      'annType' => $form_state['values']['annType'],
+    );
+   
+    try {
+      $result= anniversary_wish_send_mail($param);
+      if ($result == TRUE) {
+        $msg = 'Wish has been sent successfully'; 
+      }   
+    } 
+    catch (Exception $e) {
+      watchdog('mail', 'Error in  anniversary wish e-mail sending due to %error', array('%error' =>$e->getMessage()), WATCHDOG_ERROR);
+      $msg = 'E-mail sending is unsuccessful';    
+    }
+  }
+  else{
+    $msg = 'Please enter valid comment';
+  }
+  $msg1= array(
+    '#type' => 'html_tag',
+    '#tag' => 'h2',
+    '#attributes' => array('class' => 'element-invisible'),
+    '#value' => 'Status message'        
+    );
+   $msg2= array(
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#attributes' => array('class' => 'messages status', 'id' => 'posted-data'),
+    '#value' => render($msg1) . $msg
+    );
+  $posted_data = render($msg2);
+  // Tell the browser to close the modal.
+  //$form_state['ajax_commands'][] = ctools_modal_command_dismiss();
+  $form_state['ajax_commands'][]= ajax_command_replace('#anniversary-wish-my-form', $posted_data);  
+  // $form_state['ajax_commands'][]= ajax_command_replace('#anniversary-wish-my-form', 'Suucessful');
+  //$form_state['ajax_commands'][] = ctools_modal_command_dismiss();
+}
+
+/**
+ * Page callback:send mail afetr submititng comment form 
+ */
+function anniversary_wish_send_mail($param) {
+  $module = 'anniversary_wish';
+  $key = 'anniversary_wish';
+  $language=language_default();
+  global $user;
+  $to = $param['recievermail'];
+  $from = $user->mail;
+ 
+  $params = array(
+    'comment' => $param['wish'], 
+    'subject' => choose_subject($param['annType']), 
+  );
+  // Retrieve the responsible implementation for this message.
+  $mail = drupal_mail($module, $key, $to, $language, $params, $from, TRUE);
+  //print_r(drupal_mail($module, $key, $to, $language, $params, $from, TRUE));die;
+  if ($mail['result']) {
+     $result=TRUE; 
+   }
+   else{
+     $error_msg = 'Failed to send the email';
+     watchdog('canvas-email', $error_msg, array(), WATCHDOG_ALERT);
+     $result=FALSE;
+   }
+   return $result; 
+}
+/**
+ * Implements hook_mail()
+ */
+function anniversary_wish_mail($key, &$message, $params) {
+  global  $base_path;
+  $theme_path=path_to_theme();
+  $base_url= $_SERVER['SERVER_NAME'] . base_path() . $theme_path;
+  $options = array(
+    'langcode' => $message['language']->language,
+  );
+  $params['base_url']=$base_url;
+  switch ($key) {
+    case 'anniversary_wish':
+      
+      $message['subject'] = t($params['subject']);
+      $message['headers']['mime-version'] = '1.0';
+      $message['headers']['content-type'] = 'multipart/mixed;';
+      $message['headers']['content-type'] = 'text/html;';
+      $variables = array(
+        'params' => $params    
+      );
+      $message['body'][] = theme('anniversary_wish_template', $variables);
+    break;
+  }
+}
+/**
+ * Chooses a mail subject depending on the widget.
+ * like anniversary/birthday/recent joiner.
+ */
+function choose_subject($annType){
+  switch($annType){
+    case 'ann':
+      return 'Anniversary wish';
+      break;
+    case 'birth':
+      return 'Birthday wish';
+      break;
+    case 'recent':
+      return 'New joining wish';
+      break;
+    case 'award':
+      return 'Congratulations';
+    default: 
+      return 'Wish';
+  }
+}

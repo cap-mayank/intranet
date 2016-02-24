@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function units_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_validation" && $api == "default_field_validation_rules") {
+    return array("version" => "2");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -18,6 +21,30 @@ function units_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function units_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
+}
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function units_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: units_images.
+  $styles['units_images'] = array(
+    'label' => 'units_images',
+    'effects' => array(
+      11 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 380,
+          'height' => 250,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
 }
 
 /**

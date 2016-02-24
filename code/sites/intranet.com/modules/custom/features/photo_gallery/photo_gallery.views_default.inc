@@ -15,7 +15,7 @@ function photo_gallery_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'photo gallery';
+  $view->human_name = 'Photo Gallery';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -30,58 +30,14 @@ function photo_gallery_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'field_gallery_image' => 'field_gallery_image',
-    'name' => 'name',
-    'field_photo_location' => 'field_photo_location',
-    'field_image_date' => 'field_image_date',
-    'field_image_caption' => 'field_image_caption',
-  );
-  $handler->display->display_options['style_options']['default'] = '-1';
-  $handler->display->display_options['style_options']['info'] = array(
-    'field_gallery_image' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'name' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_photo_location' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_image_date' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_image_caption' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-  );
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = TRUE;
-  /* Field: Content: Photo */
+  /* Field: Content: Logo */
   $handler->display->display_options['fields']['field_gallery_image']['id'] = 'field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['table'] = 'field_data_field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['field'] = 'field_gallery_image';
@@ -93,7 +49,7 @@ function photo_gallery_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
-  /* Field: : field_image_caption */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_image_caption']['id'] = 'field_image_caption';
   $handler->display->display_options['fields']['field_image_caption']['table'] = 'field_data_field_image_caption';
   $handler->display->display_options['fields']['field_image_caption']['field'] = 'field_image_caption';
@@ -145,14 +101,8 @@ function photo_gallery_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'photo_gallery_page');
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Photo */
+  /* Field: Content: Logo */
   $handler->display->display_options['fields']['field_gallery_image']['id'] = 'field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['table'] = 'field_data_field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['field'] = 'field_gallery_image';
@@ -160,10 +110,9 @@ function photo_gallery_views_default_views() {
   $handler->display->display_options['fields']['field_gallery_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_gallery_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_gallery_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_gallery_image']['type'] = 'lightbox2__lightbox__thumbnail__large';
+  $handler->display->display_options['fields']['field_gallery_image']['type'] = 'magnific_popup_file_field_formatter';
   $handler->display->display_options['fields']['field_gallery_image']['settings'] = array(
-    'image_style' => 'thumbnail',
-    'image_link' => 'content',
+    'gallery_style' => 'all_items',
   );
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -190,10 +139,10 @@ function photo_gallery_views_default_views() {
   $handler->display->display_options['fields']['field_image_date']['label'] = '';
   $handler->display->display_options['fields']['field_image_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_image_date']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_image_date']['alter']['text'] = 'Uploaded On [field_image_date] , [field_photo_location] ';
+  $handler->display->display_options['fields']['field_image_date']['alter']['text'] = '[field_photo_location]<br>Uploaded On [field_image_date]';
   $handler->display->display_options['fields']['field_image_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image_date']['settings'] = array(
-    'format_type' => 'event_date',
+    'format_type' => 'document_store_date_formate',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -234,17 +183,16 @@ function photo_gallery_views_default_views() {
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Photo */
+  /* Field: Content: Logo */
   $handler->display->display_options['fields']['field_gallery_image']['id'] = 'field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['table'] = 'field_data_field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['field'] = 'field_gallery_image';
   $handler->display->display_options['fields']['field_gallery_image']['label'] = '';
   $handler->display->display_options['fields']['field_gallery_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_gallery_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_gallery_image']['type'] = 'lightbox2__lightbox__photo_gallery_grid_image__original';
+  $handler->display->display_options['fields']['field_gallery_image']['type'] = 'magnific_popup_file_field_formatter';
   $handler->display->display_options['fields']['field_gallery_image']['settings'] = array(
-    'image_style' => 'thumbnail',
-    'image_link' => '',
+    'gallery_style' => 'first_item',
   );
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';

@@ -34,8 +34,8 @@
           <?php if (!empty($node)) : ?>
           <div class="grid_full page_title">	
             <?php
-            $types = node_type_get_name($node->type);
-            print render($types);
+            //$types = node_type_get_name($node->type);
+            print drupal_get_title();
             ?>
         </div>
         <?php endif; ?>
@@ -55,7 +55,7 @@
                 <?php endif; ?>
 
                 <?php if (drupal_get_title()) : ?>
-                 <?php print '<div class="title colordefault" style="clear: both;"><h4>' . drupal_get_title() . '</h4></div>'; ?>
+                 <?php  // print '<div class="title colordefault" style="clear: both;"><h4>' . drupal_get_title() . '</h4></div>'; ?>
                 <?php endif;?>  
 
 

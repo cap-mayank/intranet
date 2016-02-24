@@ -46,6 +46,9 @@ function photo_gallery_field_default_field_instances() {
       'max_filesize' => '5 MB',
       'max_resolution' => '4096x2368',
       'min_resolution' => '480x250',
+      'resup' => 0,
+      'resup_autostart' => 0,
+      'resup_max_filesize' => '',
       'title_field' => 0,
       'user_register_form' => FALSE,
     ),
@@ -149,6 +152,8 @@ function photo_gallery_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         'size' => 60,
       ),
       'type' => 'text_textfield',

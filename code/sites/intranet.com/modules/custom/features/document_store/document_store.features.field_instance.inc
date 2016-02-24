@@ -58,9 +58,13 @@ function document_store_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
+        'module' => 'pdf',
+        'settings' => array(
+          'height' => '600px',
+          'keep_pdfjs' => TRUE,
+          'width' => '100%',
+        ),
+        'type' => 'pdf_default',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -79,6 +83,9 @@ function document_store_field_default_field_instances() {
       'file_directory' => '',
       'file_extensions' => 'txt pdf xls doc',
       'max_filesize' => '',
+      'resup' => 0,
+      'resup_autostart' => 0,
+      'resup_max_filesize' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(

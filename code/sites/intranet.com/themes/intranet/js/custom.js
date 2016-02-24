@@ -1,4 +1,49 @@
+
 jQuery(document).ready(function ($) {
+	$( ".sixthColumnFooter .menu" ).wrap( "<div class='menu-block-wrapper menu-block-6 menu-name-menu-footer-menu-6 parent-mlid-0 menu-level-1 open'></div>" );
+	// Check if mobile is accessing the site and change menu links in footer to accordian for mobile.
+	var isMobile = {
+		Android: function() {
+			return navigator.userAgent.match(/Android/i);
+		},
+		BlackBerry: function() {
+			return navigator.userAgent.match(/BlackBerry/i);
+		},
+		iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		},
+		Opera: function() {
+			return navigator.userAgent.match(/Opera Mini/i);
+		},
+		Windows: function() {
+			return navigator.userAgent.match(/IEMobile/i);
+		},
+		any: function() {
+			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		}
+	};
+	if( isMobile.any() ) {
+		function close_accordion_section() {
+			jQuery('.accordion-section-title').removeClass('active');
+			jQuery('.accordion .menu-block-wrapper').slideUp(300).removeClass('open');
+		}
+		jQuery('.accordion-section-title').click(function(e) {
+			// Grab current anchor value
+			var par = $(event.target).parent();
+			var currentAttrValue = jQuery(this).attr('href');
+			if(jQuery($(event.target).parent()).is('.active')) {
+				close_accordion_section();
+			}else {
+				close_accordion_section();
+				// Add active class to section title
+				jQuery(this).addClass('active');
+				// Open up the hidden content panel
+				jQuery('.accordion ' + currentAttrValue).slideDown(300).addClass('open'); 
+			}
+			e.preventDefault();
+		});
+	}
+	
 	
 	$(document).ready(function () {
 		
@@ -392,9 +437,21 @@ $(document).ready(function () {
 	
 	
 });
-
-
-
+//function to retrieve date ordinal
+function ordinal_suffix_of(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "<span class='dateOrdinal'>th</span>";
+}
 function date_time(id) {
   date = new Date;
   year = date.getFullYear();
@@ -417,7 +474,7 @@ function date_time(id) {
     s = "0" + s;
   }*/
   var current_time = date.toLocaleTimeString().replace(/:\d+ /, ' ');
-  result = '<span class="clock">' +current_time + '</span> ' +'<span class="headerdate">' + days[day] + ', ' + months[month] + ' ' + d + 'th ' + year + '</span>';
+  result = '<span class="clock">' +current_time + '</span> ' +'<span class="headerdate">' + days[day] + ', ' + months[month] + ' ' + ordinal_suffix_of(d) + ' ' + year + '</span>';
   //result = ''+days[day]+' '+d+' '+months[month]+' '+year;
   document.getElementById(id).innerHTML = result;
   setTimeout('date_time("' + id + '");', '1000');

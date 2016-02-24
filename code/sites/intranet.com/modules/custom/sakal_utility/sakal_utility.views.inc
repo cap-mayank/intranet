@@ -16,13 +16,17 @@ function sakal_utility_views_post_execute(&$view) {
       $insert=TRUE;
       $is_pdf= FALSE;
       if ($value->file_managed_field_data_filedepot_folder_file__filedepot_fil_4=='pdf') {   
-        $is_pdf=TRUE;       
+        $is_pdf=TRUE;
       }
       
       if ($value->downloadroles != 1 && $value->readonly == 1 && $is_pdf==TRUE) {        
         //$view->display['policy_block']->handler->display->handler->handlers['field']['title']->options['alter']['path'] = $base_url."/system/files/filedepot/".
         //$value->file_managed_field_data_filedepot_folder_file__filedepot_fil_6 . "/" . $value->file_managed_field_data_filedepot_folder_file__filedepot_fil_5;
       }
+      elseif ($value->readonly == 1 && $value->downloadroles == 1 && $is_pdf==FALSE) {
+        $value->file_managed_field_data_filedepot_folder_file__filedepot_fil_2='';
+          $value->readonly=0;
+      } 
       elseif ($value->downloadroles == 0) { 
           unset($view->result[$key]); 
           $insert=FALSE;
@@ -34,7 +38,15 @@ function sakal_utility_views_post_execute(&$view) {
         }
       }
       if ($insert ==TRUE) {
-        $new_view[]=$value;
+        if (preg_match('/block/',$view->current_display)) {
+          if(count($new_view)<=4) {
+           $new_view[]=$value;
+          }
+        }
+        else {
+           $new_view[]=$value;
+        }
+        
       }
       
     }

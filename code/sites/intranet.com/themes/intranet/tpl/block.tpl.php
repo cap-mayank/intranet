@@ -1,5 +1,4 @@
 <?php
-
 $out = '';
 //print_r($block);
 //if($block->module=='widget') //remove title
@@ -31,11 +30,31 @@ elseif ($block->region == 'left_bar' || $block->region == 'right_bar' || $block-
   $out .= $content;
 }
 elseif ($block->region == 'footer_col_one' || $block->region == 'footer_col_two' || $block->region == 'footer_col_three' || $block->region == 'footer_col_four' || $block->region == 'footer_col_five'|| $block->region == 'footer_col_six') {
-
+  $coulm_no = 0;
+  switch($block->region){
+    case 'footer_col_one' :
+	  $coulm_no = 1;
+	  break;
+	case 'footer_col_two' :
+	  $coulm_no = 2;
+	  break;
+	case 'footer_col_three' :
+	  $coulm_no = 3;
+	  break;
+	case 'footer_col_four' :
+	  $coulm_no = 4;
+	  break;
+	case 'footer_col_five' :
+	  $coulm_no = 5;
+	  break;
+	case 'footer_col_six' :
+	  $coulm_no = 6;
+	  break;
+  }
   $out .= '<div class="widget ' . $classes . '">';
   $out .= render($title_suffix);
   if ($block->subject):
-    $out .= '<div class="title"><h4 ' . $title_attributes . '>' . $block->subject . '</h4></div>';
+    $out .= '<div class="accordion-section-title " href=".menu-name-menu-footer-menu-'.$coulm_no.'"><h4 ' . $title_attributes . '>' . $block->subject . '</h4></div>';
   endif;
   $out .= $content;
   $out .= '</div>';

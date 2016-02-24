@@ -1379,3 +1379,26 @@ function filedepot_update_7005() {
 
   db_add_field('filedepot_categories', 'last_updated_date', $spec);
 }
+
+/**
+ * Add the readroles and downloadroles field to check permission for a single file.
+ */
+function filedepot_update_7006() {
+  $spec = array(
+    'description' => ('role that can view file of fid.'),
+    'type'        => 'varchar',
+    'not null'    => FALSE,
+    'length'      => '50',
+  );
+
+  db_add_field('filedepot_files', 'readroles', $spec);
+
+   $spec = array(
+    'description' => ('role that can download file of fid.'),
+    'type'        => 'varchar',
+    'not null'    => FALSE,
+    'length'      => '50',
+  );
+
+  db_add_field('filedepot_files', 'downloadroles', $spec);
+}

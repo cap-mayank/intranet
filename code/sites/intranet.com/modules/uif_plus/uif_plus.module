@@ -120,7 +120,6 @@ function uif_plus_update_user($account, $user_data, $form_state) {
       if (drupal_strlen($user_data[$label])) {
         $user_fields[$label] = $parser($account, $info['data'], $user_data[$label]);
         user_save($account, $user_fields);
-        
       }
     }
     elseif ($label == 'groups') {
@@ -232,10 +231,7 @@ function uif_plus_uif_supported_fields() {
  * @return object $picture - File object of uploaded picture
  */
 function uif_plus_process_user_picture($account, $field_info, $value = '') {
-  
   if (drupal_strlen($value)) {
-  
-   // print_r($account);
     $file = uif_plus_upload_file($account, $field_info, $value);
     return $file;
   }
@@ -548,7 +544,7 @@ function uif_plus_upload_file($account, $field_info, $value) {
     $uif_plus_image_path = file_default_scheme() . '://uif_plus';
   }
   $image_path = uif_plus_normalise_filepath($uif_plus_image_path) . DIRECTORY_SEPARATOR . uif_plus_normalise_filename($value);
-if(file_exists($image_path )){
+
   // get file URI
   if ($field_info['type'] == 'int') {
     $picture_directory = file_default_scheme() . '://' . variable_get('user_picture_path', 'pictures');
@@ -566,7 +562,7 @@ if(file_exists($image_path )){
   // prepare for file upload
   $info = image_get_info($image_path);
   $destination = file_stream_wrapper_uri_normalize($uri);
-  
+
   // create file
   $file = new stdClass();
   $file->uid = 1;
@@ -579,18 +575,12 @@ if(file_exists($image_path )){
 
   // Move the temporary file into the final location.
   if ($file = file_move($file, $destination, FILE_EXISTS_RENAME)) {
-
     $file->status = FILE_STATUS_PERMANENT;
     $file = file_save($file);
     file_usage_add($file, ($field_info['type'] == 'int') ? 'user' : $field_info['module'], 'user', 1);
   }
- 
+
   return $file;
-}
-else {
-  watchdog('file system', 'File not found for :- %uid ', array('%uid' => $account->uid), WATCHDOG_ERROR);
-  return array();
-}
 }
 
 /**

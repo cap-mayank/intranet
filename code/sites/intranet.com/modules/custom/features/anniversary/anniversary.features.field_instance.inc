@@ -206,6 +206,74 @@ function anniversary_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_first_name'.
+  $field_instances['user-user-field_first_name'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Please enter first name of employee.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_first_name',
+    'label' => 'First Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_last_name'.
+  $field_instances['user-user-field_last_name'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Please enter last name.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_last_name',
+    'label' => 'Last Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 11,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_offiice_phone_no'.
   $field_instances['user-user-field_offiice_phone_no'] = array(
     'bundle' => 'user',
@@ -281,10 +349,14 @@ function anniversary_field_default_field_instances() {
   t('Email');
   t('Employee Joining date');
   t('Enter the employee\'s office provided phone no.');
+  t('First Name');
+  t('Last Name');
   t('Location');
   t('Offiice Phone No');
   t('Please enter birthday.');
   t('Please enter email of the employee.');
+  t('Please enter first name of employee.');
+  t('Please enter last name.');
   t('Please enter the date on which employee joined.');
   t('Please enter the project which you are assigned to.');
   t('Please enter your designation.');

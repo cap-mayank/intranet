@@ -113,8 +113,7 @@
       $holiday_json['field_publishing_date'] = $data['field_publishing_date']['und'][0]['value'];
       array_push($holidays_json,$holiday_json);
     }
-    $events_jsons = variable_get('eventjson');
-    drupal_add_js(array('holiday_node' => array('holidays_json' => $holidays_json,'event_json' => $events_jsons )), 'setting');
+    drupal_add_js(array('holiday_node' => array('holidays_json' => $holidays_json)), 'setting');
     drupal_add_js(path_to_theme().'/js/holidaycalendar.js', 'file');
   ?>
   <div class="newScroll" >               

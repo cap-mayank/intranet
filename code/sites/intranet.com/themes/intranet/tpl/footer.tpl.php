@@ -12,7 +12,7 @@
 ?>
 <footer id="footer">
 <?php print $footer_image;?>
-	<div class="row clearfix">
+	<div class="row clearfix accordion">
 		<?php
 			if($page["footer_col_one"]):
 		?>
@@ -78,7 +78,7 @@
         if($col_setting >= 4){
           if($page["footer_col_six"]):
 			?>
-			<div class="<?php echo $col;?>">
+			<div class="<?php echo $col.' sixthColumnFooter ';?>">
 				<?php
 					print render($page["footer_col_six"]);
 				?>
@@ -97,7 +97,7 @@
 			</div>
 	</div>
 	<!-- /row -->
-	<div class="row clearfix">
+	<div class="row clearfix ">
 		<div class="footer_last"><span class="copyright"><?php print theme_get_setting('footer_copyright_message', 'intranet'); ?></span>
 			<div id="toTop" class="toptip" ><i class="icon-arrow-thin-up">Top</i></div>
 		</div>

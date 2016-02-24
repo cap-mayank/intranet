@@ -307,6 +307,21 @@ function filedepot_getRoleOptions() {
   }
   return $retval;
 }
+function filedepot_getRoleOptionsWithMultipleSelectedValue($values=array()) {
+  $retval = '';
+  $selected='';
+  $query = db_query("SELECT r.rid, r.name FROM {role} r ");
+  while ($r = $query->fetchObject()) {
+    if(in_array($r->rid, $values)) {
+      $selected="selected";
+    }
+    else {
+      $selected= "";
+    }
+    $retval .= '<option value = "' . $r->rid . '" '.$selected.'>' . $r->name . '</option>';
+  }
+  return $retval;
+}
 
 function filedepot_getGroupOptions() {
   global $user;

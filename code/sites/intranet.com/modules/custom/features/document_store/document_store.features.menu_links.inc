@@ -34,10 +34,32 @@ function document_store_menu_default_menu_links() {
     'customized' => 1,
     'parent_identifier' => 'management_content:admin/content',
   );
+  // Exported menu link: navigation_filedepot-folder:node/add/filedepot-folder.
+  $menu_links['navigation_filedepot-folder:node/add/filedepot-folder'] = array(
+    'menu_name' => 'navigation',
+    'link_path' => 'node/add/filedepot-folder',
+    'router_path' => 'node/add/filedepot-folder',
+    'link_title' => 'Filedepot Folder',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Folder for storing documents',
+      ),
+      'identifier' => 'navigation_filedepot-folder:node/add/filedepot-folder',
+    ),
+    'module' => 'system',
+    'hidden' => 1,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'parent_identifier' => 'navigation_add-content:node/add',
+  );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Document Store');
+  t('Filedepot Folder');
 
   return $menu_links;
 }

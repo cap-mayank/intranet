@@ -76,6 +76,12 @@ function intranet_preprocess_page(&$vars) {
     'attributes' => array('class' => 'footerImage'),
   );
   $vars['footer_image'] = theme('image_style', $footer_banner_var);
+  
+  //set page title
+  if (isset($vars['node'])){
+    $default_value= ucfirst(str_replace("_"," ",$vars['node']->type));
+    drupal_set_title(variable_get('page_title_' . $vars['node']->type, $default_value));
+  }  
 }
 
 //custom main menu
@@ -170,7 +176,7 @@ function intranet_preprocess_node(&$variables) {
       $text = theme('image_style', $image); // in your case it's an image
       $path = $link_url;
       $options = array(
-        'attributes' => array(),
+        'attributes' => array('target'=>'_blank'),
         'html' => true
       );
       $items[] = array(
@@ -222,6 +228,39 @@ function intranet_preprocess_node(&$variables) {
 	 $variables['date']= date("M j, Y",strtotime($variables['date']));
 	 $variables['submitted'] = t('!username on !datetime', 
       array('!username' => $variables['name'], '!datetime' => $variables['date']));
+  }
+  //Applying cxo style to user image on award detail page for consistency.
+  if ($variables['type'] == 'award' && $variables['view_mode'] == 'full'){
+    if ($variables['field_user_identity'][0]['entity']->picture) {
+      $variables['user_picture'] = theme_image_style(
+        array(
+          'style_name' => 'cxo-message-user',
+          'path' => $variables['field_user_identity'][0]['entity']->picture->uri,
+          'attributes' => array(
+            'class' => 'avatar'
+          ),
+          'width' => "170",
+          'height' => "180",
+        )
+      );
+    }
+	else{
+	   $variables['user_picture'] = theme_image_style(
+        array(
+          'style_name' => 'cxo-message-user',
+          'path' => 'public://detail-user.png',
+          'attributes' => array(
+            'class' => 'avatar'
+          ),
+          'width' => "170",
+          'height' => "180",
+        )
+      );
+		
+    }
+  }
+  if ($variables['type'] == 'units' && $variables['view_mode'] == 'full'){
+    $variables['theme_hook_suggestions'][] = 'node__units';
   }
 }
 

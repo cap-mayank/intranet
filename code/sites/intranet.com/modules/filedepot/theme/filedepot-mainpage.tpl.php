@@ -270,6 +270,15 @@
                 <div id="tagswarning" class="pluginAlert" style="width:180px;display:none;"><?php print t('Folder Perms not set'); ?></div>
               </td>
             </tr>
+            <tr style="vertical-align:top;">
+              <td><label><?php print t('Display file'); ?></label></td>
+              <!--<td>  <select name="readroles[]" multiple size=10 class="form-select" style="width:100%;"><?php print $role_options ?></select> </td>-->
+               <td width="255" id="readrolesoption"> </td>
+              
+              <td><label><?php print t('Download file'); ?></label></td>
+               <!--<td> <select name="downloadroles[]" multiple size=10 class="form-select" style="width:100%;"><?php print $role_options ?></select></td> -->
+                 <td width="255" id="downloadrolesoption"> </td>
+            </tr>
             <tr>
               <td colspan="4" style="padding-top:10px;text-align:center;">
                 <input type="button" value="<?php print t('Submit'); ?>" class="form-submit" onClick="makeAJAXUpdateFileDetails(this.form)"/>

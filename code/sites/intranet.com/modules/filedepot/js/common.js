@@ -949,7 +949,7 @@ var makeAJAXLoadFileDetails = function(id) {
         }
 
 
-
+        
         document.frmBroadcast.fid.value = oResults.fid;
         document.frmBroadcast.message.value = '';
         document.frmFileDetails.id.value = oResults.fid;
@@ -964,6 +964,9 @@ var makeAJAXLoadFileDetails = function(id) {
         document.frmFileDetails.version_note.value = oResults.version_note.replace('<br />','','g');
         document.frmFileDetails.editfile_tags.value = oResults.tags.replace('<br />','','g');
         Dom.get('folderoptions').innerHTML = oResults.folderoptions;
+
+        Dom.get('readrolesoption').innerHTML = oResults.readroles;
+        Dom.get('downloadrolesoption').innerHTML = oResults.downloadroles;
         if (reportmode == 'incoming') {
           document.frmFileDetails.cid.value = 'incoming';
           Dom.setStyle('tagswarning','display','none');
@@ -1069,6 +1072,7 @@ function makeAJAXUpdateFileDetails(formObject,fid) {
         alert(oResults.errmsg);
       }
       updateAjaxStatus();
+      YAHOO.filedepot.showfiles();
     },
     failure: function(o) {
       YAHOO.log(NEXLANG_ajaxerror + o.status);
@@ -1079,6 +1083,7 @@ function makeAJAXUpdateFileDetails(formObject,fid) {
   updateAjaxStatus(NEXLANG_activitymsg2);
   YAHOO.util.Connect.setForm(formObject, false);
   YAHOO.util.Connect.asyncRequest('POST', ajax_post_handler_url + '/updatefile' , callback);
+
 };
 
 
@@ -1620,6 +1625,7 @@ function makeAJAXSearch(form) {
     YAHOO.container.tagspanel.hide();
     var surl = ajax_post_handler_url + '/search';
     var postdata = '&query=' + document.fsearch.query.value;
+    console.log(postdata);
     var callback = {
       success: function(o) {
         var json = o.responseText.substring(o.responseText.indexOf('{'), o.responseText.lastIndexOf('}') + 1);

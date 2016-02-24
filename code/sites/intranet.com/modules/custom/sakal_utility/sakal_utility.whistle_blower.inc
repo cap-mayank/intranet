@@ -25,8 +25,8 @@ function whistle_blower_admin_form($form, &$form_state) {
     '#resizable' => FALSE,
     '#wysiwyg' => TRUE,
     '#required' => TRUE,
-    '#rows' => 1,
-    '#maxlength' => 200
+    '#rows' => 5,
+    '#maxlength' => 200,
   );
   
   $whistle_blower_report_incident_content = variable_get('whistle_blower_report_incident_content', array('format' => NULL));
@@ -38,7 +38,8 @@ function whistle_blower_admin_form($form, &$form_state) {
     '#resizable' => FALSE, 
     '#wysiwyg' => TRUE,
     '#required' => TRUE,
-    '#maxlength' => 200
+    '#rows' => 5,
+    '#maxlength' => 200,
   );
   
   $form['whistle_blower_to_email'] = array(
@@ -70,7 +71,7 @@ function whistle_blower_comment_form($form, &$form_state) {
     '#type' => 'html_tag',
     '#tag' => 'div',
     '#attributes' => array('class' => 'popup_content'),
-    '#value' => $whistle_blower      
+    '#value' => trim($whistle_blower)
   );
   $form['cutomtext'] = array(
     '#type' => 'item',
@@ -87,7 +88,7 @@ function whistle_blower_comment_form($form, &$form_state) {
   );
   $form['department'] = array(
     '#type' => 'select',
-    '#title' => t('Select Department'),
+    '#title' => t('Department'),
     '#options' => list_of_selected_taxonomy(),
     '#default_value' => '',
     '#description' => t('Please select deparment here'),
@@ -95,7 +96,7 @@ function whistle_blower_comment_form($form, &$form_state) {
   );
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Submit'),
+    '#value' => t('Report'),
   );
   $form['#prefix'] = '<div id="container" class="whistle_form">';
   $form['#suffix'] = '</div>';
@@ -142,14 +143,14 @@ function whistle_blower_comment_form_submit(&$form, &$form_state) {
    $msg2= array(
     '#type' => 'html_tag',
     '#tag' => 'div',
-    '#attributes' => array('class' => 'messages status', 'id' => 'posted-data'),
+    '#attributes' => array('class' => 'messages status', 'id' => 'container'),
     '#value' => render($msg1) . $msg
     );
   $posted_data= render($msg2);
   
   // Tell the browser to close the modal.
-  $form_state['ajax_commands'][] = ctools_modal_command_dismiss();
-  $form_state['ajax_commands'][]= ajax_command_replace('#posted-data', $posted_data);  
+ // $form_state['ajax_commands'][] = ctools_modal_command_dismiss();
+  $form_state['ajax_commands'][]= ajax_command_replace('#container', $posted_data);  
 }
 
 /**

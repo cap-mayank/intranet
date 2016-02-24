@@ -856,7 +856,7 @@ li li a .sf-sub-indicator {
 	font-size: 12px;
 }
 .ticker {
-	width: 710px;
+	width: 100%;
 	height: 23px;
 	display: block;
 	position: relative;
@@ -2591,25 +2591,25 @@ li li .subarrow {
 .sf-menu li{float:left;background-color:none; border-right:none; margin-right:20px;padding-top: 6px;}
 .sf-menu li a{ color:#6d6d6d; padding:0; line-height:15px;}
 
-.sf-menu li a.homeLink{    padding-left: 21px;    background: url(../images/home-icon-nonactive.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.homeLink.active{    padding-left: 21px;    background: url(../images/home-icon.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.homeLink:hover{padding-left: 21px;    background: url(../images/home-icon.png) no-repeat;  line-height: 15px;}
+.sf-menu li a.homeLink{    padding-left: 21px;    background: url(../images/home-icon-nonactive.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.homeLink.active{    padding-left: 21px;    background: url(../images/home-icon.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.homeLink:hover{padding-left: 21px;    background: url(../images/home-icon.png) no-repeat left center;  line-height: 15px;}
 
-.sf-menu li a.unitsLink{    padding-left: 21px;    background: url(../images/unit-icon-nonactive.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.unitsLink.active{    padding-left: 21px;    background: url(../images/unit-icon.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.unitsLink:hover{    padding-left: 21px;    background: url(../images/unit-icon.png) no-repeat;  line-height: 15px;}
+.sf-menu li a.unitsLink{    padding-left: 21px;    background: url(../images/unit-icon-nonactive.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.unitsLink.active{    padding-left: 21px;    background: url(../images/unit-icon.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.unitsLink:hover{    padding-left: 21px;    background: url(../images/unit-icon.png) no-repeat left center;  line-height: 15px;}
 
-.sf-menu li a.appLink{    padding-left: 21px;    background: url(../images/application-icon-nonactive.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.appLink.active{    padding-left: 21px;    background: url(../images/application-icon.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.appLink:hover{    padding-left: 21px;    background: url(../images/application-icon.png) no-repeat;  line-height: 15px;}
+.sf-menu li a.appLink{    padding-left: 21px;    background: url(../images/application-icon-nonactive.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.appLink.active{    padding-left: 21px;    background: url(../images/application-icon.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.appLink:hover{    padding-left: 21px;    background: url(../images/application-icon.png) no-repeat left center;  line-height: 15px;}
 
-.sf-menu li a.calendarLink{    padding-left: 21px;    background: url(../images/calendar-icon-nonactive.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.calendarLink.active{    padding-left: 21px;    background: url(../images/calendar-icon.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.calendarLink:hover{    padding-left: 21px;    background: url(../images/calendar-icon.png) no-repeat;  line-height: 15px;}
+.sf-menu li a.calendarLink{    padding-left: 21px;    background: url(../images/calendar-icon-nonactive.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.calendarLink.active{    padding-left: 21px;    background: url(../images/calendar-icon.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.calendarLink:hover{    padding-left: 21px;    background: url(../images/calendar-icon.png) no-repeat left center;  line-height: 15px;}
 
-.sf-menu li a.galleryLink{    padding-left: 21px;    background: url(../images/gallery-icon-nonactive.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.galleryLink.active{    padding-left: 21px;    background: url(../images/gallery-icon.png) no-repeat;  line-height: 15px;}
-.sf-menu li a.galleryLink:hover{    padding-left: 21px;    background: url(../images/gallery-icon.png) no-repeat;  line-height: 15px;}
+.sf-menu li a.galleryLink{    padding-left: 21px;    background: url(../images/gallery-icon-nonactive.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.galleryLink.active{    padding-left: 21px;    background: url(../images/gallery-icon.png) no-repeat left center;  line-height: 15px;}
+.sf-menu li a.galleryLink:hover{    padding-left: 21px;    background: url(../images/gallery-icon.png) no-repeat left center;  line-height: 15px;}
 
 
 .sf-menu li a:hover{color:#1b406e; text-decoration:underline; font-weight:normal;}
@@ -2628,10 +2628,13 @@ li li .subarrow {
 #homebox .dcb33b61933c249a23db1589a1a03dbb .homebox-portlet-inner  .portlet-header{ background: url(../images/events.png) #F7CA18 no-repeat 2% 50%; height:50px;}
 .dcb33b61933c249a23db1589a1a03dbb .homebox-portlet .homebox-portlet-inner{border:none!important; border-radius:5px;}
 .dcb33b61933c249a23db1589a1a03dbb .portlet-title{color:#fff;padding-left: 35px;}
-.dcb33b61933c249a23db1589a1a03dbb .views-field.views-field-field-image{float:left; margin-right:10px;}
-.dcb33b61933c249a23db1589a1a03dbb .views-field.views-field-title .field-content a{color: #515151; font-size: 16px; text-overflow: ellipsis;  white-space: nowrap;
+.dcb33b61933c249a23db1589a1a03dbb .views-field.views-field-field-image, .units-block .views-field.views-field-field-unit-images{float:left; margin-right:10px;}
+.dcb33b61933c249a23db1589a1a03dbb .views-field.views-field-title .field-content a, .units-block .views-field.views-field-title .field-content a{color: #515151; font-size: 16px; text-overflow: ellipsis;  white-space: nowrap;
     display: block; overflow: hidden;}
-.dcb33b61933c249a23db1589a1a03dbb  .views-field.views-field-nothing .field-content{display:block; line-height:normal;}
+	.units-block .views-field.views-field-field-unit-intro .field-content{height: 25px; overflow: hidden; text-overflow: ellipsis;white-space: nowrap;}
+	.units-block  .views-label.views-label-field-unit-head{float:left; font-weight:bold;}
+	.units-block  .views-label.views-label-field-unit-head .field-content{margin-bottom:25px;}
+.dcb33b61933c249a23db1589a1a03dbb  .views-field.views-field-nothing .field-content, .units-block  .views-field.views-field-nothing .field-content{display:block; line-height:normal;}
 .view-id-cxo_s_messages .field-content{display:block; line-height:20px;}
 .dcb33b61933c249a23db1589a1a03dbb  .views-field.views-field-nothing .field-content .customText{float:left;}
 .dcb33b61933c249a23db1589a1a03dbb  .views-field.views-field-nothing .field-content .date-display-range{float:left;}
@@ -2644,7 +2647,7 @@ li li .subarrow {
 .node-type-event-calendar .widget .title h4{color: rgb(170, 170, 170); font-size: 15px;}
 .node-type-event-calendar .view-display-id-event_detail_page_block .item-list .views-field-title .field-content  a{color: rgb(95, 181, 204);font-size: 16px;}
 .node-type-event-calendar .title.colordefault h4{color: rgb(98, 169, 233); font-size: 36px;}
-.node-type-cxo-messages .grid_full.page_title, .node-type-event-calendar .grid_full.page_title, .node-type-company-news .grid_full.page_title, .node-type-sakal-properties .grid_full.page_title, .node-type-award .grid_full.page_title, .node-type-photo-gallery .grid_full.page_title, .node-type-holiday-calendar .grid_full.page_title, .node-type-poll .grid_full.page_title, .node-type-announcement .grid_full.page_title, .node-type-cluster-of-links .grid_full.page_title, .node-type-page .grid_full.page_title{color: #515151;font-size: 20px; padding-bottom:5px;margin-left:2px; margin-top:10px;}
+.node-type-units .grid_full.page_title, .node-type-cxo-messages .grid_full.page_title, .node-type-event-calendar .grid_full.page_title, .node-type-company-news .grid_full.page_title, .node-type-sakal-properties .grid_full.page_title, .node-type-award .grid_full.page_title, .node-type-photo-gallery .grid_full.page_title, .node-type-holiday-calendar .grid_full.page_title, .node-type-poll .grid_full.page_title, .node-type-announcement .grid_full.page_title, .node-type-cluster-of-links .grid_full.page_title, .node-type-page .grid_full.page_title, .node-type-ticker .grid_full.page_title, .node-type-room-reservations-room .grid_full.page_title{color: #515151;font-size: 20px; padding-bottom:5px;margin-left:2px; margin-top:10px;}
 .node-type-cxo-messages .grid_3.omega.sidebar.sidebar_a, .node-type-event-calendar .grid_3.omega.sidebar.sidebar_a, {margin-top: -28px;}
 .eventWidgetDate{float:left; margin-right: 5px;font-size: 14px;}
 .date-display-single{font-size: 14px;}
@@ -2660,7 +2663,7 @@ li li .subarrow {
 .page-events .views-view-grid.cols-4{width:100%;}
 .page-events .views-view-grid.cols-4 .col-1, .page-events .views-view-grid.cols-4 .col-2, .page-events .views-view-grid.cols-4 .col-3, .page-events .views-view-grid.cols-4 .col-4{width:25%; padding:10px; margin:5px;}
 
-.page-events .view-upcomming-events .view-content .item-list .views-row{    background: #fff;
+.page-events .view-upcomming-events .view-content .item-list .views-row, .page-units  .view-content .item-list .views-row {    background: #fff;
     border-radius: 5px;
     padding: 20px;
     margin-right: 10px; margin-left: 10px; margin-bottom:20px;
@@ -2681,7 +2684,7 @@ li li .subarrow {
 .holiday_calendar-block .portlet-title{color:#fff;padding-left: 35px;}
 .holiday_calendar-block .holidaywrapper{clear:both;    line-height: 33px; overflow:hidden;}
 .holiday_calendar-block .emptyDiv{margin-bottom:54px;}
-.holiday_calendar-block .views-field.views-field-title{position: absolute; left: 88px; color: rgb(113, 113, 113); top: 24px;font-size: 20px;color:rgb(113, 113, 113);}
+.holiday_calendar-block .views-field.views-field-title{position: absolute; left: 83px; color: rgb(113, 113, 113); top: 24px;font-size: 20px;color:rgb(113, 113, 113);}
 .holiday_calendar-block .views-field.views-field-title span a{color:rgb(113, 113, 113);}
 .holiday_calendar-block .untick, .holiday_calendar-block .tick{float:left; width:10%;}
 .holiday_calendar-block .tick{ background: url(../images/tick.png) no-repeat -4% 66%;}
@@ -2733,19 +2736,20 @@ li li .subarrow {
    margin-top:0;
     z-index: 490;
 }
-.node-type-company-news.mainContent, .node-type-company-news .mainContent, .page-search .mainContent, .node-type-event-calendar .mainContent, .node-type-photo-gallery .mainContent, .node-type-holiday-calendar .mainContent, .node-type-poll .mainContent, .node-type-sakal-properties .mainContent, .node-type-award .mainContent, .node-type-cluster-of-links .mainContent, .node-type-cluster-of-links .mainContent, .node-type-page .mainContent{background: #fff;padding: 10px;border-radius:3px; width:97%;    margin-bottom: 20px;}
+.node-type-company-news.mainContent, .node-type-company-news .mainContent, .page-search .mainContent, .node-type-event-calendar .mainContent, .node-type-photo-gallery .mainContent, .node-type-holiday-calendar .mainContent, .node-type-poll .mainContent, .node-type-sakal-properties .mainContent, .node-type-award .mainContent, .node-type-cluster-of-links .mainContent, .node-type-cluster-of-links .mainContent, .node-type-page .mainContent, .node-type-units .mainContent, .node-type-ticker .mainContent, .node-type-room-reservations-room .mainContent{background: #fff;padding: 10px;border-radius:3px; width:97%;    margin-bottom: 20px;}
 .node-unpublished{background:none;}
 
-.page-photo-gallery .views-row{ background: #fff;
+.page-photo-gallery .views-row, .view-id-video_gallery .views-row{ background: #fff;
     border-radius: 5px;
     padding: 20px;
-    margin-right: 10px;
+    margin-right: 10px;	
     margin-left: 10px;
     margin-bottom: 20px;
     width: 19.8%;
-    height: 210px;
+    height: 250px;
     float: left;
     overflow: hidden;}
+	.view-id-video_gallery .views-row{ height: 341px;}
 /* awards */
 #homebox .awards-block .homebox-portlet-inner .portlet-header{ background: url(../images/award-icon.png) #BF55EC no-repeat 2% 50%; height:50px;}
 .awards-block .portlet-title{color:#fff;padding-left: 35px;}
@@ -2817,6 +2821,7 @@ border-radius:3px;}
 #homebox #homebox-block-views_231b6c3499fb1890720b219cedd38b38 .homebox-portlet-inner .portlet-header{background: url(../images/documenstore.png) #95A5A6 no-repeat 2% 50%; height:50px;}
 #homebox-block-views_231b6c3499fb1890720b219cedd38b38 .portlet-title{color:#fff; padding-left:35px;}	
 #homebox-block-views_231b6c3499fb1890720b219cedd38b38  .view-id-policy_and_procedures{position:relative; padding-bottom: 20px;}
+#homebox-block-views_231b6c3499fb1890720b219cedd38b38  .view-id-policy_and_procedures a{color:rgb(75, 172, 198);}
 #homebox-block-views_231b6c3499fb1890720b219cedd38b38  .view-header	{position:absolute; bottom: -10px; right:0;}
 #homebox-block-views_231b6c3499fb1890720b219cedd38b38  .view-header p a{color:rgb(75, 172, 198); font-size:12px;text-overflow: ellipsis;  white-space: nowrap;
     display: block; overflow: hidden;}
@@ -2828,6 +2833,10 @@ border-radius:3px;}
 
 .view-display-id-ticker_block .ticker-title  .ticker-content .views-field.views-field-title .field-content a{font-size:13px !important;}
 
+#homebox .units-block .homebox-portlet-inner .portlet-header{background: url(../images/hp-unit-icon.png) #D2527F no-repeat 2% 50%; height:50px;}
+.units-block .portlet-title{color:#fff; padding-left:35px;}	
+#homebox .units-block .portlet-content{padding-top:12px;}
+
 /* company news */
 #homebox .company_news_view-block_1 .homebox-portlet-inner .portlet-header{background:url(../images/news.png) #2980B9 no-repeat 2% 50%; height:50px;}
 .company_news_view-block_1 .portlet-title{color:#fff;padding-left: 28px;}
@@ -2835,7 +2844,7 @@ border-radius:3px;}
 .company_news_view-block_1 .more-link a{color: rgb(75, 172, 198);font-size:12px;text-overflow: ellipsis;  white-space: nowrap;
     display: block; overflow: hidden;}
 .company_news_view-block_1 .flex-nav-prev, .company_news_view-block_1 .flex-nav-next{display:none;}
-.company_news_view-block_1 .views-field-title .field-content a{color: #515151;font-size: 16px;}
+.company_news_view-block_1 .views-field-title .field-content a, .fae4e74df89a6af17c66b75368bcd2c3 .views-field-title .field-content{color: #515151;font-size: 16px;}
 .company_news_view-block_1 .flexslider{margin: 0 0 9px;}
 .company_news_view-block_1  .views-field.views-field-field-image{margin-bottom:10px;}
 .view-company-news-view .flex-viewport .slides li{width: 300px !important;}
@@ -2856,7 +2865,7 @@ border-radius:3px;}
 .c2a8168cd2c4bfac37894268691a202e{position:relative;}
 .c2a8168cd2c4bfac37894268691a202e .view-header{position:absolute; bottom:0; right:0;}
 .c2a8168cd2c4bfac37894268691a202e .view-header p a{color:rgb(75, 172, 198); font-size:12px;}
-.c2a8168cd2c4bfac37894268691a202e .views-field.views-field-picture{float:left; margin-right:10px;}
+.c2a8168cd2c4bfac37894268691a202e .views-field.views-field-picture{float:left; margin-right:10px; width:98px; height:90px;}
 .c2a8168cd2c4bfac37894268691a202e .views-field.views-field-created{font-size: 13px; color: rgb(113, 113, 113);}
 .c2a8168cd2c4bfac37894268691a202e .views-field.views-field-title{margin-top:2px;font-size: 17px;    width: 68.5%;    float: right;    font-weight: normal;    color: #282828;}
 .c2a8168cd2c4bfac37894268691a202e .views-field.views-field-title span a{color:#515151; font-size:16px;}
@@ -2874,7 +2883,7 @@ border-radius:3px;}
     /* float: right; */
 right: 8px;}
 .c2a8168cd2c4bfac37894268691a202e .views-field.views-field-nothing .field-content a{color: rgb(75, 172, 198); padding-bottom: 10px; display: block;font-size: 12px;}
-.node-type-cxo-messages .node-cxo-messages img{float:left; margin-right:10px; margin-bottom:10px;}
+.node-type-cxo-messages .node-cxo-messages img{float:left; margin-right:10px; margin-bottom:10px; border:#ccc solid 1px;}
 .node-type-cxo-messages .node-cxo-messages h2 a{color: rgb(98, 169, 233);font-size: 36px; text-shadow:none;    font-size: 28px;
     font-weight: normal;}
 .node-type-cxo-messages .node-cxo-messages .submitted{color: rgb(113, 113, 113);}
@@ -2885,18 +2894,23 @@ right: 8px;}
 /* all applications */
 #homebox .all_applications .homebox-portlet-inner .portlet-header{background:url(../images/grid.png) #F39C12 no-repeat 2% 50%; height:50px;}
 .all_applications .portlet-title{color:#fff;padding-left: 37px;}
-.all_applications .app_widget_wrapper li{float:left; width:100px; height:100px; margin: 9px;}
+.all_applications .app_widget_wrapper li{float:left; width:100px; height:100px; margin: 7px;}
 .all_applications .app_widget_wrapper a{margin-right: 19px;margin-bottom: 15px; }
 .all_applications .app_widget_wrapper a img{-webkit-box-shadow: 0 5px 2px -3px #ccc; -moz-box-shadow: 0 5px 2px -3px #ccc; box-shadow: 0 5px 2px -3px #ccc;}
 .node-type-cluster-of-links .item-list ul#all-app-list li{float:left; margin:15px;}
+#homebox .all_applications .view-header{right: 9px; position: absolute;bottom: 0px;}
+.all_applications .view-header a{color: rgb(75, 172, 198);}
+.all_applications{position:relative;}
 
 /* anniversary/birthday */
 #homebox .birthdays-anniversary_monthwise .homebox-portlet-inner .portlet-header{background:url(../images/holiday-calendar.png) #5C97BF no-repeat 2% 50%;}
 .birthdays-anniversary_monthwise .portlet-title{color:#fff;padding-left: 40px;}
 .birthdays-anniversary_monthwise .user-picture a img{height: 64px!important; width: 68px !important;border-radius: 50%; }
-.birthdays-anniversary_monthwise .user-picture{ margin: 0 10px;}
+.birthdays-anniversary_monthwise .user-picture{ margin: 0 17px;}
 .birthdays-anniversary_monthwise  .view-content .views-field.views-field-name{text-align:center;}
 .birthdays-anniversary_monthwise  .view-content .views-field.views-field-name span a {color: rgb(113, 113, 113); font-size:13px; margin-right:10px;}
+.birthdays-anniversary_monthwise .more-link, .birthdays-birthday_daywise .more-link{text-align:right;}
+.birthdays-anniversary_monthwise .more-link a, .birthdays-birthday_daywise .more-link a{color:rgb(75, 172, 198);}
 
 
 #homebox .birthdays-birthday_monthwise .homebox-portlet-inner .portlet-header{background:url(../images/holiday-calendar.png) #D2527F no-repeat 2% 50%;}
@@ -2904,7 +2918,7 @@ right: 8px;}
 .birthdays-birthday_monthwise .user-picture a img{height: 64px!important; width: 68px !important;border-radius: 50%;margin: 0;}
 .birthdays-birthday_monthwise .view-content .views-field.views-field-name{text-align:center;}
 .birthdays-birthday_monthwise .view-content .views-field.views-field-name span a {color: rgb(113, 113, 113); font-size:13px; margin-right:10px;}
-.birthdays-birthday_monthwise  .user-picture{ margin: 0 10px;}
+.birthdays-birthday_monthwise  .user-picture{ margin: 0 17px;}
 
 #homebox .birthdays-anniversary_daywise .homebox-portlet-inner .portlet-header{background:url(../images/holiday-calendar.png) #9bbf68 no-repeat 2% 50%;}
 .birthdays-anniversary_daywise .portlet-title{color:#fff;padding-left: 40px;}
@@ -2922,9 +2936,13 @@ right: 8px;}
 
 #homebox .f13a436ba9e868d0c419cec0de71d700 .homebox-portlet-inner .portlet-header{background:url(../images/recent-joiner-icon.png) #01b7df no-repeat 2% 50%;}
 .f13a436ba9e868d0c419cec0de71d700 .portlet-title{color:#fff;padding-left: 40px;}
-.f13a436ba9e868d0c419cec0de71d700 .user-picture a img{height: 64px!important; width: 68px !important;border-radius: 50%;margin: 0 10px;}
+.f13a436ba9e868d0c419cec0de71d700 .user-picture a img{height: 64px!important; width: 68px !important;border-radius: 50%;margin: 0 17px;}
 .f13a436ba9e868d0c419cec0de71d700 .view-content .views-field.views-field-name{text-align:center;}
 .f13a436ba9e868d0c419cec0de71d700 .view-content .views-field.views-field-name span a {color: rgb(113, 113, 113); font-size:13px; margin-right:10px;}
+
+.f13a436ba9e868d0c419cec0de71d700 .more-link{text-align: right;}
+
+.f13a436ba9e868d0c419cec0de71d700 .more-link a{ color: rgb(75, 172, 198);font-size: 12px;}
 
 .birthDayAjaxHandler, .anniversaryAjaxHandler{border-radius:3px; border:#ccc solid 1px; margin-bottom:10px; overflow:hidden; padding:10px;}
 .holUser, .annUser{float:left; margin-right:10px; padding:10px; text-align:center;}
@@ -2975,6 +2993,7 @@ right: 8px;}
 .pagination-tt ul, ul.pager{float:right; margin-bottom:10px;}
 .pagination-tt ul li, ul.pager li{float:left;}
 .pagination-tt ul li a, ul.pager li a{background:none; color:#8d8d8d; border: #ccc solid 1px; border-left:none; padding: 4px 10px;}
+.pagination-tt ul li a, ul.pager li:first-child a{border-left:#ccc solid 1px;}
 .pagination-tt ul li span, ul.pager li.pager-current{background:#b6b6b6; color:#fff;border: #ccc solid 1px; padding: 4px 10px;}
 
 /*Login */
@@ -2985,7 +3004,7 @@ right: 8px;}
 #edit-name, #edit-pass{ border-color: rgb(198, 198, 198); border-radius: 2px; padding:10px;width: 93%; border-width:1px; margin-bottom:15px; background: #fff;}
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{background-color:#fff!important;}
 #edit-submit{    text-transform: uppercase;cursor: pointer;
-    background-color: rgb(95, 181, 204);
+    background:#5fb5cc;
     width:100%;
     font-size: 20px;
     height: 49px;
@@ -3009,7 +3028,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{backg
 .login-header h3{    color: rgb(141, 141, 141);    font-size: 20px; font-weight:normal; margin-bottom:20px;}
 	
 .boxed-margin.loginLayout{margin-top:0;}
-.page-content.loginPage{padding-top:40px; height:100%;}
+.page-content.loginPage{padding-top:40px; height:100%; padding-bottom:20px;}
 
 .box_footprint.col-lg-4.col-md-4.col-sm-4.col-xs-12.paddingnone{float:left;}
 /*.field-items span{color: #62a9e9;font-size: 36px;}*/
@@ -3034,15 +3053,15 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{backg
 .colordefault.title:after{border:none;}
 .posts .title {padding:0; }
 .title.colordefault h4{font-weight: normal; color: #515151;font-size: 19px; box-shadow: none; margin-top:10px;}
-.view-id-announcement_view .views-exposed-form .views-exposed-widget, .page-companynews .views-exposed-form .views-exposed-widget, #edit-field-brand-tid-wrapper, #edit-field-location-tid-wrapper{ width: 36%;
+.view-id-announcement_view .views-exposed-form .views-exposed-widget, .page-companynews .views-exposed-form .views-exposed-widget, #edit-field-brand-tid-wrapper, #edit-field-location-tid-wrapper{ width: 42%;
     margin-top: 0;
 
     padding-top: 0;}
 .page-companynews  .mbf{margin-bottom:0!important;}	
-.views-submit-button{width:20% !important; margin-left:-33px;}
+.views-submit-button{width:13% !important; margin-left:-33px;}
 select{padding:10px; border-radius:3px;}
 .views-exposed-form .views-exposed-widget .form-submit{margin-top:0;}
-#footer{position: relative; margin-top: -15px; width: 1230px; margin: 0 auto; height: 245px; clear: both; background:#7c7c7c;}
+#footer{position: relative; margin-top: -15px; width: 1230px; margin: 0 auto; height: 213px; clear: both; background:#7c7c7c;}
 .page-content{min-height: 100%;}
 .boxed-margin{position:static;margin: 0px auto 0 auto; background:none; box-shadow:none; border-radius:none;}
 #header{background:#7c7c7c; height:95px;}
@@ -3068,7 +3087,7 @@ select{padding:10px; border-radius:3px;}
 #header .s_form{border-top:none;}
 #header .search_icon i{border-left:none;}
 #header .fa-search:before {color: #000; content: "";}
-#header .fa-search{ background: url(../images/search.png) no-repeat; width:40px; height:auto;}
+#header .fa-search{ background:url(../images/search.png) no-repeat 26% 64%; width:40px; height:auto;}
 #date_time {color: #fff;margin-right:35px;
     margin: 0; display: inline-block; float: right; font-size: 13px; z-index: 99; position: relative;border-left: none;top:46px;position: absolute;
   margin-right: 0;right: 15px; padding: 0;}
@@ -3079,11 +3098,11 @@ select{padding:10px; border-radius:3px;}
 .headerContainer{width:1230px;}
 #footer .footer_last{
     border-top: 0;
-    padding: 20px 0;
+    padding: 0px 0;
     position: absolute;
     width: 100%;
     z-index: 1;
-    bottom:0px;
+    bottom:0;
     right: 0;
     color: #fff;}
 	.copyright {
@@ -3141,7 +3160,7 @@ select{padding:10px; border-radius:3px;}
     margin-right: -20px;
     position: relative;
     padding: 0;
-       margin-top: 32px;
+       margin-top: 52px;
     width: 20px;
     right: -16px;}
 
@@ -3157,7 +3176,7 @@ select{padding:10px; border-radius:3px;}
     padding: 10px 10px 0 10px;
 }
 #homebox-add a.used, #homebox-add a.restore{color: rgb(75, 172, 198);}
-#header .search {position: relative;  margin: 0 30px 0 0;top: 0; float: right; right: -43px;z-index: 99;}
+#header .search {position: relative;  margin: 0 30px 0 0;top: 0; float: right; right: -32px;z-index: 99;}
 
 .sf-menu a { margin: 5px 0 0 0;}
 .item-list a{color:#000;}
@@ -3191,7 +3210,7 @@ font-style: normal;}
  #toTop{   position: fixed;
     width: 46px;
     height: 36px;
-    bottom: 100px;
+    bottom: 18px;
     right: -4px;
     background: #e9e9e9;
     z-index: 10;
@@ -3227,7 +3246,7 @@ height: 8px;    background: rgba(0, 0, 0, 0.2);}
     color: #fff;
 text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);}
 .flex-direction-nav a{height:31px;}
-.flexslider:hover .flex-direction-nav .flex-prev{left: -19px;}
+.flexslider:hover .flex-direction-nav .flex-prev{left: -4px;}
 .flexslider:hover .flex-direction-nav .flex-next { right: -19px!important;}
 
 .flex-direction-nav a.flex-next:before{content:'';background: none;}
@@ -3235,20 +3254,20 @@ text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);}
 .view-display-id-anniversary_monthwise, .birthdays-birthday_monthwise{position:relative;}
 .birthdayWishlogo {
     background: url(../images/birthday20.png) no-repeat;
-    width: 64px;
-    height: 64px;
-    left: 20px;
+    width: 57px;
+    height: 57px;
+    left: 20px;background-size: contain;
     position: absolute;
 top: 62px;}
 .holBirthdayLogo{ background: url(../images/birthday20.png) no-repeat;  height: 64px;}
 .holAnniLogo{background: url(../images/anniversary.png) no-repeat;
        
 height: 64px;}
-.anniversaryWishLogo{ background: url(../images/anniversary.png) no-repeat;width: 64px;
-       width: 64px;
-    height: 64px;
+.anniversaryWishLogo{ background: url(../images/anniversary.png) no-repeat;
+       width: 57px;
+    height: 57px;
     left: 8px;
-    position: absolute;
+    position: absolute; background-size: contain;
     top: 9px;
 }
 .recentJoinerWishLogo{background: url(../images/hands10.png) no-repeat;width: 64px;
@@ -3265,27 +3284,29 @@ height: 64px;}
     left: 8px;
     position: absolute;
     top: 9px;}
+
 .view-display-id-anniversary_monthwise .views-view-grid.cols-4{margin-top: 33px;}
 .birthdays-birthday_monthwise .views-view-grid.cols-4{margin-top: 33px;}
-.anniversaryWish, .birthdayWish, .recentJoinerWish, .awardLogoTitle{  margin-left: 95px;
-    font-size: 20px;
-    padding-top: 33px;}
+.anniversaryWish, .birthdayWish, .recentJoinerWish, .awardLogoTitle{  margin-left:78px;
+    font-size: 19px;
+    padding-top: 33px; text-transform:uppercase;}
 	.view-id-awards{position:relative;}
 .grid_12.omega.posts.righter .mbf.clearfix.block.block-system{margin-bottom:0!important;}
 .grid_full.omega.content_bottom_front .widget{margin-bottom:20px !important;}
-.view-display-id-anniversary_monthwise .flex-viewport ul.slides li, .view-display-id-anniversary_daywise .flex-viewport ul.slides li, .view-display-id-birthday_daywise .flex-viewport ul.slides li, .view-display-id-birthday_monthwise .flex-viewport ul.slides li, .view-display-id-anniversary_monthwise .flex-viewport ul.slides li, .view-display-id-recent_joiner_monthwise .flex-viewport ul.slides li{width:102px !important;    margin-right: 11px!important;}
+.view-display-id-anniversary_monthwise .flex-viewport ul.slides li, .view-display-id-anniversary_daywise .flex-viewport ul.slides li, .view-display-id-birthday_daywise .flex-viewport ul.slides li, .view-display-id-birthday_monthwise .flex-viewport ul.slides li, .view-display-id-anniversary_monthwise .flex-viewport ul.slides li, .view-display-id-recent_joiner_monthwise .flex-viewport ul.slides li{width:102px !important;    margin-right: 11px!important; text-align:center;}
 .view-display-id-anniversary_monthwise .flex-viewport, .view-display-id-anniversary_daywise .flex-viewport, .view-display-id-birthday_daywise .flex-viewport, .view-display-id-birthday_monthwise .flex-viewport, .view-display-id-anniversary_monthwise .flex-viewport, .view-display-id-recent_joiner_monthwise .flex-viewport {    margin-left: 12px;}
-.grid_12.alpha, .grid_12.omega {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
+.view-display-id-anniversary_monthwise .flex-viewport .views-field.views-field-nothing .field-content, .view-display-id-anniversary_daywise .flex-viewport .views-field.views-field-nothing .field-content, .view-display-id-birthday_daywise .flex-viewport .views-field.views-field-nothing .field-content, .view-display-id-birthday_monthwise .flex-viewport .views-field.views-field-nothing .field-content, .view-display-id-anniversary_monthwise .flex-viewport .views-field.views-field-nothing .field-content, .view-display-id-recent_joiner_monthwise .flex-viewport .views-field.views-field-nothing .field-content{    width: 102px;
+    display: block;height: 24px;
+    display: block;
+    white-space: normal; text-transform:lowercase;}
+  .view-display-id-anniversary_monthwise .flex-viewport .views-field.views-field-nothing .field-content:first-letter, .view-display-id-anniversary_daywise .flex-viewport .views-field.views-field-nothing .field-content:first-letter, .view-display-id-birthday_daywise .flex-viewport .views-field.views-field-nothing .field-content:first-letter, .view-display-id-birthday_monthwise .flex-viewport .views-field.views-field-nothing .field-content:first-letter, .view-display-id-anniversary_monthwise .flex-viewport .views-field.views-field-nothing .field-content:first-letter, .view-display-id-recent_joiner_monthwise .flex-viewport .views-field.views-field-nothing .field-content:first-letter{text-transform:uppercase;} 
 
 .flex-control-nav{display:none;}
 .flexslider{margin-bottom:0; margin-top:25px;}
 .slides {margin-left: 7px;}
+.view-display-id-anniversary_monthwise .slides, .birthdays-birthday_monthwise .slides, .view-display-id-recent_joiner_monthwise .slides, .view-display-id-birthday_daywise  .slides, .view-display-id-anniversary_daywise .slides {margin-left: 0px;}
 .view-display-id-birthday_daywise .birthdayWishlogo{top:7px;}
-.view-display-id-sakal_properties_block_1 .flexslider .slides > li{width:300px !important;margin-right: 5px;height: 233px; position: relative;}
+.view-display-id-sakal_properties_block_1 .flexslider .slides > li{width:300px !important;margin-right: 5px;height: 248px; position: relative;}
 .content_bottom_front{width: 96.8%;margin: 0 auto!important; background:#ecf1f5; overflow:hidden; padding:0 20px;}
 .contentMargin{margin:0 0 0 10px;}
 .contentMarginIP{margin:0 20px 0 20px;}
@@ -3313,10 +3334,11 @@ div.ctools-modal-content a.close img{ display:none;    z-index: -1;}
     
 width: 60%;resize:none; height:100px;}
 .modal-content input[type="submit"]{background:rgb(95, 181, 204); padding:10px 35px; margin:10px; border:none; color:#fff; margin-left: 20.4%;}
+#edit-filedepot-file-ajax-wrapper .modal-content input[type="submit"]{background:rgb(95, 181, 204); padding:10px 35px; margin:10px; border:none; color:#fff; }
 .filedepottoolbar{background:#6C7A89;}
 .tagsearchboxcontainer, .filedepottoolbar_searchform input.form-text{    margin-top: -10px !important;}
 .filedepottoolbar_searchbox table{background-color:#6C7A89;}
-.whistle_form input.form-submit{margin-left:20% !important;}
+.whistle_form input.form-submit{margin-left:40% !important;}
 #filedepotmodule table{ margin-top: -2px !important;}
 #footer .widget .title h4{padding-left:0;}
 #header div.messages {
@@ -3392,41 +3414,54 @@ margin: 0;}
 .node-type-holiday-calendar .untick, .node-type-holiday-calendar .tick{float:left; width:10%;}
 .node-type-holiday-calendar .tick{ background: url(../images/tick.png) no-repeat -4% 66%;}
 .node-type-holiday-calendar .holidayIcon{ background: url(../images/fireworks11.png) no-repeat; width:64px; height:64px; position:absolute; top:9px;}
-.node-type-holiday-calendar .holidayDateJF{ float: left;width: 28%; color: rgb(113, 113, 113); font-size: 15px;}
+.node-type-holiday-calendar .holidayDateJF{    float: left;   text-overflow: ellipsis;    width: 28%;    color: rgb(113, 113, 113);    font-size: 15px;
+    overflow: hidden;    white-space: nowrap;}
 .node-type-holiday-calendar .holidayDatel{float: left; width: 24%;color: rgb(113, 113, 113);font-size: 15px; display:none;}
 .node-type-holiday-calendar .holidayName{ float: left; width: 54%; color: rgb(75, 172, 198); font-size: 15px;word-wrap: break-word;}
 .view-holiday-calendar.view-id-holiday_calendar table{width:100%;}
 .grid_3 .widget.block.block-views.contextual-links-region{padding:10px;}
 .node-type-cxo-messages  .grid_3 .widget.block.block-views.contextual-links-region{margin-top: -29px !important; margin-left:0 !important;}
 .node-type-holiday-calendar .widget.block.block-views.contextual-links-region .title h4{line-height: 23px;color:rgb(170, 170, 170);}
+.node-type-holiday-calendar .widget.block.block-views .title h4{line-height: 23px;color:rgb(170, 170, 170);}
+.node-type-holiday-calendar .widget.block.block-views{padding:10px;}
 .hCalBirthday{ background: url(../images/birthday20-1.png) no-repeat;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     float: left;
-    top: 31px;
+    top: 38px;
     position: absolute;
     margin: 0 auto;}
+.contextual-links-wrapper.contextual-links-processed{display:none!important;}
+div.ctools-modal-content .form-item label{width:14em;}
+div.ctools-modal-content.ctools-modal-happy-modal-content .form-item label{width:8em;}
+div.ctools-modal-content{height:100% !important;}
+
+div.ctools-modal-content.ctools-modal-happy-modal-content  .form-textarea-wrapper textarea{width:75%;}
+.ctools-modal-content.ctools-modal-happy-modal-content .messages.error, .ctools-modal-content.ctools-modal-happy-modal-content .messages.status{width: 84%;}
+.page-user.page-user-.admin-menu .user-picture, .node-type-units .user-picture{border:#ccc solid 1px;}
+.ctools-modal-content.ctools-modal-happy-modal-content input.form-submit{    margin-left: 20.4% !important;}
+#edit-cutomtext{padding-top:15px;}
 .hCalAnniversary  { background: url(../images/anniversary-1.png) no-repeat;
-    width: 30px;
+    width: 20px;
     position: absolute;
     right: 0;
-    top: 31px;
+    top: 38px;
     margin: 0 auto;
-    height: 30px;}
+    height: 20px;}
 .fc-event{background-color:transparent !important; border:none;}
 .fc-day-header.fc-widget-header{background:#BDC3C7; padding:10px ;color:#454545;}
 .fc-row.fc-week.fc-widget-content.fc-rigid{height:90px !important;}
-.node-type-holiday-calendar .grid_full.page_title, .node-type-cluster-of-links .grid_full.page_title{margin:10px 10px 0 0;}
+.node-type-holiday-calendar .grid_full.page_title, .node-type-cluster-of-links .grid_full.page_title, .node-type-units .grid_full.page_title{margin:10px 10px 0 0;}
 
-
+.fc-ltr .fc-basic-view .fc-day-number{text-align:center; font-size:16px; font-weight:bold; }
+.fc th, .fc td{border-width: 3px;}
 .fc-toolbar h2{font-weight: normal;line-height: 0px;font-size: 20px;}
 .calendarBirthday .fc-content, .calendarAnniversary .fc-content{display:none;}
-.fc-content{background:#4ECDC4;     white-space: normal!important; 
-    overflow: hidden;
+.fc-content{background:#099b91;     white-space: normal!important; padding:2px; overflow: hidden;
     word-break: break-word !important;}
 .view-id-holiday_calendar .views-field.views-field-title{display:block !important;}
-.view-id-holiday_calendar  .more-link, .birthdays-anniversary_monthwise  .more-link, .f13a436ba9e868d0c419cec0de71d700  .more-link {text-align:right;color: rgb(75, 172, 198); }
-.view-id-holiday_calendar  .more-link a, .birthdays-anniversary_monthwise  .more-link a, .f13a436ba9e868d0c419cec0de71d700  .more-link a {color: rgb(75, 172, 198); }
+.view-holiday-calendar .more-link, .2341d6e8d07a7ca39fe217278218ead3  .more-link, .f13a436ba9e868d0c419cec0de71d700  .more-link, #homebox-block-views_f13a436ba9e868d0c419cec0de71d700 .more-link{text-align:right;color: rgb(75, 172, 198); }
+.view-holiday-calendar  .more-link, .2341d6e8d07a7ca39fe217278218ead3  .more-link a, .f13a436ba9e868d0c419cec0de71d700  .more-link, #homebox-block-views_f13a436ba9e868d0c419cec0de71d700 .more-link a {color: rgb(75, 172, 198); }
 #showsearchtags{display:none;}
 #filelisting_container input, #filelisting_container a, #filelisting_container span{float:left;padding-left: 8px!important;}
 .yui-overlay, .yui-panel-container{right:0;}
@@ -3447,10 +3482,10 @@ margin: 0;}
 .yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd-nohd, .yui-skin-sam .yui-layout .yui-layout-unit div.yui-layout-bd-noft{border-top:#ccc solid 1px;}
 .confirmation input#edit-submit{ width:auto;text-transform: capitalize;font-size: 16px; height:auto; padding:5px 10px;border-radius:3px; margin-right:10px;}
 div.ctools-modal-content .form-item .description{display:none;}
-div.ctools-modal-content .modal-content{border-radius:0 3px 3px 0;  }
-
+div.ctools-modal-content .modal-content{border-radius:0 3px 3px 0; height:450px !important;  overflow-y:scroll; padding-top:0;}
+#edit-filedepot-file-ajax-wrapper{padding-top:10px;}
 #modalBackdrop{background: #666 !important; }
-div.ctools-modal-content {background: #fff;color: #000; padding: 0;margin: 2px;border: 1px solid #000;text-align: left;border:none; border-radius: 3px;}
+div.ctools-modal-content {background: #fff;color: #000; padding: 0;margin: 2px;border: 1px solid #000;text-align: left;border:none; border-radius: 3px;  /*height:auto !important;*/}
 .node-type-holiday-calendar .views-field.views-field-title{display:none !important;}
 
 
@@ -3467,9 +3502,7 @@ div.form-item.form-type-checkboxes.form-item-filedepot-inherit-permissions + div
 #edit-filedepot-file-upload-button--2{margin-left: 33.64%;}
 #homebox .dcb33b61933c249a23db1589a1a03dbb .portlet-content{padding-top:15px;}
 .node-type-holiday-calendar .more-link{display:none;}
-.form-item.form-option.filedepot_perms_leftoption{
-	display:block !important;
-} 
+.form-item.form-option.filedepot_perms_leftoption{display:block !important;} 
 #homebox #homebox-block-views_231b6c3499fb1890720b219cedd38b38  .portlet-content.content{padding-top:15px;}
 #edit_activefolder{background-color:transparent;}
 .plugin, .pluginReportTitle, .pluginRow2, .pluginRow2 td, .pluginRow1, .pluginRow1 td, #activefolder a{background-color:transparent;}
@@ -3478,6 +3511,7 @@ div.form-item.form-type-checkboxes.form-item-filedepot-inherit-permissions + div
 .whistle_form .form-item.form-type-textarea.form-item-comment{margin-bottom:10px;}
 .page-user.page-user- .profile .user-picture{float:left;}
 .page-user.page-user- .field.field-name-field-designation.field-type-text.field-label-inline.clearfix{float: left;width: 89%;}
+.page-user.page-user- .profile  .field.field-name-field-designation.field-type-text.field-label-inline.clearfix{float: left;width: 96%;}
 .clock, .headerdate{display:block; text-align:right;}
 .newScroll{visibility:hidden;}
 .clickedDate{font-size:20px; margin-bottom:5px;}
@@ -3485,3 +3519,114 @@ div.form-item.form-type-checkboxes.form-item-filedepot-inherit-permissions + div
 .holLogo span.birthdayText{ font-size:14px; color:#f44336;}
 .holLogo span.annText{font-size:14px; color:#03a9f4;}
 .holPic img{border-radius:50%; width:64px!important;height:64px!important;}
+.page-user- .widget_quick_link .field-name-field-linktype, .field-label{display:block;}
+#toolbarViewsRight {display:none;}
+.view-holiday-calendar .more-link{color:rgb(75, 172, 198); text-align:right;}
+.more-link{color:rgb(75, 172, 198); text-align:right;}
+.more-link a{color: rgb(75, 172, 198); font-size:12px;}
+
+.node-type-units .field .field-label{float: left; width: 13%;font-weight: bold;}
+.node-type-units .field.field-name-field-unit-head-picture.field-type-image.field-label-hidden{margin:0 10px 15px 0 ; float:left; width:15%;}
+.node-type-units .field.field-name-field-unit-head.field-type-text.field-label-inline.clearfix{float: left;
+width: 82%;}
+.node-type-units .field.field-name-field-unit-intro.field-type-text.field-label-hidden{margin-bottom:15px;}
+.node-type-units .field.field-name-field-anniversary-date.field-type-datetime.field-label-hidden, .node-type-units .field.field-name-field-unit-address.field-type-text-long.field-label-hidden, .node-type-units .field.field-name-field-location.field-type-taxonomy-term-reference.field-label-hidden, .node-type-units .field.field-name-field-unit-website.field-type-text.field-label-hidden, .node-type-units .field.field-name-field-unit-contact.field-type-text-long.field-label-hidden, .node-type-units .field.field-name-field-unit-head.field-type-text.field-label-hidden,.node-type-units .field.field-name-field-unit-email.field-type-text.field-label-hidden{float: left;    width:82%;}
+.node.node-units.node-full.clearfix h2 a{color: #515151;font-size: 18px;}
+.node.node-units.node-full.clearfix h2{margin-bottom:0;}
+.node-type-units .field.field-name-field-unit-images.field-type-image.field-label-inline.clearfix .field-item{float:left; margin-right:15px; margin-top:15px;}
+.node-type-units .field.field-name-field-unit-images.field-type-image.field-label-inline.clearfix .field-label{display:none;}
+.node-type-units .field.field-name-body.field-type-text-with-summary.field-label-hidden{clear:both; padding-top:15px;}
+.node-type-units .field.field-name-body.field-type-text-with-summary.field-label-hidden p{margin-bottom:0;}
+.node-type-units .field.field-name-field-unit-images.field-type-image.field-label-above .field-items img{margin-bottom:20px;}
+.node-type-units .field.field-name-field-unit-head.field-type-text.field-label-hidden .field-item{font-weight:bold;}
+.node-type-units .field.field-name-field-unit-email.field-type-text.field-label-hidden{background: url(../images/uniits-email-icon.png) no-repeat 0 56%; padding-left: 19px;}
+.node-type-units .field.field-name-field-unit-contact.field-type-text-long.field-label-hidden .field-item{background: url(../images/units-contact-icon.png) no-repeat 0 56%; padding-left: 19px;}
+.node-type-units .field.field-name-field-unit-website.field-type-text.field-label-hidden .field-item{background: url(../images/units-site-icon.png) no-repeat 0 56%; padding-left: 19px;}
+.node-type-units .field.field-name-field-location.field-type-taxonomy-term-reference.field-label-hidden .field-item{background: url(../images/units-location-icon.png) no-repeat 0 56%; padding-left: 19px;}
+.node-type-units .field.field-name-field-location.field-type-taxonomy-term-reference.field-label-hidden .field-item a{color:rgb(98, 169, 233)}
+
+.node-type-units .field.field-name-field-unit-address.field-type-text-long.field-label-hidden .field-item{background: url(../images/units-address-icon.png) no-repeat 0 top; padding-left: 19px;    line-height: 21px;}
+.node-type-units .field.field-name-field-anniversary-date.field-type-datetime.field-label-hidden .field-item{background: url(../images/units-anniversary-icon.png) no-repeat 0 56%; padding-left: 19px;}
+
+
+.units-block  .views-field.views-field-field-unit-head .field-content {margin-bottom:25px; display:block;}
+.modal-default{
+  top:100px !important;
+}
+.page-units .field-content {    margin-bottom: 2px; margin-top: 5px;display: block;}
+.page-units .views-field.views-field-body .field-content{margin-bottom: 2px;
+    margin-top: 5px;
+    height: 50px;
+    display: block;
+    text-overflow: ellipsis;
+overflow: hidden;}
+.popup_content p{font-size:13px; line-height:20px;margin-bottom: 10px;color:#7A7A7A;}
+.popup_title{    font-size: 16px;    margin-bottom: 10px;}
+
+#homebox .fae4e74df89a6af17c66b75368bcd2c3 .homebox-portlet-inner .portlet-header{background:url(../images/video-gallery.png) #913D88 no-repeat 2% 50%;}
+.fae4e74df89a6af17c66b75368bcd2c3 .portlet-title{color:#fff;padding-left: 35px;}
+.fae4e74df89a6af17c66b75368bcd2c3{position:relative;}
+.fae4e74df89a6af17c66b75368bcd2c3 .view-header{position:absolute; bottom:0; right:15px;}
+.fae4e74df89a6af17c66b75368bcd2c3 .view-header p a{color:rgb(75, 172, 198); font-size:12px;}
+.fae4e74df89a6af17c66b75368bcd2c3 .flexslider.flexslider-processed{margin-top:10px;margin-bottom:10px;}
+.mejs-container.svg.mediaelement-formatter-identifier-1455527797-0.mediaelement-processed.mejs-video{width:100% !important; height:300px;}
+.mejs-mediaelement video.mediaelement-processed{width:99.9% !important; }
+.mejs-container, .mejs-overlay-play{width:100% !important;}
+.form-required{color:red;}
+.fae4e74df89a6af17c66b75368bcd2c3 .flex-control-nav.flex-control-paging{display:none;}
+#edit-filedepot-file-upload .form-submit.ajax-processed{margin-left:0;}
+.form-item.form-type-checkboxes.form-item-filedepot-email-notification + div input{margin-left:0;}
+.form-item.form-type-checkboxes.form-item-filedepot-email-notification + div input:first-child{margin-left:79px;}
+.content_bottom_front .flex-control-nav.flex-control-paging{display:none;}
+#homebox-block-views_f13a436ba9e868d0c419cec0de71d700 .flex-control-nav.flex-control-paging, .fae4e74df89a6af17c66b75368bcd2c3 .flex-control-nav.flex-control-paging, .birthdays-anniversary_monthwise .flex-control-nav.flex-control-paging,.view-display-id-anniversary_monthwise .flex-control-nav.flex-control-paging, .view-display-id-anniversary_daywise .flex-control-nav.flex-control-paging, .view-display-id-birthday_daywise .flex-control-nav.flex-control-paging, .view-display-id-birthday_monthwise .flex-control-nav.flex-control-paging, .view-display-id-anniversary_monthwise .flex-control-nav.flex-control-paging, .view-display-id-recent_joiner_monthwise .flex-control-nav.flex-control-paging {display:none;}
+
+.ctools-modal-content.ctools-modal-happy-modal-content #modal-content{height:218px !important; overflow:hidden; margin-top:20px;}
+#date_time .dateOrdinal{font-size:11px; margin-top:-8px;}
+
+.field.field-name-body.field-type-text-with-summary.field-label-above .field-items{float: left;width: 70%;}
+.userprofileFieldsContainer{float:left;}
+.anniversaryWish{margin-left: 75px;}
+#footer .widget .accordion-section-title h4{color:#fff;font-weight: 400;    margin: 0;    font-size: 18px;padding-left: 0; line-height: 49px;}
+a{text-decoration:none;}
+.wishLink a{color:rgb(75, 172, 198); font-size:12px;}
+.user-picture a img{overflow:hidden;}
+.view-id-awards .views-field.views-field-title .field-content a{color:rgb(75, 172, 198);}
+.flexslider:hover .flex-direction-nav .flex-next{ right: -22px !important;}
+.page-units .item-list .views-row .views-field.views-field-field-unit-head .views-label.views-label-field-unit-head, .page-units .item-list .views-row .views-field.views-field-field-unit-email .views-label.views-label-field-unit-email{float:left; font-weight:bold; margin-right:5px;}
+
+.page-units .item-list .views-row .views-field.views-field-field-unit-head  .field-content, .page-units .item-list .views-row .views-field.views-field-field-unit-email  .field-content{    margin-bottom: 2px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;}
+
+.view-policy-and-procedures .views-field-filemime, .view-policy-and-procedures .readonly-mode, .view-policy-and-procedures .download-mode{
+  display:inline-block;
+}
+.view-policy-and-procedures .readonly-mode{
+   float: right;
+}
+.view-policy-and-procedures .download-mode{
+  float: right;
+}
+.view-display-id-photo_gallery_page .views-field-title .field-content{
+  width:20%;
+  word-wrap:break-word;
+}
+.page-awards .views-row{height:80px;}
+.page-room-reservations .grid_full.omega.sidebar.sidebar_b.mainContent{padding-bottom:0;}
+.textCapitalise{text-transform:capitalize;}
+.page-recent-joiner .views-row{background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    width: 19.8%;
+    height: 390px;
+    float: left;
+    overflow: hidden;}
+.booked{background:#024c8d !important; color:#fff; text-transform:capitalize;}
+.booked a{color:#fff !important;} 
+.rooms-wrapper .panelContainer{padding-top:10px;}
+.node-room-reservations-room .submitted .username{color:rgb(75, 172, 198);}

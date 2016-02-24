@@ -1,0 +1,9 @@
+<?php
+name = anniversary_wish
+description = Creates an ajax link and popup for greeting user with email.
+core = 7.x
+package = Utility
+php = 5.2.4
+dependencies[] = ctools
+dependencies[] = views
+?>
